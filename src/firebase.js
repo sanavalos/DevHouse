@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  apiKey: "AIzaSyAdZzSL_c3ieonAOCao5BjjiMBE_gwEZXU",
+  authDomain: "henryhouse-96576.firebaseapp.com",
+  projectId: "henryhouse-96576",
+  storageBucket: "henryhouse-96576.appspot.com",
+  messagingSenderId: "316972567845",
+  appId: "1:316972567845:web:e47c5e44da46ffeb045ecc",
 };
 
 const app = initializeApp(firebaseConfig);

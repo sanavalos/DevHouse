@@ -3,7 +3,7 @@ import React from "react";
 function Locate({ panTo }) {
   return (
     <button
-      className="absolute top-4 right-4 border-none z-10"
+      className="absolute top-[10vh] left-4 border-none z-10"
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {

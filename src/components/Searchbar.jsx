@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import usePlacesAutocomplete, {
   getGeocode,
@@ -46,7 +46,7 @@ function Searchbar({ panTo }) {
               setValue(e.target.value);
             }}
             disabled={!ready}
-            placeholder="Enter an adress"
+            placeholder="Elige una ubicación"
             className="p-2 text-xl w-[100]"
           />
           <ComboboxPopover>

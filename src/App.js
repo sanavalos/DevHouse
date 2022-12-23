@@ -1,6 +1,7 @@
 import Landing from "./components/Landing";
 import Home from "./components/Home";
 import Country from "./components/Country";
+import Profile from "./components/Profile";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/foro/:pais" element={<Country />} />
+        <Route exact path="/perfil/:nombre" element={<Profile />} />
       </Routes>
     </div>
   );
