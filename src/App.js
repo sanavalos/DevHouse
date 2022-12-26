@@ -6,19 +6,28 @@ import { Routes, Route } from "react-router-dom";
 import Forum from "./components/Forum";
 import Account from "./components/Account";
 import PageNotFound from "./components/PageNotFound";
+import Login from "./components/Login";
+import CreateAccount from "./components/CreateAccount";
+import Forget from "./components/Forget";
+import AuthContextProvider from './context/AuthContext';
 
 function App() {
   return (
     <div>
-      <Routes>
-        <Route exact path="/" element={<Landing />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/foro" element={<Forum />} />
-        <Route exact path="/cuenta" element={<Account />} />
-        <Route exact path="/foro/:pais" element={<Country />} />
-        <Route exact path="/perfil/:nombre" element={<Profile />} />
-        <Route exact path="/*" element={<PageNotFound />} />
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/foro" element={<Forum />} />
+          <Route exact path="/cuenta" element={<Account />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/crearcuenta" element={<CreateAccount />} />
+          <Route exact path="/olvido" element={<Forget />} />
+          <Route exact path="/foro/:pais" element={<Country />} />
+          <Route exact path="/perfil/:nombre" element={<Profile />} />
+          <Route exact path="/*" element={<PageNotFound />} />
+        </Routes>
+      </AuthContextProvider>
     </div>
   );
 }

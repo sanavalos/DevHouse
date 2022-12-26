@@ -11,7 +11,7 @@ function Landing() {
           historias, proyectos y compartir muchas sonrisas y buena vibra.
         </p>
         <Link to='/home'>
-          <button className="px-7 py-4 bg-black text-white rounded-lg hover:scale-110 m-6">Ingresar</button>
+          <button className="px-7 py-4 bg-black text-white rounded-lg hover:scale-110 m-6 hover:text-red-500">Ingresar</button>
         </Link>
         </div>
       </div>
