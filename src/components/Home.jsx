@@ -1,7 +1,7 @@
 import React from "react";
 import IndexMap from "./IndexMap";
-import Forum from "./Forum";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
       <Navbar />
       <div>Home</div>
       <IndexMap />
-      <Forum />
+      <Footer />
     </>
   );
 }
