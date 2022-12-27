@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { BiWorld } from "react-icons/bi";
 import { BsFilePostFill } from "react-icons/bs";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
