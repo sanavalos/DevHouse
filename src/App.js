@@ -10,7 +10,8 @@ import Login from "./components/Login";
 import CreateAccount from "./components/CreateAccount";
 import Forget from "./components/Forget";
 import AuthContextProvider from './context/AuthContext';
-
+import AboutUs from "./components/AboutUs";
+import LegalInformation from "./components/LegalInformation";
 function App() {
   return (
     <div>
@@ -25,7 +26,9 @@ function App() {
           <Route exact path="/olvido" element={<Forget />} />
           <Route exact path="/foro/:pais" element={<Country />} />
           <Route exact path="/perfil/:nombre" element={<Profile />} />
-          <Route exact path="/*" element={<PageNotFound />} />
+          <Route exact path="/nosotros" element={<AboutUs />} />
+        <Route exact path="/informacion" element={<LegalInformation />} />
+        <Route exact path="/*" element={<PageNotFound />} />
         </Routes>
       </AuthContextProvider>
     </div>
