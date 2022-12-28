@@ -37,6 +37,7 @@ const AuthContextProvider = ({children}) => {
         email: currentUser?.email,
         idUser: currentUser?.uid
       }
+      console.log(currentUser)
       // dispatch(postUser(actualUser))
     })
     return () => {

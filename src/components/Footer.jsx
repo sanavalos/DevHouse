@@ -3,35 +3,30 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer class="p-4 bg-black shadow md:px-6 md:py-5 ">
-      <div class="sm:flex sm:items-center sm:justify-between">
-        <a href="https://www.soyhenry.com/" class="flex items-center mb-4 sm:mb-0">
+    <footer className="p-2 bg-black text-yellow-300">
+      <div className="flex items-center justify-between mx-8">
+        <span className="text-center block text-sm">
+          Hecho por Henrys para Henrys
+        </span>
+        <a href="https://www.soyhenry.com/" className="flex" target={"_blank"}>
           <img
             src="https://assets.soyhenry.com/LOGO-REDES-01_og.jpg"
-            class="mr-3 h-8"
+            className="mr-3 h-8 rounded-md"
             alt="Henry"
           />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">
+          <span className="text-2xl font-semibold text-white">
             Henry
           </span>
         </a>
-        <ul class="flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0">
-          <li>
-            <Link to={"/nosotros"} class="mr-4 hover:underline md:mr-6">
-              Sobre Nosotros
-            </Link>
-          </li>
-          <li>
-            <Link to={"/informacion"} class="mr-4 hover:underline md:mr-6">
-              Información Legal
-            </Link>
-          </li>
-        </ul>
+        <div className="flex text-sm space-x-10">
+        <Link to="/nosotros">
+          <button className="hover:text-red-500 hover:scale-110">Sobre Nosotros</button>
+        </Link>
+        <Link to="/informacion">
+          <button className="hover:text-red-500 hover:scale-110">Información Legal</button>
+        </Link>
+        </div>
       </div>
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700" />
-      <span class="text-center block text-sm text-gray-500  dark:text-gray-400">
-        Hecho por Henrys para Henrys
-      </span>
     </footer>
   );
 }
