@@ -9,14 +9,14 @@ function Home() {
       <div className="flex justify-between bg-slate-200">
         <div className="ml-[5%]">
           <div className="flex flex-col justify-center w-full h-screen">
-            <p className="mb-4 font-extrabold tracking-tight leading-none md:text-5xl lg:text-3xl text-black">
+            <p className="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-3xl lg:text-4xl text-black">
               USUARIOS REGISTRADOS:{" "}
               <span className="text-yellow-300 ">100</span>
             </p>
-            <p className="mb-4 font-extrabold tracking-tight leading-non md:text-5xl lg:text-3xl text-black">
+            <p className="mb-4 text-2xl font-extrabold tracking-tight leading-non md:text-3xl lg:text-4xl text-black">
               POSTEOS UNICOS: <span className="text-yellow-300  ">100</span>
             </p>
-            <p className="font-extrabold tracking-tight leading-none md:text-5xl lg:text-3xl text-black">
+            <p className="text-2xl font-extrabold tracking-tight leading-none md:text-3xl lg:text-4xl text-black">
               ENCUENTROS EXITOSOS:{" "}
               <span className="text-yellow-300  ">100</span>
             </p>

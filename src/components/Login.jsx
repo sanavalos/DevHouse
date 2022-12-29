@@ -145,7 +145,7 @@ const Login = () => {
           <div>
             <img
               src="https://statics.forbesargentina.com/2022/05/627141a292f9b.png"
-              className="rounded-lg h-[520px] w-[650px] m-14"
+              className="rounded-lg h-[520px] w-max[400px] mt-5 px-5"
               alt="comunidad"
             />
           </div>

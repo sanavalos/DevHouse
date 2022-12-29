@@ -76,7 +76,7 @@ function Forum() {
                     <BiWorld size={40} />
                     <label
                       for="countries"
-                      class="block text-sm font-medium text-gray-900"
+                      className="block text-sm font-medium text-gray-900"
                     >
                       Paises
                     </label>
@@ -108,37 +108,37 @@ function Forum() {
           </div>
         </div>
 
-        <div className="container mx-auto mt-12">
-          <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
+        <div className="container mx-auto mt-12 ml-7">
+          <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
             POSTEOS {search ? "EN" : ""}
-            <span class="text-yellow-300 dark:text-yellow-300 ">
+            <span className="text-yellow-300 dark:text-yellow-300 ">
               {search ? " " + search.toUpperCase() : "GENERALES"}
             </span>
             .
           </h1>
 
-          <div className="flex flex-col">
-            <div className="max-w-fit px-4 py-5 bg-white rounded-lg shadow mb-7">
-              <div className="mt-1 text-3xl font-semibold text-gray-900">
+          <div className="flex flex-col mt-7">
+            <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+              <div className="mt-1 font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl">
                 ¿Cual es el valor de cambio de Peso Argentino a Dolar?
               </div>
               <div className="text-sm font-medium text-gray-500 truncate">
                 26/12/2020 12:00 AM - Santiago
               </div>
-              <div className="text-md font-medium text-gray-500 truncate">
+              <div className="text-md font-medium text-gray-500">
                 Hola amigos, soy de Chile y no entiendo muy bien el valor de
                 cambio de Peso Argentino a Dolar. ¿Alguien me podria explicar?
                 gracias.
               </div>
             </div>
-            <div className="max-w-fit px-4 py-5 bg-white rounded-lg shadow mb-7">
-              <div className="mt-1 text-3xl font-semibold text-gray-900">
+            <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+              <div className="mt-1 font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl">
                 ¿Que metodo usan para viajar en transporte publico?
               </div>
               <div className="text-sm font-medium text-gray-500 truncate">
                 26/12/2020 12:00 AM - Santiago
               </div>
-              <div className="text-md font-medium text-gray-500 truncate">
+              <div className="text-md font-medium text-gray-500">
                 Como andan? Escuche que en Argentina los viajes en colectivo no
                 se puede pagar con efectivo, solo con tarjeta. Es cierto? Que
                 metodo usan para viajar en transporte publico?

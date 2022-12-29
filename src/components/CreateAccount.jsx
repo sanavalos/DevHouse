@@ -116,7 +116,7 @@ const CreateAccount = () => {
           <div>
             <img
               src="https://cdn.forbes.co/2021/01/Team-Henry-1280x720-1.jpg"
-              className="rounded-lg h-[520px] w-[650px] m-14"
+              className="rounded-lg h-[520px] w-max[400px] mt-5 px-5"
               alt="comunidad"
             />
           </div>
