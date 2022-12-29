@@ -1,3 +1,5 @@
+// import { collection, getDocs } from "firebase/firestore";
+// import { db } from "../firebase";
 export const GET_GEOLOCATION = "GET_NAME";
 
 export function getGeolocation(lat, lng) {
@@ -11,3 +13,12 @@ export function getGeolocation(lat, lng) {
     });
   };
 }
+
+// export async function getUsers() {
+//   await getDocs(collection(db, "users")).then((querySnapshot) => {
+//     const newData = querySnapshot.docs.map((doc) => ({
+//       ...doc.data(),
+//     }));
+//     setData(newData);
+//   });
+// }

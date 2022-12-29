@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import IndexMap from "./IndexMap";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
 function Home() {
   return (
     <>
@@ -11,13 +10,15 @@ function Home() {
         <div className="ml-[5%]">
           <div className="flex flex-col justify-center w-full h-screen">
             <p className="mb-4 font-extrabold tracking-tight leading-none md:text-5xl lg:text-3xl text-black">
-              USUARIOS REGISTRADOS: <span className="text-yellow-300 ">100</span>
+              USUARIOS REGISTRADOS:{" "}
+              <span className="text-yellow-300 ">100</span>
             </p>
             <p className="mb-4 font-extrabold tracking-tight leading-non md:text-5xl lg:text-3xl text-black">
               POSTEOS UNICOS: <span className="text-yellow-300  ">100</span>
             </p>
             <p className="font-extrabold tracking-tight leading-none md:text-5xl lg:text-3xl text-black">
-              ENCUENTROS EXITOSOS: <span className="text-yellow-300  ">100</span>
+              ENCUENTROS EXITOSOS:{" "}
+              <span className="text-yellow-300  ">100</span>
             </p>
             <div className="flex flex-col text-center mt-10">
               <p className=" text-xl font-semibold text-gray-900">

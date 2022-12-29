@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import Navbar from "./Navbar";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
 
 const CreateAccount = () => {
   const [user, setUser] = useState({
@@ -23,7 +21,7 @@ const CreateAccount = () => {
       e.preventDefault();
       if (user !== undefined) {
         await createUser(user?.email, user?.password);
-        await addDoc(collection(db, "users"), user);
+        // await addDoc(collection(db, "users"), user);
         Swal.fire({
           icon: "success",
           title: "¡Bienvenido a Henry House!",
