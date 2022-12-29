@@ -76,7 +76,7 @@ function Forum() {
                     <BiWorld size={40} />
                     <label
                       for="countries"
-                      class="block text-sm font-medium text-gray-900"
+                      className="block text-sm font-medium text-gray-900"
                     >
                       Paises
                     </label>
@@ -106,12 +106,13 @@ function Forum() {
               </ul>
             </div>
           </div>
+            <button ><a href="/posteo">Crea un post</a></button>
         </div>
 
         <div className="container mx-auto mt-12">
-          <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
+          <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
             POSTEOS {search ? "EN" : ""}
-            <span class="text-yellow-300 dark:text-yellow-300 ">
+            <span className="text-yellow-300 dark:text-yellow-300 ">
               {search ? " " + search.toUpperCase() : "GENERALES"}
             </span>
             .
