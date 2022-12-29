@@ -8,7 +8,7 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { collection, addDoc, getDocs, setDoc, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
 const UserContext = createContext();
@@ -16,8 +16,8 @@ const UserContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const createUser = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
+  const createUser = async (email, password) => {
+    await createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signIn = (email, password) => {
@@ -41,18 +41,10 @@ const AuthContextProvider = ({ children }) => {
         email: currentUser?.email,
         image: currentUser?.photoURL,
         lastSession: currentUser?.metadata.lastSignInTime,
+        uid: currentUser?.uid,
       };
       console.log(currentUser);
-
-      getDocs(collection(db, "users")).then((querySnapshot) => {
-        const newData = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-        }));
-        const userRep = newData.filter(
-          (user) => user.email === actualUser.email
-        );
-        userRep.length === 0 && addDoc(collection(db, "users"), actualUser);
-      });
+      setDoc(doc(db, "users", actualUser.uid), actualUser)
     });
     return () => {
       unsubscribe();

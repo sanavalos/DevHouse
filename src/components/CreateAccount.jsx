@@ -21,7 +21,6 @@ const CreateAccount = () => {
       e.preventDefault();
       if (user !== undefined) {
         await createUser(user?.email, user?.password);
-        // await addDoc(collection(db, "users"), user);
         Swal.fire({
           icon: "success",
           title: "¡Bienvenido a Henry House!",
@@ -29,7 +28,6 @@ const CreateAccount = () => {
           timer: 2000,
         });
         navigate("/home");
-        window.location.reload();
       }
     } catch (error) {
       console.log(error);
