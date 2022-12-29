@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../firebase";
 import { updatePassword, updateProfile } from "firebase/auth";
-import { doc, setDoc, getDocs } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 const Account = () => {
@@ -20,13 +20,11 @@ const Account = () => {
   const [password, setPassword] = useState();
   const [fullname, setFullname] = useState();
 
-  const getUser = () => {};
-
   const updateInfo = (prop) => {
-    let docRef = doc(db, "users", "Y2oSny0D3g5rb2BAfJn5");
-    setDoc(docRef, { prop }, { merge: true })
+    let docRef = doc(db, "users", user?.uid);
+    setDoc(docRef, prop, { merge: true })
       .then((resp) => {
-        console.log("Document Field has been updated successfully");
+        console.log(`${prop} has been updated successfully`);
       })
       .catch((error) => {
         console.log(error);
@@ -100,7 +98,7 @@ const Account = () => {
   const changeName = async () => {
     try {
       updateProfile(user, { displayName: fullname });
-      updateInfo(fullname);
+      updateInfo({ name: fullname });
       Swal.fire({
         icon: "success",
         title: "Nombre actualizado",
@@ -111,6 +109,106 @@ const Account = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  /* ---------------------- */
+  const [country, setCountry] = useState();
+
+  // const changeCountry = async () => {
+  //   try {
+  //     updateInfo({ pais: country });
+  //     Swal.fire({
+  //       icon: "success",
+  //       title: "Pais actualizado",
+  //       showConfirmButton: false,
+  //       timer: 2000,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // const [location, setLocation] = useState();
+  // const changeLocation = async () => {
+  //   try {
+  //     updateInfo({ localidad: location });
+  //     Swal.fire({
+  //       icon: "success",
+  //       title: "Localidad actualizada",
+  //       showConfirmButton: false,
+  //       timer: 2000,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const [description, setDescription] = useState();
+  const changeDescription = async () => {
+    try {
+      updateInfo({ descripcion: description });
+      Swal.fire({
+        icon: "success",
+        title: "Descripcion actualizada",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [checked, setChecked] = useState([]);
+  const intereses = ["Tecnologia", "Musica", "Futbol", "Viajes"];
+
+  const handleCheck = (event) => {
+    var updatedList = [...checked];
+    if (event.target.checked) {
+      updatedList = [...checked, event.target.value];
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
+    }
+    setChecked(updatedList);
+  };
+  const changeInterest = async () => {
+    try {
+      updateInfo({ interes: checked });
+      Swal.fire({
+        icon: "success",
+        title: "Interes actualizado",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getLocation = async () => {
+    navigator.geolocation.getCurrentPosition(success);
+  };
+
+  const success = (position) => {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=es`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        updateInfo({ location: data.locality });
+        updateInfo({ country: data.countryName });
+        updateInfo({ lat });
+        updateInfo({ lng });
+      })
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Localizacion actualizada",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      });
   };
 
   return (
@@ -130,7 +228,7 @@ const Account = () => {
           </div>
         </div>
         <div className="w-[60%] bg-slate-200 h-screen">
-          <div className="m-20 border-2 border-black h-[80%] rounded-xl">
+          <div className="m-20 border-2 border-black min-h-fit rounded-xl">
             <div className="border-b-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
             <div className="border-b-2 border-black h-32 flex items-center space-x-8">
               <img
@@ -200,14 +298,18 @@ const Account = () => {
                 </button>
               </div>
               <div className="flex m-4 items-center">
-                <label className="text-xl ml-32 w-20 font-semibold">
+                {/* <label className="text-xl ml-32 w-20 font-semibold">
                   Pais:
                 </label>
                 <input
                   className="rounded-xl w-[50%] p-2 ml-20"
                   placeholder="Pais"
+                  onChange={(e) => setCountry(e.target.value)}
                 ></input>
-                <button className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8">
+                <button
+                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
+                  onClick={changeCountry}
+                >
                   Cambiar
                 </button>
               </div>
@@ -218,10 +320,14 @@ const Account = () => {
                 <input
                   className="rounded-xl w-[50%] p-2 ml-20"
                   placeholder="Localidad o departamemto"
+                  onChange={(e) => setLocation(e.target.value)}
                 ></input>
-                <button className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8">
+                <button
+                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
+                  onClick={changeLocation}
+                >
                   Cambiar
-                </button>
+                </button> */}
               </div>
               <div className="flex m-4 items-center">
                 <label className="text-xl ml-32 w-20 font-semibold">
@@ -248,9 +354,47 @@ const Account = () => {
                   placeholder="Tu descripción personal"
                   rows={"5"}
                   maxLength="250"
+                  onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
-                <button className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8">
+                <button
+                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
+                  onClick={changeDescription}
+                >
                   Cambiar
+                </button>
+              </div>
+              <div className="flex m-4 items-center">
+                <label className="text-xl ml-32 w-20 font-semibold">
+                  Intereses:
+                </label>
+                {/* input checkbox to choose multiple intereses options from array */}
+                <div className="flex rounded-xl w-[50%] p-2 ml-20">
+                  {intereses.map((item, index) => (
+                    <div key={index} className="w-full flex justify-between">
+                      <div>
+                        <input
+                          value={item}
+                          type="checkbox"
+                          onChange={handleCheck}
+                        />
+                        <span>{item}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
+                  onClick={changeInterest}
+                >
+                  Cambiar
+                </button>
+              </div>
+              <div className="flex m-4 items-center justify-center">
+                <button
+                  className=" p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
+                  onClick={getLocation}
+                >
+                  DAR LOCACION
                 </button>
               </div>
             </div>

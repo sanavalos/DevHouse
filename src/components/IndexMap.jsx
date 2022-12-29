@@ -9,13 +9,18 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import Locate from "./Locate";
+import { useDispatch } from "react-redux";
+import { getUsers } from "../redux/actions/actions";
 
 export default function IndexMap() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    console.log("RENDERING MAP");
-  }, []);
-  const markers = useSelector((state) => state.markers);
-  useMemo(() => markers, []);
+    dispatch(getUsers());
+  }, [dispatch]);
+
+  const users = useSelector((state) => state.users);
+  useMemo(() => users, []);
 
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
@@ -105,11 +110,11 @@ export default function IndexMap() {
           minZoom: 3,
         }}
       >
-        {markers.length > 0 &&
-          markers.map((marker) => (
+        {users.length > 0 &&
+          users.map((marker) => (
             <Marker
               key={marker.lat}
-              position={{ lat: marker.lat, lng: marker.lng }}
+              position={{ lat: Number(marker.lat), lng: Number(marker.lng) }}
               icon={{
                 url: "/house.png",
                 scaledSize: new window.google.maps.Size(30, 30),
@@ -118,13 +123,13 @@ export default function IndexMap() {
               }}
               onClick={() => {
                 setSelected(marker);
-                panTo({ lat: marker.lat, lng: marker.lng });
+                panTo({ lat: Number(marker.lat), lng: Number(marker.lng) });
               }}
             />
           ))}
         {selected ? (
           <InfoWindow
-            position={{ lat: selected.lat, lng: selected.lng }}
+            position={{ lat: Number(selected.lat), lng: Number(selected.lng) }}
             onCloseClick={() => {
               setSelected(null);
               panToDefault();
@@ -133,16 +138,14 @@ export default function IndexMap() {
             <>
               <p>
                 <span className="font-semibold">Nombre</span>:
-                <Link to={`/perfil/${selected.person}`}>
-                  {" "}
-                  {selected.person}
-                </Link>
+                <Link to={`/perfil/${selected.name}`}> {selected.name}</Link>
               </p>
               <p>
-                <span className="font-semibold">Localidad</span>: Mar del Plata
+                <span className="font-semibold">Localidad</span>:{" "}
+                {selected.location}
               </p>
               <p>
-                <span className="font-semibold">Estado</span>: Conectado
+                <span className="font-semibold">Estado</span>: {selected.status}
               </p>
               <img
                 src="https://i.ibb.co/Pc6XVVC/Rectangle-120.png"
