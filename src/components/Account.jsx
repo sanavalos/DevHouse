@@ -19,6 +19,7 @@ const Account = () => {
   );
   const [password, setPassword] = useState();
   const [fullname, setFullname] = useState();
+  const [instagram, setInstagram] = useState();
 
   const updateInfo = (prop) => {
     let docRef = doc(db, "users", user?.uid);
@@ -105,48 +106,15 @@ const Account = () => {
         showConfirmButton: false,
         timer: 2000,
       });
-      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
   };
 
-  /* ---------------------- */
-  const [country, setCountry] = useState();
-
-  // const changeCountry = async () => {
-  //   try {
-  //     updateInfo({ pais: country });
-  //     Swal.fire({
-  //       icon: "success",
-  //       title: "Pais actualizado",
-  //       showConfirmButton: false,
-  //       timer: 2000,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const [location, setLocation] = useState();
-  // const changeLocation = async () => {
-  //   try {
-  //     updateInfo({ localidad: location });
-  //     Swal.fire({
-  //       icon: "success",
-  //       title: "Localidad actualizada",
-  //       showConfirmButton: false,
-  //       timer: 2000,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const [description, setDescription] = useState();
   const changeDescription = async () => {
     try {
-      updateInfo({ descripcion: description });
+      updateInfo({ description: description });
       Swal.fire({
         icon: "success",
         title: "Descripcion actualizada",
@@ -176,6 +144,24 @@ const Account = () => {
       Swal.fire({
         icon: "success",
         title: "Interes actualizado",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleInstagram = async (e) => {
+    setInstagram(e.target.value);
+  };
+
+  const changeInstagram = async () => {
+    try {
+      updateInfo({ instagram: instagram });
+      Swal.fire({
+        icon: "success",
+        title: "Instagram actualizado",
         showConfirmButton: false,
         timer: 2000,
       });
@@ -298,53 +284,22 @@ const Account = () => {
                 </button>
               </div>
               <div className="flex m-4 items-center">
-                {/* <label className="text-xl ml-32 w-20 font-semibold">
-                  Pais:
+                <label className="text-xl ml-32 w-20 font-semibold">
+                  Instagram:
                 </label>
                 <input
                   className="rounded-xl w-[50%] p-2 ml-20"
-                  placeholder="Pais"
-                  onChange={(e) => setCountry(e.target.value)}
+                  placeholder="Tag de tu instagram"
+                  onChange={handleInstagram}
                 ></input>
                 <button
                   className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
-                  onClick={changeCountry}
+                  onClick={changeInstagram}
                 >
                   Cambiar
                 </button>
               </div>
-              <div className="flex m-4 items-center">
-                <label className="text-xl ml-32 w-20 font-semibold">
-                  Localidad:
-                </label>
-                <input
-                  className="rounded-xl w-[50%] p-2 ml-20"
-                  placeholder="Localidad o departamemto"
-                  onChange={(e) => setLocation(e.target.value)}
-                ></input>
-                <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
-                  onClick={changeLocation}
-                >
-                  Cambiar
-                </button> */}
-              </div>
-              <div className="flex m-4 items-center">
-                <label className="text-xl ml-32 w-20 font-semibold">
-                  Imagen:
-                </label>
-                <input
-                  className="rounded-xl w-[50%] p-2 ml-20"
-                  type={"file"}
-                  onChange={handleChange}
-                ></input>
-                <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
-                  onClick={uploadImage}
-                >
-                  Cambiar
-                </button>
-              </div>
+
               <div className="flex m-4 items-center">
                 <label className="text-xl ml-32 w-20 font-semibold">
                   Descripción:
@@ -385,6 +340,22 @@ const Account = () => {
                 <button
                   className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
                   onClick={changeInterest}
+                >
+                  Cambiar
+                </button>
+              </div>
+              <div className="flex m-4 items-center">
+                <label className="text-xl ml-32 w-20 font-semibold">
+                  Imagen:
+                </label>
+                <input
+                  className="rounded-xl w-[50%] p-2 ml-20"
+                  type={"file"}
+                  onChange={handleChange}
+                ></input>
+                <button
+                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
+                  onClick={uploadImage}
                 >
                   Cambiar
                 </button>

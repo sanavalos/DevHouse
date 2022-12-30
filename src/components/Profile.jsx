@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { RiRadioButtonLine, RiTeamFill } from "react-icons/ri";
+import { RiRadioButtonLine, RiTeamFill, RiInstagramFill } from "react-icons/ri";
 import { MdPlace } from "react-icons/md";
-import { SiDiscord } from "react-icons/si";
 import { getUserById } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,8 +20,8 @@ function Profile() {
   return (
     <div>
       <Navbar />
-      <div className="place-items-center grid">
-        <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-5 h-[80vh]">
+      <div className="place-items-center grid h-[80vh]">
+        <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-5 ">
           <img
             className="w-full h-56 object-cover object-center"
             src={
@@ -54,8 +53,8 @@ function Profile() {
               <h1 className="px-2 text-sm">Team {user?.team}</h1>
             </div>
             <div className="flex items-center mt-4 text-gray-700">
-              <SiDiscord className="h-6 w-6  fill-current" />
-              <h1 className="px-2 text-sm">#{user?.discord}</h1>
+              <RiInstagramFill className="h-6 w-6  fill-current" />
+              <h1 className="px-2 text-sm">@{user?.instagram}</h1>
             </div>
             <div className="flex items-center mt-4 text-gray-700">
               <MdPlace className="h-6 w-6  fill-current" />
@@ -75,48 +74,6 @@ function Profile() {
           </div>
         </div>
       </div>
-      {/* <div className="w-full bg-slate-200 h-[90vh] place-items-center grid">
-        <div className="m-10 border-2 border-black w-[60%] h-[80%] rounded-xl">
-          <div className=" flex border-black h-32 items-center  space-x-8">
-            <img
-              className="h-[100px] w-[100px] rounded-xl m-6 border-2 border-black"
-              alt="userphoto"
-              // src={picture}
-            />
-            <div className="flex w-[80%] justify-between">
-              <div className="flex w-full justify-around">
-                <h2 className="text-3xl font-semibold">{nombre}</h2>
-                <h2 className="text-3xl font-semibold">Argentina</h2>
-              </div>
-              <button className="p-2 bg-black text-yellow-300 text-2xl hover:scale-110 hover:text-red-500 rounded-xl">
-                ENVIAR MENSAJE
-              </button>
-            </div>
-          </div>
-          <div className="border-t-2 border-black h-[80%] bg-red-300 rounded-b-xl border-b-2">
-            <div className="flex m-4 items-center justify-center">
-              <h3 className="text-xl  font-semibold">LOCALIDAD:</h3>
-              <p>Mar del Plata</p>
-            </div>
-
-            <div className="flex m-4 items-center justify-center">
-              <p>INTERESES:</p>
-              <ul className="flex flex-wrap">
-                <li className="bg-black text-yellow-300 p-2 m-2 rounded-xl">
-                  Programacion
-                </li>
-                <li className="bg-black text-yellow-300 p-2 m-2 rounded-xl">
-                  Musica
-                </li>
-                <li className="bg-black text-yellow-300 p-2 m-2 rounded-xl">
-                  Futbol
-                </li>
-              </ul>
-              <p></p>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <Footer />
     </div>
   );

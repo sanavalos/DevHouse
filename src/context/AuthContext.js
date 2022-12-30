@@ -8,7 +8,7 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase";
 
 const UserContext = createContext();
@@ -43,8 +43,17 @@ const AuthContextProvider = ({ children }) => {
         lastSession: currentUser?.metadata.lastSignInTime,
         uid: currentUser?.uid,
       };
-      console.log(currentUser);
-      setDoc(doc(db, "users", actualUser.uid), actualUser)
+      getDocs(collection(db, "users")).then((querySnapshot) => {
+        const newData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+        }));
+        const userExists = newData.find((user) => user.uid === actualUser.uid);
+        if (!userExists) {
+          setDoc(doc(db, "users", actualUser.uid), actualUser);
+        }
+      });
+
+      // setDoc(doc(db, "users", actualUser.uid), actualUser);
     });
     return () => {
       unsubscribe();
