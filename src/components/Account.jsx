@@ -140,7 +140,7 @@ const Account = () => {
   };
   const changeInterest = async () => {
     try {
-      updateInfo({ interes: checked });
+      updateInfo({ interest: checked });
       Swal.fire({
         icon: "success",
         title: "Interes actualizado",
