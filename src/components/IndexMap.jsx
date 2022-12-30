@@ -138,7 +138,7 @@ export default function IndexMap() {
             <>
               <p>
                 <span className="font-semibold">Nombre</span>:
-                <Link to={`/perfil/${selected.name}`}> {selected.name}</Link>
+                <Link to={`/perfil/${selected.uid}`}> {selected.name}</Link>
               </p>
               <p>
                 <span className="font-semibold">Localidad</span>:{" "}

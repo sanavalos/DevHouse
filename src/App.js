@@ -9,7 +9,7 @@ import PageNotFound from "./components/PageNotFound";
 import Login from "./components/Login";
 import CreateAccount from "./components/CreateAccount";
 import Forget from "./components/Forget";
-import AuthContextProvider from './context/AuthContext';
+import AuthContextProvider from "./context/AuthContext";
 import AboutUs from "./components/AboutUs";
 import LegalInformation from "./components/LegalInformation";
 function App() {
@@ -25,10 +25,10 @@ function App() {
           <Route exact path="/crearcuenta" element={<CreateAccount />} />
           <Route exact path="/olvido" element={<Forget />} />
           <Route exact path="/foro/:pais" element={<Country />} />
-          <Route exact path="/perfil/:nombre" element={<Profile />} />
+          <Route exact path="/perfil/:id" element={<Profile />} />
           <Route exact path="/nosotros" element={<AboutUs />} />
-        <Route exact path="/informacion" element={<LegalInformation />} />
-        <Route exact path="/*" element={<PageNotFound />} />
+          <Route exact path="/informacion" element={<LegalInformation />} />
+          <Route exact path="/*" element={<PageNotFound />} />
         </Routes>
       </AuthContextProvider>
     </div>

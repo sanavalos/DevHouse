@@ -1,7 +1,8 @@
-import { GET_USERS } from "../actions/actions";
+import { GET_USERS, GET_USER } from "../actions/actions";
 
 const initialState = {
   users: [],
+  user: {},
 };
 
 export function reducerApp(state = initialState, action) {
@@ -10,6 +11,12 @@ export function reducerApp(state = initialState, action) {
       return {
         ...state,
         users: action.payload,
+      };
+
+    case GET_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;
