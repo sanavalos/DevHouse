@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import Navbar from "./Navbar";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
 
 const CreateAccount = () => {
   const [user, setUser] = useState({
@@ -23,7 +21,6 @@ const CreateAccount = () => {
       e.preventDefault();
       if (user !== undefined) {
         await createUser(user?.email, user?.password);
-        await addDoc(collection(db, "users"), user);
         Swal.fire({
           icon: "success",
           title: "¡Bienvenido a Henry House!",
@@ -31,7 +28,6 @@ const CreateAccount = () => {
           timer: 2000,
         });
         navigate("/home");
-        window.location.reload();
       }
     } catch (error) {
       console.log(error);
@@ -118,7 +114,7 @@ const CreateAccount = () => {
           <div>
             <img
               src="https://cdn.forbes.co/2021/01/Team-Henry-1280x720-1.jpg"
-              className="rounded-lg h-[520px] w-[650px] m-14"
+              className="rounded-lg h-[520px] w-max[400px] mt-5 px-5"
               alt="comunidad"
             />
           </div>

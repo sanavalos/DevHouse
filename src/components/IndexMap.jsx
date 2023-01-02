@@ -6,16 +6,25 @@ import {
 } from "@react-google-maps/api";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import Locate from "./Locate";
+import { useDispatch } from "react-redux";
+import { getUsers } from "../redux/actions/actions";
+import { UserAuth } from "../context/AuthContext";
 
 export default function IndexMap() {
+  const dispatch = useDispatch();
+  const { user } = UserAuth();
+  console.log(user);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    console.log("RENDERING MAP");
-  }, []);
-  const markers = useSelector((state) => state.markers);
-  useMemo(() => markers, []);
+    dispatch(getUsers());
+  }, [dispatch]);
+
+  const users = useSelector((state) => state.users);
+  useMemo(() => users, []);
 
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
@@ -73,21 +82,35 @@ export default function IndexMap() {
                     className="text-lg leading-6 font-medium text-gray-900"
                     id="modal-headline"
                   >
-                    Bienvenido USUARIO HENRY
+                    {user?.displayName
+                      ? `Bienvenido ${user?.displayName}`
+                      : `Inicia sesion para utilizar la busqueda`}
                   </h3>
                 </div>
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex justify-center">
-              <button
-                type="button"
-                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-300  text-base font-medium text-black hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                onClick={() => {
-                  document.getElementById("modal").style.display = "none";
-                }}
-              >
-                Iniciar busqueda
-              </button>
+              {user?.displayName ? (
+                <button
+                  type="button"
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-300  text-base font-medium text-black hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={() => {
+                    document.getElementById("modal").style.display = "none";
+                  }}
+                >
+                  Iniciar busqueda
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-300  text-base font-medium text-black hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Registrarse / Iniciar Sesion
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -105,11 +128,11 @@ export default function IndexMap() {
           minZoom: 3,
         }}
       >
-        {markers.length > 0 &&
-          markers.map((marker) => (
+        {users.length > 0 &&
+          users.map((marker) => (
             <Marker
               key={marker.lat}
-              position={{ lat: marker.lat, lng: marker.lng }}
+              position={{ lat: Number(marker.lat), lng: Number(marker.lng) }}
               icon={{
                 url: "/house.png",
                 scaledSize: new window.google.maps.Size(30, 30),
@@ -118,13 +141,13 @@ export default function IndexMap() {
               }}
               onClick={() => {
                 setSelected(marker);
-                panTo({ lat: marker.lat, lng: marker.lng });
+                panTo({ lat: Number(marker.lat), lng: Number(marker.lng) });
               }}
             />
           ))}
         {selected ? (
           <InfoWindow
-            position={{ lat: selected.lat, lng: selected.lng }}
+            position={{ lat: Number(selected.lat), lng: Number(selected.lng) }}
             onCloseClick={() => {
               setSelected(null);
               panToDefault();
@@ -133,16 +156,14 @@ export default function IndexMap() {
             <>
               <p>
                 <span className="font-semibold">Nombre</span>:
-                <Link to={`/perfil/${selected.person}`}>
-                  {" "}
-                  {selected.person}
-                </Link>
+                <Link to={`/perfil/${selected.uid}`}> {selected.name}</Link>
               </p>
               <p>
-                <span className="font-semibold">Localidad</span>: Mar del Plata
+                <span className="font-semibold">Localidad</span>:{" "}
+                {selected.location}
               </p>
               <p>
-                <span className="font-semibold">Estado</span>: Conectado
+                <span className="font-semibold">Estado</span>: {selected.status}
               </p>
               <img
                 src="https://i.ibb.co/Pc6XVVC/Rectangle-120.png"

@@ -1,20 +1,29 @@
-import { GET_GEOLOCATION } from "../actions/actions";
+import { GET_USERS, GET_USER, GET_POSTS } from "../actions/actions";
 
 const initialState = {
-  location: [],
-  markers: [
-    { lat: 43.675819, lng: 7.289429, person: "Mario" },
-    { lat: 48.9044, lng: 2.3064, person: "Fernando" },
-    { lat: -37.979858, lng: -57.589794, person: "Santiago" },
-  ],
+  users: [],
+  user: {},
+  posts: [],
 };
 
 export function reducerApp(state = initialState, action) {
   switch (action.type) {
-    case GET_GEOLOCATION:
+    case GET_USERS:
       return {
         ...state,
-        location: action.payload,
+        users: action.payload,
+      };
+
+    case GET_USER:
+      return {
+        ...state,
+        user: action.payload,
+      };
+
+    case GET_POSTS:
+      return {
+        ...state,
+        posts: action.payload,
       };
     default:
       return state;

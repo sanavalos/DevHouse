@@ -1,29 +1,29 @@
 import React from "react";
-import { Link, useNavigate } from 'react-router-dom'
-import { UserAuth } from '../context/AuthContext'
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 
 function Navbar() {
-  const {logout} = UserAuth()
-  const navigate = useNavigate()
-
+  const { logout } = UserAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const handleLogout = async () => {
     try {
-      await logout()
-      navigate('/')
+      await logout();
+      navigate("/");
       Swal.fire({
-        icon: 'success',
-        title: '¡Nos vemos luego!',
+        icon: "success",
+        title: "¡Nos vemos luego!",
         showConfirmButton: false,
-        timer: 2000
-      })
+        timer: 2000,
+      });
     } catch (e) {
-      console.log(e.message)
+      console.log(e.message);
     }
-  }
+  };
 
   return (
-    <div className="bg-black w-[100%] text-yellow-300 flex relative items-center">
+    <div className="bg-black w-[100%] text-yellow-300 flex relative items-center h-[8vh]">
       <img
         src="https://assets.soyhenry.com/LOGO-REDES-01_og.jpg"
         alt="logo"
@@ -41,11 +41,16 @@ function Navbar() {
         <Link to="/login">
           <button className="hover:text-red-500 hover:scale-110">Perfil</button>
         </Link>
-        <Link to="/">
-          <button className="hover:text-red-500 hover:scale-110" onClick={handleLogout}>
-            Desloguea
-          </button>
-        </Link>
+        {location.pathname !== "/cuenta" && (
+          <Link to="/">
+            <button
+              className="hover:text-red-500 hover:scale-110"
+              onClick={handleLogout}
+            >
+              Desloguea
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
