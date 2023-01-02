@@ -3,7 +3,7 @@ import { useState } from "react";
 import {  setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { v4 } from "uuid";
-
+import { UserAuth } from "../context/AuthContext";
 
 
 function Post() {
@@ -14,6 +14,7 @@ function Post() {
 		comments: "",
         id:"",
 	});
+	const { user } = UserAuth();
 	
 	function handleChange(e) {
 		setPost({
@@ -30,7 +31,7 @@ function Post() {
 			await setDoc(doc(db, "posts/" + uuid), {
                 title: post.title,
                 date: new Date(),
-                user: "",
+                user: user.displayName,
                 comments: post.comments,
                id: uuid
             });

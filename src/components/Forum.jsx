@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import { BiWorld } from "react-icons/bi";
 import { BsFilePostFill } from "react-icons/bs";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
+
+
 function Forum() {
   const [search, setSearch] = useState(null);
 
@@ -73,7 +75,6 @@ function Forum() {
                     <label
                       for="countries"
                       className="block text-sm font-medium text-gray-900"
-                      className="block text-sm font-medium text-gray-900"
                     >
                       Paises
                     </label>
@@ -109,7 +110,6 @@ function Forum() {
         <div className="container mx-auto mt-12">
           <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
             POSTEOS {search ? "EN" : ""}
-            <span className="text-yellow-300 dark:text-yellow-300 ">
             <span className="text-yellow-300 dark:text-yellow-300 ">
               {search ? " " + search.toUpperCase() : "GENERALES"}
             </span>
