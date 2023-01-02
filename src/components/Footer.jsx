@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className=" p-2 bg-black text-yellow-300 ">
-      <div className="h-[10vh] flex items-center justify-between mx-8">
+    <footer className="p-2 bg-black text-yellow-300">
+      <div className="h-[8vh] flex items-center justify-between mx-8">
         <span className="text-center text-sm">
           Hecho por Henrys para Henrys
         </span>

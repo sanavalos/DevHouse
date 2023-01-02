@@ -198,16 +198,16 @@ const Account = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <Navbar />
       <div className="flex">
         <div className="w-[40%] bg-yellow-300 h-screen">
           <div className="mt-[20%]">
-            <h1 className="text-4xl text-center">Nos encanta tenerte aquí</h1>
+            <h1 className="text-4xl text-center font-semibold">Nos encanta tenerte aquí</h1>
           </div>
           <div>
             <img
-              src="https://kinsta.com/es/wp-content/uploads/sites/8/2021/12/java-developer.jpg"
+              src="https://blog.soyhenry.com/content/images/2021/02/MUNDOHENRY-1.jpg"
               className="rounded-lg h-[520px] w-[650px] m-14"
               alt="comunidad"
             />
@@ -372,7 +372,7 @@ const Account = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer/>
     </div>
   );
 };

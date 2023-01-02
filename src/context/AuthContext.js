@@ -52,8 +52,6 @@ const AuthContextProvider = ({ children }) => {
           setDoc(doc(db, "users", actualUser.uid), actualUser);
         }
       });
-
-      // setDoc(doc(db, "users", actualUser.uid), actualUser);
     });
     return () => {
       unsubscribe();

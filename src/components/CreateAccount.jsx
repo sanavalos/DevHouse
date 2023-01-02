@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const CreateAccount = () => {
   const [user, setUser] = useState({
@@ -67,12 +68,12 @@ const CreateAccount = () => {
   };
 
   return (
-    <div>
+    <div className="h-screen">
       <Navbar />
-      <div className="flex text-center">
-        <div className="w-[60%] bg-slate-200 h-screen">
-          <div className="mt-[20%]">
-            <h1 className="text-3xl mb-4">Crea una nueva cuenta</h1>
+      <div className="flex text-center h-[calc(100%_-_10.5rem)]">
+        <div className="w-[60%] bg-slate-200">
+          <div className="mt-[15%]">
+            <h1 className="text-3xl mb-4 font-extrabold">CREA UNA NUEVA CUENTA</h1>
             <h3 className="text-lg">
               ¿Ya tienes una cuenta?, puedes ingresar{" "}
               <Link
@@ -107,19 +108,20 @@ const CreateAccount = () => {
             </button>
           </form>
         </div>
-        <div className="w-[40%] bg-yellow-300 h-screen">
-          <div className="mt-[20%]">
-            <h1 className="text-4xl">Bienvenido a la mejor comunidad Henry</h1>
+        <div className="w-[40%] bg-yellow-300">
+          <div className="mt-[15%]">
+            <h1 className="text-4xl font-semibold">Bienvenido a la mejor comunidad Henry</h1>
           </div>
-          <div>
+          <div className="m-8">
             <img
               src="https://cdn.forbes.co/2021/01/Team-Henry-1280x720-1.jpg"
-              className="rounded-lg h-[520px] w-max[400px] mt-5 px-5"
+              className="rounded-lg"
               alt="comunidad"
             />
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

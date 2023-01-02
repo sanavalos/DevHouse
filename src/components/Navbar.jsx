@@ -23,7 +23,7 @@ function Navbar() {
   };
 
   return (
-    <div className="bg-black w-[100%] text-yellow-300 flex relative items-center h-[8vh]">
+    <div className="bg-black w-[100%] text-yellow-300 flex items-center h-[8vh] sticky top-0 z-10">
       <img
         src="https://assets.soyhenry.com/LOGO-REDES-01_og.jpg"
         alt="logo"

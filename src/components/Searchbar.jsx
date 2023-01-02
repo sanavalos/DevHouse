@@ -26,7 +26,7 @@ function Searchbar({ panTo }) {
   });
   return (
     <>
-      <div className="absolute top-32 left-[75%] translate-x-[-50%] w-[100%] max-w-[400px] z-index">
+      <div className="absolute top-32 left-[70%] translate-x-[-50%] w-[100%] max-w-[400px] z-index">
         <Combobox
           onSelect={async (address) => {
             setValue(address, false);
@@ -47,13 +47,13 @@ function Searchbar({ panTo }) {
             }}
             disabled={!ready}
             placeholder="Elige una ubicación"
-            className="p-2 text-xl w-[100]"
+            className="p-2 text-xl w-[500px]"
           />
           <ComboboxPopover>
-            <ComboboxList>
+            <ComboboxList className="bg-yellow-300">
               {status === "OK" &&
                 data.map(({ id, description }) => (
-                  <ComboboxOption key={id} value={description} />
+                  <ComboboxOption key={id} value={description} className="cursor-pointer my-2 hover:bg-black hover:text-yellow-300"/>
                 ))}
             </ComboboxList>
           </ComboboxPopover>

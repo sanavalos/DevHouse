@@ -1,93 +1,80 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 function AboutUs() {
   return (
-    <>
+    <div className="h-screen">
       <Navbar />
-      <div className="flex items-center justify-center h-screen">
-        <div className="flex flex-col lg:flex-row justify-between gap-8">
-          <div className="w-full lg:w-5/12 flex flex-col justify-center">
-            <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-4xl lg:text-5xl text-black">
-              Sobre Nosotros
+      <div className="flex justify-center h-[calc(100%_-_10.5rem)] bg-slate-200">
+        <div className="flex flex-col gap-8">
+          <div className="w-full flex flex-col mt-20">
+            <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-black text-center">
+              SOBRE NOSOTROS
             </h1>
-            <p className="font-normal text-base leading-6 text-gray-600 ">
+            <p className="text-lg leading-6 text-gray-600 ">
               Desarrolladores unidos por una pasion y un bootcamp. Motivados por
               el deseo de aumentar la conexion entre todos aquellos que formen
               parte de la comunidad Soy Henry.
             </p>
           </div>
-          <div className="w-full lg:w-8/12 lg:pt-8">
-            <div className="flex justify-center lg:gap-4 shadow-lg rounded-md">
-              <div className="p-4 pb-6 flex justify-center flex-col items-center">
+          <div className="w-full">
+            <div className="flex justify-center shadow-lg rounded-lg bg-yellow-300 m-4">
+              <div className="flex justify-center flex-col items-center m-4">
                 <img
-                  className="md:block hidden"
-                  src="https://i.ibb.co/fGmxhVy/Rectangle-119.png"
-                  alt="Olivia featured Img"
-                />
-                <img
-                  className="md:hidden block"
-                  src="https://i.ibb.co/NrWKJ1M/Rectangle-119.png"
-                  alt="Olivia featured Img"
+                  className="h-[350px] w-[300px] rounded-lg border-2 border-black mt-4"
+                  src='https://avatars.githubusercontent.com/u/92122729?v=4'
+                  alt="Mario Img"
                 />
                 <div className="flex items-center mt-3">
-                  <p className="font-medium text-xl leading-5 text-gray-800 ">
-                    Olivia
+                  <p className="text-2xl leading-5 text-gray-800 font-bold">
+                    Mario Franco
                   </p>
                 </div>
-                <div className="flex items-center mt-1">
-                  <BsLinkedin />
-                  <BsGithub />
+                <div className="flex items-center space-x-6 my-4">
+                <a href='https://github.com/MKamui' target={"_blank"}><BsGithub size={30} className="hover:scale-125"/></a>
+                <a href='https://www.linkedin.com/in/mario-franco-427904178/' target={"_blank"}><BsLinkedin size={30} className="hover:scale-125"/></a>
                 </div>
               </div>
-              <div className="p-4 pb-6 flex justify-center flex-col items-center">
+              <div className="flex justify-center flex-col items-center m-4">
                 <img
-                  className="md:block hidden"
-                  src="https://i.ibb.co/Pc6XVVC/Rectangle-120.png"
-                  alt="Liam featued Img"
-                />
-                <img
-                  className="md:hidden block"
-                  src="https://i.ibb.co/C5MMBcs/Rectangle-120.png"
-                  alt="Liam featued Img"
+                  className="h-[350px] w-[300px] rounded-lg border-2 border-black mt-4"
+                  src='https://avatars.githubusercontent.com/u/89056369?v=4'
+                  alt="Santi Img"
                 />
                 <div className="flex items-center mt-3">
-                  <p className="font-medium text-xl leading-5 text-gray-800 ">
-                    Liam
+                  <p className="text-2xl leading-5 text-gray-800 font-bold">
+                    Santiago Avalos
                   </p>
                 </div>
-                <div className="flex items-center mt-1">
-                  <BsLinkedin />
-                  <BsGithub />
+                <div className="flex items-center space-x-6 my-4">
+                <a href='https://github.com/sanavalos' target={"_blank"}><BsGithub size={30} className="hover:scale-125"/></a>
+                <a href='https://www.linkedin.com/in/santiagoavalos/' target={"_blank"}><BsLinkedin size={30} className="hover:scale-125"/></a>
                 </div>
               </div>
-              <div className="p-4 pb-6 flex justify-center flex-col items-center">
+              <div className="flex justify-center flex-col items-center m-4">
                 <img
-                  className="md:block hidden"
-                  src="https://i.ibb.co/7nSJPXQ/Rectangle-121.png"
-                  alt="Elijah featured img"
-                />
-                <img
-                  className="md:hidden block"
-                  src="https://i.ibb.co/C5MMBcs/Rectangle-120.png"
-                  alt="Liam featued Img"
+                  className="h-[350px] w-[300px] rounded-lg border-2 border-black mt-4"
+                  src='https://avatars.githubusercontent.com/u/97192959?v=4'
+                  alt="Fer Img"
                 />
                 <div className="flex items-center mt-3">
-                  <p className="font-medium text-xl leading-5 text-gray-800 ">
-                    Elijah
+                  <p className="text-2xl leading-5 text-gray-800 font-bold">
+                    Fernando Bernal
                   </p>
                 </div>
-                <div className="flex items-center mt-1">
-                  <BsLinkedin />
-                  <BsGithub />
+                <div className="flex items-center space-x-6 my-4">
+                <a href='https://github.com/Fernando-Bernal' target={"_blank"}><BsGithub size={30} className="hover:scale-125"/></a>
+                <a href='https://www.linkedin.com/in/fernando-bernal-dev/' target={"_blank"}><BsLinkedin size={30} className="hover:scale-125"/></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+      <Footer/>
+    </div>
   );
 }
 
