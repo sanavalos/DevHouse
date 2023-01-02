@@ -9,9 +9,12 @@ import { storage } from "../firebase";
 import { updatePassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import { getUserById } from "../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Account = () => {
   const { user, logout } = UserAuth();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [imageUp, setImageUp] = useState(null);
   const [photoURL, setPhotoURL] = useState(
@@ -36,8 +39,10 @@ const Account = () => {
     if (user?.photoURL) {
       setPhotoURL(user.photoURL);
     }
+    dispatch(getUserById(user?.uid));
   }, [user]);
 
+  const userId = useSelector((state) => state.user);
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImageUp(e.target.files[0]);
@@ -225,7 +230,7 @@ const Account = () => {
               <h2 className="text-3xl font-semibold">
                 {user?.displayName || "Nombre Usuario"}
               </h2>
-              <h2 className="text-3xl font-semibold">Pais Usuario</h2>
+              <h2 className="text-3xl font-semibold">{userId?.country}</h2>
               <button className="p-2 bg-black text-yellow-300 text-2xl hover:scale-110 hover:text-red-500 rounded-xl">
                 Mensajes
               </button>
@@ -306,7 +311,7 @@ const Account = () => {
                 </label>
                 <textarea
                   className="rounded-xl w-[50%] p-2 ml-20"
-                  placeholder="Tu descripción personal"
+                  placeholder={userId?.description ?? "Tu descripción personal"}
                   rows={"5"}
                   maxLength="250"
                   onChange={(e) => setDescription(e.target.value)}
@@ -322,7 +327,6 @@ const Account = () => {
                 <label className="text-xl ml-32 w-20 font-semibold">
                   Intereses:
                 </label>
-                {/* input checkbox to choose multiple intereses options from array */}
                 <div className="flex rounded-xl w-[50%] p-2 ml-20">
                   {intereses.map((item, index) => (
                     <div key={index} className="w-full flex justify-between">

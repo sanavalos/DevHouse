@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-// import { useLocation } from "react-router-dom";
 import { BiWorld } from "react-icons/bi";
 import { BsFilePostFill } from "react-icons/bs";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
 function Forum() {
-  // let location = useLocation();
   const [search, setSearch] = useState(null);
 
   const countries = [
@@ -30,9 +28,7 @@ function Forum() {
   ];
   return (
     <>
-      {/* {location.pathname !== "/home" && <Navbar />} */}
       <Navbar />
-
       <div className="flex">
         <div className="flex flex-col h-screen p-3 bg-white shadow w-[16.5rem]">
           <div className="space-y-3">

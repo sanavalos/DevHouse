@@ -2,6 +2,7 @@ import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
+export const GET_POSTS = "GET_POSTS";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -23,5 +24,16 @@ export function getUserById(id) {
     } catch (error) {
       console.log(error);
     }
+  };
+}
+
+export function getPosts() {
+  return async function (dispatch) {
+    await getDocs(collection(db, "posts")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+      }));
+      dispatch({ type: "GET_POSTS", payload: newData });
+    });
   };
 }

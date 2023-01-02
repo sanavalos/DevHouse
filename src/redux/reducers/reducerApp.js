@@ -1,8 +1,9 @@
-import { GET_USERS, GET_USER } from "../actions/actions";
+import { GET_USERS, GET_USER, GET_POSTS } from "../actions/actions";
 
 const initialState = {
   users: [],
   user: {},
+  posts: [],
 };
 
 export function reducerApp(state = initialState, action) {
@@ -17,6 +18,12 @@ export function reducerApp(state = initialState, action) {
       return {
         ...state,
         user: action.payload,
+      };
+
+    case GET_POSTS:
+      return {
+        ...state,
+        posts: action.payload,
       };
     default:
       return state;

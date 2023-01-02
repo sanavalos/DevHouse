@@ -6,14 +6,18 @@ import {
 } from "@react-google-maps/api";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import Locate from "./Locate";
 import { useDispatch } from "react-redux";
 import { getUsers } from "../redux/actions/actions";
+import { UserAuth } from "../context/AuthContext";
 
 export default function IndexMap() {
   const dispatch = useDispatch();
+  const { user } = UserAuth();
+  console.log(user);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getUsers());
@@ -78,21 +82,35 @@ export default function IndexMap() {
                     className="text-lg leading-6 font-medium text-gray-900"
                     id="modal-headline"
                   >
-                    Bienvenido USUARIO HENRY
+                    {user?.displayName
+                      ? `Bienvenido ${user?.displayName}`
+                      : `Inicia sesion para utilizar la busqueda`}
                   </h3>
                 </div>
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex justify-center">
-              <button
-                type="button"
-                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-300  text-base font-medium text-black hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                onClick={() => {
-                  document.getElementById("modal").style.display = "none";
-                }}
-              >
-                Iniciar busqueda
-              </button>
+              {user?.displayName ? (
+                <button
+                  type="button"
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-300  text-base font-medium text-black hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={() => {
+                    document.getElementById("modal").style.display = "none";
+                  }}
+                >
+                  Iniciar busqueda
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-300  text-base font-medium text-black hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Registrarse / Iniciar Sesion
+                </button>
+              )}
             </div>
           </div>
         </div>
