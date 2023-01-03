@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import Navbar from "./Navbar";
 import { BiWorld } from "react-icons/bi";
 import { BsFilePostFill } from "react-icons/bs";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../redux/actions/actions";
+import { Link } from "react-router-dom";
+
 
 
 function Forum() {
   const [search, setSearch] = useState(null);
+  const dispatch = useDispatch();
+  const allPost = useSelector((state)=> state.posts)
+
+  useEffect(()=>{
+    dispatch(getPosts())
+    console.log(allPost)
+  },[])
 
   const countries = [
     "Colombia",
@@ -115,35 +126,22 @@ function Forum() {
             </span>
             .
           </h1>
-
+            { allPost?.map((e) =>{return(
+            
           <div className="flex flex-col mt-7">
             <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
               <div className="mt-1 font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl">
-                ¿Cual es el valor de cambio de Peso Argentino a Dolar?
+                <p>{e?.title}</p>
               </div>
               <div className="text-sm font-medium text-gray-500 truncate">
-                26/12/2020 12:00 AM - Santiago
+                <span>{e?.date.substring(0,16)} - <Link to={`/perfil/${e.userId}`}>{e?.user}</Link> - {e.country}</span>
               </div>
               <div className="text-md font-medium text-gray-500">
-                Hola amigos, soy de Chile y no entiendo muy bien el valor de
-                cambio de Peso Argentino a Dolar. ¿Alguien me podria explicar?
-                gracias.
-              </div>
-            </div>
-            <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
-              <div className="mt-1 font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl">
-                ¿Que metodo usan para viajar en transporte publico?
-              </div>
-              <div className="text-sm font-medium text-gray-500 truncate">
-                26/12/2020 12:00 AM - Santiago
-              </div>
-              <div className="text-md font-medium text-gray-500">
-                Como andan? Escuche que en Argentina los viajes en colectivo no
-                se puede pagar con efectivo, solo con tarjeta. Es cierto? Que
-                metodo usan para viajar en transporte publico?
+                <span>{e?.comments}</span>
               </div>
             </div>
           </div>
+    )})}
         </div>
       </div>
     </>

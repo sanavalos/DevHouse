@@ -4,6 +4,9 @@ import {  setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { v4 } from "uuid";
 import { UserAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 
 function Post() {
@@ -13,9 +16,34 @@ function Post() {
 		user: "",
 		comments: "",
         id:"",
+		userId:"",
+		country: ""
 	});
+
+	const navigate = useNavigate();
+
+	const countries = [
+		"Todos",
+		"Colombia",
+		"Argentina",
+		"Chile",
+		"España",
+		"Mexico",
+		"Guatemala",
+		"Perú",
+		"Uruguay",
+		"Bolivia",
+		"Venezuela",
+		"Paraguay",
+		"Ecuador",
+		"Panama",
+		"Costa Rica",
+		"Cuba",
+		"Rep. Dominicana",
+		"Honduras",
+		"El Salvador",
+	  ];
 	const { user } = UserAuth();
-	
 	function handleChange(e) {
 		setPost({
 			...post,
@@ -30,18 +58,25 @@ function Post() {
             const uuid = v4()
 			await setDoc(doc(db, "posts/" + uuid), {
                 title: post.title,
-                date: new Date(),
-                user: user.displayName,
+                date: new Date().toLocaleDateString(),
+                user: user?.displayName,
                 comments: post.comments,
-               id: uuid
+               	id: uuid,
+			   	userId: user?.uid,
+				country: post.country
             });
+
+			navigate("/foro")
+	
 		} catch (error) {
 			console.log(error);
 		}
+		
 	};
 
 	return (
 		<div className="bg-yellow-300 h-full">
+			<Navbar/>
 			<h2>Crea tu post</h2>
 			<form className="m-8" >
 				<div className="flex flex-col my-2">
@@ -54,7 +89,12 @@ function Post() {
 						onChange={(e) => handleChange(e)}
 					/>
 				</div>
-
+				<div>
+					<label className="py-2 font-medium">País donde publicar</label>
+					<select name="country"  onChange={(e) => handleChange(e)}> <option disabled selected defaultValue>Selecionar un pais</option> {countries.map((country) => (
+                        <option value={country}>{country}</option>
+                      ))}</select>
+				</div>
 				<div className="flex flex-col my-2">
 					<label className="py-2 font-medium">Comentario</label>
 					<textarea
@@ -70,6 +110,7 @@ function Post() {
 				<button onClick={handleSubmit}>Enviar</button>
                 
 			</form>
+			<Footer/>
 		</div>
 	);
 }
