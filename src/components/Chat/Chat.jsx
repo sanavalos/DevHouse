@@ -25,7 +25,7 @@ const Chat = () => {
   }, []);
 
   return (
-    <div className="w-96 overflow-hidden">
+    <div className="w-96 overflow-scroll">
       <main className={style.main}>
         {messages &&
           messages.map((message) => (

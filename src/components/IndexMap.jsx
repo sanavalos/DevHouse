@@ -82,15 +82,15 @@ export default function IndexMap() {
                     className="text-lg leading-6 font-medium text-gray-900"
                     id="modal-headline"
                   >
-                    {user?.displayName
-                      ? `Bienvenido ${user?.displayName}`
+                    {user?.email
+                      ? user?.displayName ? `Bienvenido ${user?.displayName}` : `Bienvenido Henry`
                       : `Inicia sesion para utilizar la busqueda`}
                   </h3>
                 </div>
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex justify-center">
-              {user?.displayName ? (
+              {user?.email ? (
                 <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-300  text-base font-medium text-black hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
@@ -162,14 +162,16 @@ export default function IndexMap() {
                 <span className="font-semibold">Localidad</span>:{" "}
                 {selected.location}
               </p>
-              <p>
-                <span className="font-semibold">Estado</span>: {selected.status}
-              </p>
-              <img
-                src="https://i.ibb.co/Pc6XVVC/Rectangle-120.png"
-                alt="Liam"
+              {!selected.photoURL ? (<img
+                src="https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"
+                alt="user"
                 className="h-32 w-full rounded-lg mt-2"
-              />
+              />) : 
+              (<img
+                src={selected.photoURL}
+                alt={selected.name}
+                className="h-32 w-full rounded-lg mt-2"
+              />)}
             </>
           </InfoWindow>
         ) : null}

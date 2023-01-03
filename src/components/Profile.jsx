@@ -27,26 +27,15 @@ function Profile() {
             src={
               user?.image
                 ? user.image
-                : "https://i.ibb.co/Pc6XVVC/Rectangle-120.png"
+                : "User photo"
             }
             alt="Liam"
           />
-          <div className="flex items-center px-6 py-3 bg-gray-900">
-            {user?.status === "En linea" ? (
-              <RiRadioButtonLine className="h-6 w-6 text-green-500 fill-current" />
-            ) : (
-              <RiRadioButtonLine className="h-6 w-6 text-red-500 fill-current" />
-            )}
-
-            <h1 className="mx-3 text-white font-semibold text-lg">
-              {user?.status}
-            </h1>
-          </div>
           <div className="py-4 px-6">
             <h1 className="text-3xl font-semibold text-gray-800">
               {user?.name}
             </h1>
-            <h1 className="text-l font-semibold text-gray-800">Argentina</h1>
+            <h1 className="text-l font-semibold text-gray-800">{user?.country}</h1>
             <p className="py-2 text-lg text-gray-700">{user?.description}</p>
             <div className="flex items-center mt-4 text-gray-700">
               <RiTeamFill className="h-6 w-6  fill-current" />

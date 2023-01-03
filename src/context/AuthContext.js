@@ -43,6 +43,7 @@ const AuthContextProvider = ({ children }) => {
         lastSession: currentUser?.metadata.lastSignInTime,
         uid: currentUser?.uid,
       };
+      console.log(actualUser)
       getDocs(collection(db, "users")).then((querySnapshot) => {
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
