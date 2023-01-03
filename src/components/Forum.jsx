@@ -146,7 +146,7 @@ function Forum() {
 
         <div className="container mx-auto mt-12 ml-7 max-w-2xl">
           <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
-            POSTEOS {search ? "EN" : ""}
+            POSTEOS {search ? "SOBRE" : ""}
             <span className="text-yellow-300 dark:text-yellow-300 ">
               {search ? " " + search.toUpperCase() : "GENERALES"}
             </span>
