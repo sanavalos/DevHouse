@@ -13,6 +13,7 @@ import AuthContextProvider from "./context/AuthContext";
 import AboutUs from "./components/AboutUs";
 import LegalInformation from "./components/LegalInformation";
 import Chat from "./components/Chat/Chat";
+import Post from "./components/Post";
 function App() {
   return (
     <div>
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/nosotros" element={<AboutUs />} />
           <Route exact path="/informacion" element={<LegalInformation />} />
           <Route exact path="/chat" element={<Chat />} />
+          <Route exact path="/posteo" element={<Post />} />
           <Route exact path="/*" element={<PageNotFound />} />
         </Routes>
       </AuthContextProvider>
