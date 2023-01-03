@@ -4,6 +4,7 @@ import {
   GET_POSTS,
   FILTER_POSTS,
   SEARCH_POSTS,
+  CLEAR_FILTER,
 } from "../actions/actions";
 
 const initialState = {
@@ -63,10 +64,15 @@ export function reducerApp(state = initialState, action) {
       } else {
         search = state.posts;
       }
-
       return {
         ...state,
         filtered: search,
+      };
+
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: state.posts,
       };
     default:
       return state;

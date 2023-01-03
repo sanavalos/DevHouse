@@ -5,6 +5,7 @@ export const GET_USER = "GET_USER";
 export const GET_POSTS = "GET_POSTS";
 export const FILTER_POSTS = "FILTER_POSTS";
 export const SEARCH_POSTS = "SEARCH_POSTS";
+export const CLEAR_FILTER = "CLEAR_FILTER";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -49,5 +50,11 @@ export function filterPosts(country) {
 export function searchPosts(input) {
   return function (dispatch) {
     dispatch({ type: "SEARCH_POSTS", payload: input });
+  };
+}
+
+export function clearFilter() {
+  return function (dispatch) {
+    dispatch({ type: "CLEAR_FILTER" });
   };
 }

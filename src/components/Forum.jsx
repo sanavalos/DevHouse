@@ -7,6 +7,7 @@ import {
   getPosts,
   filterPosts,
   searchPosts,
+  clearFilter,
 } from "../redux/actions/actions.js";
 import { useDispatch, useSelector } from "react-redux";
 import Posts from "./Posts";
@@ -135,7 +136,12 @@ function Forum() {
               </ul>
             </div>
           </div>
-            <button ><a href="/posteo">Crea un post</a></button>
+          <button onClick={() => dispatch(clearFilter())}>
+            Limpiar filtros
+          </button>
+          <button>
+            <a href="/posteo">Crea un post</a>
+          </button>
         </div>
 
         <div className="container mx-auto mt-12 ml-7 max-w-2xl">
@@ -146,8 +152,6 @@ function Forum() {
             </span>
             .
           </h1>
-            { allPost?.map((e) =>{return(
-            
           <div className="flex flex-col mt-7">
             {filtered.length > 0 ? (
               <Posts posts={filtered} />
@@ -192,7 +196,6 @@ function Forum() {
               </div>
             )}
           </div>
-    )})}
         </div>
       </div>
     </>
