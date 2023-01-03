@@ -3,6 +3,8 @@ import { db } from "../../firebase";
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
 export const GET_POSTS = "GET_POSTS";
+export const FILTER_POSTS = "FILTER_POSTS";
+export const SEARCH_POSTS = "SEARCH_POSTS";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -35,5 +37,17 @@ export function getPosts() {
       }));
       dispatch({ type: "GET_POSTS", payload: newData });
     });
+  };
+}
+
+export function filterPosts(country) {
+  return function (dispatch) {
+    dispatch({ type: "FILTER_POSTS", payload: country });
+  };
+}
+
+export function searchPosts(input) {
+  return function (dispatch) {
+    dispatch({ type: "SEARCH_POSTS", payload: input });
   };
 }

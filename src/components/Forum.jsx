@@ -1,12 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import { BiWorld } from "react-icons/bi";
 import { BsFilePostFill } from "react-icons/bs";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
+import {
+  getPosts,
+  filterPosts,
+  searchPosts,
+} from "../redux/actions/actions.js";
+import { useDispatch, useSelector } from "react-redux";
+import Posts from "./Posts";
+import Chat from "../components/Chat/Chat";
+import { UserAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
+
 function Forum() {
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
+  const filtered = useSelector((state) => state.filtered);
+  const posts = useSelector((state) => state.posts);
+  const { user } = UserAuth();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, []);
+
+  useEffect(() => {
+    dispatch(filterPosts(search));
+  }, [posts]);
 
   const countries = [
+    "Todos",
     "Colombia",
     "Argentina",
     "Chile",
@@ -26,6 +50,17 @@ function Forum() {
     "Honduras",
     "El Salvador",
   ];
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+    dispatch(filterPosts(e.target.value));
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(searchPosts(search));
+  };
   return (
     <>
       <Navbar />
@@ -38,8 +73,8 @@ function Forum() {
             <div className="relative">
               <span className="absolute inset-y-0 left-0 flex items-center py-4">
                 <button
-                  type="submit"
                   className="p-2 focus:outline-none focus:ring"
+                  onClick={(e) => handleSearch(e)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +92,9 @@ function Forum() {
                   </svg>
                 </button>
               </span>
-
               <input
                 type="text"
-                placeholder="Pais, Usuario o Titulo"
+                placeholder="Usuario o Titulo"
                 className="w-full py-2 pl-10 text-sm rounded-md focus:outline-none"
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -76,10 +110,9 @@ function Forum() {
                     >
                       Paises
                     </label>
-
                     <select
                       className="bg-gray-300 border border-gray-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-yellow-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      onChange={(e) => setSearch(e.target.value)}
+                      onChange={(e) => handleChange(e)}
                     >
                       {countries.map((country) => (
                         <option value={country}>{country}</option>
@@ -104,7 +137,7 @@ function Forum() {
           </div>
         </div>
 
-        <div className="container mx-auto mt-12 ml-7">
+        <div className="container mx-auto mt-12 ml-7 max-w-2xl">
           <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
             POSTEOS {search ? "EN" : ""}
             <span className="text-yellow-300 dark:text-yellow-300 ">
@@ -114,32 +147,48 @@ function Forum() {
           </h1>
 
           <div className="flex flex-col mt-7">
-            <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
-              <div className="mt-1 font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl">
-                ¿Cual es el valor de cambio de Peso Argentino a Dolar?
+            {filtered.length > 0 ? (
+              <Posts posts={filtered} />
+            ) : (
+              <>
+                <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+                  <div className="h-7 w-80 bg-slate-500 mt-1"></div>
+                  <div className="h-3 w-32 bg-slate-500 mt-1"></div>
+                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
+                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
+                </div>
+                <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+                  <div className="h-7 w-80 bg-slate-500 mt-1"></div>
+                  <div className="h-3 w-32 bg-slate-500 mt-1"></div>
+                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
+                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
+                </div>
+                <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+                  <div className="h-7 w-80 bg-slate-500 mt-1"></div>
+                  <div className="h-3 w-32 bg-slate-500 mt-1"></div>
+                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
+                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+        <div className="max-w-[728px] mr-7 text-center ">
+          <div className="flex flex-col h-[83vh] mt-10 border relative shadow mb-7 bg-white">
+            {user ? (
+              <Chat />
+            ) : (
+              <div className="flex flex-col items-center justify-center h-full">
+                <h1 className="text-2xl font-bold">
+                  Inicia sesion para chatear
+                </h1>
+                <Link to="/login">
+                  <button className="bg-yellow-300 text-black font-bold py-2 px-4 rounded">
+                    Iniciar sesion
+                  </button>
+                </Link>
               </div>
-              <div className="text-sm font-medium text-gray-500 truncate">
-                26/12/2020 12:00 AM - Santiago
-              </div>
-              <div className="text-md font-medium text-gray-500">
-                Hola amigos, soy de Chile y no entiendo muy bien el valor de
-                cambio de Peso Argentino a Dolar. ¿Alguien me podria explicar?
-                gracias.
-              </div>
-            </div>
-            <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
-              <div className="mt-1 font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl">
-                ¿Que metodo usan para viajar en transporte publico?
-              </div>
-              <div className="text-sm font-medium text-gray-500 truncate">
-                26/12/2020 12:00 AM - Santiago
-              </div>
-              <div className="text-md font-medium text-gray-500">
-                Como andan? Escuche que en Argentina los viajes en colectivo no
-                se puede pagar con efectivo, solo con tarjeta. Es cierto? Que
-                metodo usan para viajar en transporte publico?
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
