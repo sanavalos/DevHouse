@@ -35,10 +35,10 @@ const SendMessage = ({ scroll }) => {
         onChange={(e) => setInput(e.target.value)}
         className={style.input}
         type="text"
-        placeholder="Message"
+        placeholder="Chatea con Henrys..."
       />
       <button className={style.button} type="submit">
-        Send
+        Enviar
       </button>
     </form>
   );

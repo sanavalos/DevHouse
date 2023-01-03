@@ -5,6 +5,7 @@ import {
   FILTER_POSTS,
   SEARCH_POSTS,
   CLEAR_FILTER,
+  GET_RESPONSES,
 } from "../actions/actions";
 
 const initialState = {
@@ -12,6 +13,8 @@ const initialState = {
   user: {},
   posts: [],
   filtered: [],
+  responses: [],
+  postId: "",
 };
 
 export function reducerApp(state = initialState, action) {
@@ -74,6 +77,17 @@ export function reducerApp(state = initialState, action) {
         ...state,
         filtered: state.posts,
       };
+
+    case GET_RESPONSES:
+      const responses = action.payload.newData.filter(
+        (response) => response.post == action.payload.post
+      );
+      return {
+        ...state,
+        responses: responses,
+        postId: action.payload.post,
+      };
+
     default:
       return state;
   }

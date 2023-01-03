@@ -6,6 +6,7 @@ export const GET_POSTS = "GET_POSTS";
 export const FILTER_POSTS = "FILTER_POSTS";
 export const SEARCH_POSTS = "SEARCH_POSTS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
+export const GET_RESPONSES = "GET_RESPONSES";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -56,5 +57,16 @@ export function searchPosts(input) {
 export function clearFilter() {
   return function (dispatch) {
     dispatch({ type: "CLEAR_FILTER" });
+  };
+}
+
+export function getResponses(post) {
+  return async function (dispatch) {
+    await getDocs(collection(db, "responses")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+      }));
+      dispatch({ type: "GET_RESPONSES", payload: { newData, post } });
+    });
   };
 }
