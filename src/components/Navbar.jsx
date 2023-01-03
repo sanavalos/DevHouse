@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 
 function Navbar() {
   const { logout } = UserAuth();
   const navigate = useNavigate();
-
+  const location = useLocation();
   const handleLogout = async () => {
     try {
       await logout();
@@ -41,14 +41,16 @@ function Navbar() {
         <Link to="/login">
           <button className="hover:text-red-500 hover:scale-110">Perfil</button>
         </Link>
-        <Link to="/">
-          <button
-            className="hover:text-red-500 hover:scale-110"
-            onClick={handleLogout}
-          >
-            Desloguea
-          </button>
-        </Link>
+        {location.pathname !== "/cuenta" && (
+          <Link to="/">
+            <button
+              className="hover:text-red-500 hover:scale-110"
+              onClick={handleLogout}
+            >
+              Desloguea
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
