@@ -31,7 +31,7 @@ function Navbar() {
       />
       <Link to="/home">
         <h1 className="ml-4 text-xl hover:text-red-500 hover:scale-110">
-          Henry House
+          HenryHouse
         </h1>
       </Link>
       <div className="absolute right-10 space-x-10">
