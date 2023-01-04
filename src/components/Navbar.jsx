@@ -39,7 +39,9 @@ function Navbar() {
           <button className="hover:text-red-500 hover:scale-110">Foros</button>
         </Link>
         <Link to="/login">
-          <button className="hover:text-red-500 hover:scale-110">Perfil</button>
+          <button className="hover:text-red-500 hover:scale-110">
+            {user?.uid ? "Perfil" : "Iniciar Sesion"}
+          </button>
         </Link>
         {user?.uid && location.pathname !== "/cuenta" && (
           <Link to="/">
