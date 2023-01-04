@@ -50,12 +50,6 @@ function Navbar() {
               Desloguea
             </button>
           </Link>
-        ) : (
-          <Link to="/login">
-            <button className="hover:text-red-500 hover:scale-110">
-              Iniciar sesion
-            </button>
-          </Link>
         )}
       </div>
     </div>
