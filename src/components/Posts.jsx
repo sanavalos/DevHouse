@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PostComment from "./PostComment";
 import { getResponses } from "../redux/actions/actions.js";
 import { useDispatch, useSelector } from "react-redux";
+import { UserAuth } from "../context/AuthContext";
 
 function Posts({ posts }) {
   const [showComments, setShowComments] = useState(false);
   const dispatch = useDispatch();
   const responses = useSelector((state) => state.responses);
   const postId = useSelector((state) => state.postId);
+  const { user } = UserAuth();
+  const navigate = useNavigate();
 
   return posts.map((post) => {
     return (
@@ -18,12 +21,28 @@ function Posts({ posts }) {
         </div>
         <div className="text-sm font-medium text-gray-500 truncate m-2">
           {post.date} - {post.country || "Todos"} -{" "}
-          <Link to={`/perfil/${post.userId}`} className="uppercase hover:text-red-500">
+          <Link
+            to={`/perfil/${post.userId}`}
+            className="uppercase hover:text-red-500"
+          >
             {post.user}
           </Link>{" "}
         </div>
-        <div className="text-md font-medium text-black m-2">{post.comments}</div>
-        <PostComment postId={post.id} />
+        <div className="text-md font-medium text-black m-2">
+          {post.comments}
+        </div>
+        {user?.uid ? (
+          <PostComment postId={post.id} />
+        ) : (
+          <div className="flex w-full">
+            <button
+              className="rounded-lg  hover:text-red-500 m-2"
+              onClick={() => navigate("/login")}
+            >
+              Inicia sesion para comentar
+            </button>
+          </div>
+        )}
         {postId === post.id &&
           showComments &&
           responses?.map((response) => {
@@ -41,14 +60,19 @@ function Posts({ posts }) {
           })}
         {!showComments ? (
           <button
-            onClick={() => {dispatch(getResponses(post.id)) && setShowComments(true)}}
+            onClick={() => {
+              dispatch(getResponses(post.id)) && setShowComments(true);
+            }}
             className="m-2 hover:text-red-500 hover:scale-105"
           >
             Mostrar comentarios
           </button>
         ) : (
           postId === post.id && (
-            <button onClick={() => setShowComments(false)} className="m-2 hover:text-red-500 hover:scale-105">
+            <button
+              onClick={() => setShowComments(false)}
+              className="m-2 hover:text-red-500 hover:scale-105"
+            >
               Ocultar comentarios
             </button>
           )
