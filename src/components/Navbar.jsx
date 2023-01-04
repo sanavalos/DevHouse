@@ -4,7 +4,7 @@ import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 
 function Navbar() {
-  const { logout } = UserAuth();
+  const { user, logout } = UserAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const handleLogout = async () => {
@@ -41,7 +41,7 @@ function Navbar() {
         <Link to="/login">
           <button className="hover:text-red-500 hover:scale-110">Perfil</button>
         </Link>
-        {location.pathname !== "/cuenta" && (
+        {user?.uid && location.pathname !== "/cuenta" && (
           <Link to="/">
             <button
               className="hover:text-red-500 hover:scale-110"
