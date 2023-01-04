@@ -9,6 +9,7 @@ import {
   filterPosts,
   searchPosts,
   clearFilter,
+  orderByLastPost,
 } from "../redux/actions/actions.js";
 import { useDispatch, useSelector } from "react-redux";
 import Posts from "./Posts";
@@ -59,10 +60,19 @@ function Forum() {
     dispatch(filterPosts(e.target.value));
   };
 
+
+
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(searchPosts(search));
   };
+
+  const handleLastPost = () =>{
+    setFilter("ultimos")
+     dispatch(orderByLastPost())
+  }
+
+
   return (
     <>
       <Navbar />
@@ -110,9 +120,10 @@ function Forum() {
                   </div>
                 </li>
                 <li className="rounded-sm">
-                  <div className="flex items-center p-2 space-x-3 rounded-md">
+                  <div className="flex items-center p-2 space-x-3 rounded-md"  >
                     <BsFilePostFill size={20} />
-                    <span>Ultimos posteos</span>
+                    <button onClick={() => handleLastPost()}>aca</button>
+                    <span >Ultimos posteos</span>
                   </div>
                 </li>
                 <li className="rounded-sm">

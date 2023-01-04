@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { v4 } from "uuid";
 import { UserAuth } from "../context/AuthContext";
@@ -17,6 +17,7 @@ function Post() {
     id: "",
     userId: "",
     country: "",
+    timestamp: new Date(),
   });
 
   const navigate = useNavigate();
@@ -63,7 +64,9 @@ function Post() {
         id: uuid,
         userId: user?.uid,
         country: post.country,
+        timestamp: Date.now(),
       });
+
       navigate("/foro");
     } catch (error) {
       console.log(error);
