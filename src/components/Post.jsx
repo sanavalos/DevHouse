@@ -23,24 +23,24 @@ function Post() {
 
   const countries = [
     "Todos",
-    "Colombia",
     "Argentina",
-    "Chile",
-    "España",
-    "Mexico",
-    "Guatemala",
-    "Perú",
-    "Uruguay",
     "Bolivia",
-    "Venezuela",
-    "Paraguay",
-    "Ecuador",
-    "Panama",
+    "Chile",
+    "Colombia",
     "Costa Rica",
     "Cuba",
-    "Rep. Dominicana",
-    "Honduras",
+    "Ecuador",
+    "España",
     "El Salvador",
+    "Guatemala",
+    "Honduras",
+    "Mexico",
+    "Panama",
+    "Paraguay",
+    "Perú",
+    "Rep. Dominicana",
+    "Uruguay",
+    "Venezuela",
   ];
   const { user } = UserAuth();
   function handleChange(e) {
@@ -71,23 +71,24 @@ function Post() {
   };
 
   return (
-    <div className="bg-yellow-300 h-full">
+    <div className="h-screen">
       <Navbar />
-      <h2>Crea tu post</h2>
-      <form className="m-8">
+      <div className="flex justify-center h-[calc(100%_-_10.5rem)] bg-yellow-300 w-full">
+        <form className="m-8">
+        <h2 className="m-8 font-extrabold text-2xl text-center">CREA TU POST</h2>
         <div className="flex flex-col my-2">
-          <label className="py-2 font-medium">Titulo</label>
+          <label className="py-2 font-semibold text-lg">Titulo</label>
           <input
-            className="p-3 rounded-xl"
+            className="p-3 rounded-xl w-[800px]"
             type="text"
             name="title"
             value={post.name}
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div>
-          <label className="py-2 font-medium">País donde publicar</label>
-          <select name="country" onChange={(e) => handleChange(e)}>
+        <div className="my-6">
+          <label className="py-2 font-semibold text-lg mr-4">País donde publicar</label>
+          <select name="country" onChange={(e) => handleChange(e)} className="rounded-xl bg-black text-yellow-300">
             {" "}
             <option disabled selected defaultValue>
               Selecionar un pais
@@ -98,7 +99,7 @@ function Post() {
           </select>
         </div>
         <div className="flex flex-col my-2">
-          <label className="py-2 font-medium">Comentario</label>
+          <label className="py-2 font-semibold text-lg">Comentario</label>
           <textarea
             name="comments"
             id=""
@@ -106,12 +107,16 @@ function Post() {
             rows="10"
             value={post.comments}
             onChange={(e) => handleChange(e)}
+            className="rounded-xl"
           ></textarea>
         </div>
-
-        <button onClick={handleSubmit}>Enviar</button>
+        <button onClick={handleSubmit} 
+        className="p-3 text-center bg-black rounded-xl text-yellow-300 my-4 hover:bg-transparent hover:border-2 hover:border-black hover:text-black w-full">
+          Enviar
+        </button>
       </form>
-      <Footer />
+    </div>
+    <Footer />
     </div>
   );
 }

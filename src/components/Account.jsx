@@ -22,7 +22,7 @@ const Account = () => {
   );
   const [password, setPassword] = useState();
   const [fullname, setFullname] = useState();
-  const [instagram, setInstagram] = useState();
+  const [github, setGithub] = useState();
 
   const updateInfo = (prop) => {
     let docRef = doc(db, "users", user?.uid);
@@ -111,6 +111,7 @@ const Account = () => {
         showConfirmButton: false,
         timer: 2000,
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -126,6 +127,7 @@ const Account = () => {
         showConfirmButton: false,
         timer: 2000,
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -157,19 +159,20 @@ const Account = () => {
     }
   };
 
-  const handleInstagram = async (e) => {
-    setInstagram(e.target.value);
+  const handleGithub = async (e) => {
+    setGithub(e.target.value);
   };
 
-  const changeInstagram = async () => {
+  const changeGithub = async () => {
     try {
-      updateInfo({ instagram: instagram });
+      updateInfo({ github: github });
       Swal.fire({
         icon: "success",
-        title: "Instagram actualizado",
+        title: "Github actualizado",
         showConfirmButton: false,
         timer: 2000,
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -231,9 +234,6 @@ const Account = () => {
                 {user?.displayName || "Nombre Usuario"}
               </h2>
               <h2 className="text-3xl font-semibold">{userId?.country}</h2>
-              <button className="p-2 bg-black text-yellow-300 text-2xl hover:scale-110 hover:text-red-500 rounded-xl">
-                Mensajes
-              </button>
               <button
                 className="p-2 bg-black text-yellow-300 text-2xl hover:scale-110 hover:text-red-500 rounded-xl"
                 onClick={handleLogout}
@@ -290,16 +290,16 @@ const Account = () => {
               </div>
               <div className="flex m-4 items-center">
                 <label className="text-xl ml-32 w-20 font-semibold">
-                  Instagram:
+                  GitHub:
                 </label>
                 <input
                   className="rounded-xl w-[50%] p-2 ml-20"
-                  placeholder="Tag de tu instagram"
-                  onChange={handleInstagram}
+                  placeholder={userId?.github ?? "Link de Github"}
+                  onChange={handleGithub}
                 ></input>
                 <button
                   className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
-                  onClick={changeInstagram}
+                  onClick={changeGithub}
                 >
                   Cambiar
                 </button>

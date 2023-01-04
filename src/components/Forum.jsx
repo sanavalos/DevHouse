@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { BiWorld } from "react-icons/bi";
-import { BsFilePostFill } from "react-icons/bs";
+import { BsFilePostFill, BsSearch } from "react-icons/bs";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
 import {
   getPosts,
@@ -32,24 +33,24 @@ function Forum() {
 
   const countries = [
     "Todos",
-    "Colombia",
     "Argentina",
-    "Chile",
-    "España",
-    "Mexico",
-    "Guatemala",
-    "Perú",
-    "Uruguay",
     "Bolivia",
-    "Venezuela",
-    "Paraguay",
-    "Ecuador",
-    "Panama",
+    "Chile",
+    "Colombia",
     "Costa Rica",
     "Cuba",
-    "Rep. Dominicana",
-    "Honduras",
+    "Ecuador",
+    "España",
     "El Salvador",
+    "Guatemala",
+    "Honduras",
+    "Mexico",
+    "Panama",
+    "Paraguay",
+    "Perú",
+    "Rep. Dominicana",
+    "Uruguay",
+    "Venezuela",
   ];
 
   const handleChange = (e) => {
@@ -74,28 +75,15 @@ function Forum() {
             <div className="relative">
               <span className="absolute inset-y-0 left-0 flex items-center py-4">
                 <button
-                  className="p-2 focus:outline-none focus:ring"
+                  className="p-2 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black"
                   onClick={(e) => handleSearch(e)}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
+                <BsSearch/>
                 </button>
               </span>
               <input
                 type="text"
-                placeholder="Usuario o Titulo"
+                placeholder="Busqueda por Usuario o Titulo"
                 className="w-full py-2 pl-10 text-sm rounded-md focus:outline-none"
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -112,7 +100,7 @@ function Forum() {
                       Paises
                     </label>
                     <select
-                      className="bg-gray-300 border border-gray-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-yellow-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-yellow-300 border border-gray-900 text-gray-900 text-sm rounded-lg block w-full p-1"
                       onChange={(e) => handleChange(e)}
                     >
                       {countries.map((country) => (
@@ -136,19 +124,19 @@ function Forum() {
               </ul>
             </div>
           </div>
-          <button onClick={() => dispatch(clearFilter())}>
+          <button onClick={() => dispatch(clearFilter())} className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black">
             Limpiar filtros
           </button>
-          <button>
-            <a href="/posteo">Crea un post</a>
-          </button>
+          <Link to={'/posteo'} className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"><button>
+            Crea un post
+          </button></Link>
         </div>
 
         <div className="container mx-auto mt-12 ml-7 max-w-2xl">
           <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
-            POSTEOS {search ? "SOBRE" : ""}
+            POSTEOS {search ? "SOBRE" : "SOBRE"}
             <span className="text-yellow-300 dark:text-yellow-300 ">
-              {search ? " " + search.toUpperCase() : "GENERALES"}
+              {search ? " " + search.toUpperCase() : " TODOS"}
             </span>
             .
           </h1>
@@ -198,6 +186,7 @@ function Forum() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
