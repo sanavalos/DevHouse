@@ -23,6 +23,7 @@ const Account = () => {
   const [password, setPassword] = useState();
   const [fullname, setFullname] = useState();
   const [instagram, setInstagram] = useState();
+  const [career, setCareer] = useState("Full Stack");
 
   const updateInfo = (prop) => {
     let docRef = doc(db, "users", user?.uid);
@@ -55,6 +56,7 @@ const Account = () => {
     await uploadBytes(imageRef, imageUp);
     const imageURL = await getDownloadURL(imageRef);
     updateProfile(user, { photoURL: imageURL });
+    updateInfo({ image: imageURL });
     Swal.fire({
       icon: "success",
       title: "Imagen actualizada",
@@ -202,13 +204,32 @@ const Account = () => {
       });
   };
 
+  function handleCareer(event) {
+    setCareer(event.target.value);
+  }
+
+  const changeCareer = async () => {
+    try {
+      updateInfo({ career: career });
+      Swal.fire({
+        icon: "success",
+        title: "Carrera actualizado",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="">
       <Navbar />
       <div className="flex">
         <div className="w-[40%] bg-yellow-300 h-screen">
           <div className="mt-[20%]">
-            <h1 className="text-4xl text-center font-semibold">Nos encanta tenerte aquí</h1>
+            <h1 className="text-4xl text-center font-semibold">
+              Nos encanta tenerte aquí
+            </h1>
           </div>
           <div>
             <img
@@ -350,6 +371,37 @@ const Account = () => {
               </div>
               <div className="flex m-4 items-center">
                 <label className="text-xl ml-32 w-20 font-semibold">
+                  Carrera:
+                </label>
+                <div className="text-xl ml-32 ">
+                  <input
+                    type="radio"
+                    value="Full Stack"
+                    checked={career === "Full Stack"}
+                    onChange={handleCareer}
+                    className=" p-2 "
+                  />
+                  Full Stack Dev
+                </div>
+                <div className="text-xl ml-32 ">
+                  <input
+                    type="radio"
+                    value="Data Scientist"
+                    checked={career === "Data Scientist"}
+                    onChange={handleCareer}
+                    className=" p-2"
+                  />
+                  Data Scientist
+                </div>
+                <button
+                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
+                  onClick={changeCareer}
+                >
+                  Cambiar
+                </button>
+              </div>
+              <div className="flex m-4 items-center">
+                <label className="text-xl ml-32 w-20 font-semibold">
                   Imagen:
                 </label>
                 <input
@@ -376,7 +428,7 @@ const Account = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

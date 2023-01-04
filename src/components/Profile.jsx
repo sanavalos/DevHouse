@@ -22,24 +22,30 @@ function Profile() {
       <Navbar />
       <div className="place-items-center grid h-[80vh]">
         <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-5 ">
-          <img
-            className="w-full h-56 object-cover object-center"
-            src={
-              user?.image
-                ? user.image
-                : "User photo"
-            }
-            alt="Liam"
-          />
+          {!user.image ? (
+            <img
+              className="w-full h-56 object-cover object-center"
+              src="https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"
+              alt="user"
+            />
+          ) : (
+            <img
+              className="w-full h-56 object-cover object-center"
+              src={user.image}
+              alt={user.name}
+            />
+          )}
           <div className="py-4 px-6">
             <h1 className="text-3xl font-semibold text-gray-800">
               {user?.name}
             </h1>
-            <h1 className="text-l font-semibold text-gray-800">{user?.country}</h1>
+            <h1 className="text-l font-semibold text-gray-800">
+              {user?.country}
+            </h1>
             <p className="py-2 text-lg text-gray-700">{user?.description}</p>
             <div className="flex items-center mt-4 text-gray-700">
               <RiTeamFill className="h-6 w-6  fill-current" />
-              <h1 className="px-2 text-sm">Team {user?.team}</h1>
+              <h1 className="px-2 text-sm">Team {user?.career}</h1>
             </div>
             <div className="flex items-center mt-4 text-gray-700">
               <RiInstagramFill className="h-6 w-6  fill-current" />
@@ -63,7 +69,7 @@ function Profile() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
