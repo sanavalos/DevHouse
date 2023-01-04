@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, increment, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { v4 } from "uuid";
 import { UserAuth } from "../context/AuthContext.js";
@@ -11,6 +11,8 @@ function PostComment({ postId }) {
     try {
       e.preventDefault();
       const uuid = v4();
+      let docRef = doc(db, "posts", postId);
+      await updateDoc(docRef, { responses: increment(1) });
       await setDoc(doc(db, "responses/" + uuid), {
         post: postId,
         comment: comment,
@@ -30,7 +32,12 @@ function PostComment({ postId }) {
         onChange={(e) => setComment(e.target.value)}
         className="rounded-lg p-1"
       />
-      <button onClick={(e) => commentPost(e)} className="p-1 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black m-2">Enviar</button>
+      <button
+        onClick={(e) => commentPost(e)}
+        className="p-1 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black m-2"
+      >
+        Enviar
+      </button>
     </div>
   );
 }

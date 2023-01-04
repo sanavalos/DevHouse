@@ -9,6 +9,7 @@ import {
   filterPosts,
   searchPosts,
   clearFilter,
+  mostCommented,
 } from "../redux/actions/actions.js";
 import { useDispatch, useSelector } from "react-redux";
 import Posts from "./Posts";
@@ -18,6 +19,7 @@ import { Link } from "react-router-dom";
 
 function Forum() {
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
   const filtered = useSelector((state) => state.filtered);
   const posts = useSelector((state) => state.posts);
@@ -63,6 +65,20 @@ function Forum() {
     e.preventDefault();
     dispatch(searchPosts(search));
   };
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+    setFilter("comentarios");
+    dispatch(mostCommented());
+  };
+
+  const handleReset = (e) => {
+    e.preventDefault();
+    dispatch(clearFilter());
+    setSearch('TODOS')
+    setFilter('')
+  };
+
   return (
     <>
       <Navbar />
@@ -78,7 +94,7 @@ function Forum() {
                   className="p-2 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black"
                   onClick={(e) => handleSearch(e)}
                 >
-                <BsSearch/>
+                  <BsSearch />
                 </button>
               </span>
               <input
@@ -116,29 +132,39 @@ function Forum() {
                   </div>
                 </li>
                 <li className="rounded-sm">
-                  <div className="flex items-center p-2 space-x-3 rounded-md">
-                    <MdOutlineLocalFireDepartment size={25} />
-                    <span>Posteos mas vistos</span>
-                  </div>
+                  <button onClick={(e) => handleFilter(e)}>
+                    <div className="flex items-center p-2 space-x-3 rounded-md">
+                      <MdOutlineLocalFireDepartment size={25} />
+                      <span>Posteos mas comentados</span>
+                    </div>
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
-          <button onClick={() => dispatch(clearFilter())} className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black">
+          <button
+            onClick={(e) => handleReset(e)}
+            className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black"
+          >
             Limpiar filtros
           </button>
-          {user?(<Link to={'/posteo'} className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"><button>
-            Crea un post
-          </button></Link>): ""}
+          {user? <Link
+            to={"/posteo"}
+            className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"
+          >
+            <button>Crea un post</button>
+          </Link> : ""}
         </div>
-
         <div className="container mx-auto mt-12 ml-7 max-w-2xl">
-          <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
-            POSTEOS {search ? "SOBRE" : "SOBRE"}
+          <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black w-[55vw]">
+            POSTEOS SOBRE
             <span className="text-yellow-300 dark:text-yellow-300 ">
               {search ? " " + search.toUpperCase() : " TODOS"}
             </span>
             .
+            <span className="text-3xl text-gray-900">
+              {filter ? `(${filter})` : ""}
+            </span>
           </h1>
           <div className="flex flex-col mt-7">
             {filtered.length > 0 ? (
@@ -186,7 +212,7 @@ function Forum() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

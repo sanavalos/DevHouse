@@ -18,6 +18,7 @@ function Post() {
     id: "",
     userId: "",
     country: "",
+    responses: 0,
   });
   const [error, setError] = useState(null);
 
@@ -75,6 +76,7 @@ function Post() {
           id: uuid,
           userId: user?.uid,
           country: post.country,
+          responses: 0,
         });
         Swal.fire({
           icon: "success",

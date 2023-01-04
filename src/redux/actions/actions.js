@@ -7,6 +7,7 @@ export const FILTER_POSTS = "FILTER_POSTS";
 export const SEARCH_POSTS = "SEARCH_POSTS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const GET_RESPONSES = "GET_RESPONSES";
+export const MOST_COMMENTED = "MOST_COMMENTED";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -68,5 +69,11 @@ export function getResponses(post) {
       }));
       dispatch({ type: "GET_RESPONSES", payload: { newData, post } });
     });
+  };
+}
+
+export function mostCommented() {
+  return function (dispatch) {
+    dispatch({ type: "MOST_COMMENTED" });
   };
 }
