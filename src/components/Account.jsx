@@ -22,7 +22,7 @@ const Account = () => {
   );
   const [password, setPassword] = useState();
   const [fullname, setFullname] = useState();
-  const [instagram, setInstagram] = useState();
+  const [github, setGithub] = useState();
   const [career, setCareer] = useState("Full Stack");
 
   const updateInfo = (prop) => {
@@ -210,10 +210,10 @@ const Account = () => {
 
   const changeCareer = async () => {
     try {
-      updateInfo({ career: career });
+      updateInfo({ career: checked });
       Swal.fire({
         icon: "success",
-        title: "Carrera actualizado",
+        title: "Interes actualizado",
         showConfirmButton: false,
         timer: 2000,
       });
@@ -383,7 +383,7 @@ const Account = () => {
                   />
                   Full Stack Dev
                 </div>
-                <div className="text-xl ml-32 ">
+                <label className="text-xl ml-32 ">
                   <input
                     type="radio"
                     value="Data Scientist"
@@ -392,10 +392,10 @@ const Account = () => {
                     className=" p-2"
                   />
                   Data Scientist
-                </div>
+                </label>
                 <button
                   className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
-                  onClick={changeCareer}
+                  onClick={uploadImage}
                 >
                   Cambiar
                 </button>
