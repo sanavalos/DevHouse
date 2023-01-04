@@ -14,6 +14,8 @@ import AboutUs from "./components/AboutUs";
 import LegalInformation from "./components/LegalInformation";
 import Chat from "./components/Chat/Chat";
 import Post from "./components/Post";
+import Contact from "./components/Contact";
+
 function App() {
   return (
     <div>
@@ -32,6 +34,7 @@ function App() {
           <Route exact path="/informacion" element={<LegalInformation />} />
           <Route exact path="/chat" element={<Chat />} />
           <Route exact path="/posteo" element={<Post />} />
+          <Route exact path="/contacto" element={<Contact />} />
           <Route exact path="/*" element={<PageNotFound />} />
         </Routes>
       </AuthContextProvider>

@@ -17,6 +17,11 @@ function Footer() {
           <span className="text-2xl font-semibold text-white">Henry</span>
         </a>
         <div className="flex text-sm space-x-10">
+          <Link to="/contacto">
+            <button className="hover:text-red-500 hover:scale-110">
+              Contactanos
+            </button>
+          </Link>
           <Link to="/nosotros">
             <button className="hover:text-red-500 hover:scale-110">
               Sobre Nosotros
