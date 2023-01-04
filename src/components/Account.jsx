@@ -159,19 +159,20 @@ const Account = () => {
     }
   };
 
-  const handleInstagram = async (e) => {
-    setInstagram(e.target.value);
+  const handleGithub = async (e) => {
+    setGithub(e.target.value);
   };
 
-  const changeInstagram = async () => {
+  const changeGithub = async () => {
     try {
-      updateInfo({ instagram: instagram });
+      updateInfo({ github: github });
       Swal.fire({
         icon: "success",
-        title: "Instagram actualizado",
+        title: "Github actualizado",
         showConfirmButton: false,
         timer: 2000,
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -210,10 +211,10 @@ const Account = () => {
 
   const changeCareer = async () => {
     try {
-      updateInfo({ career: checked });
+      updateInfo({ career: career });
       Swal.fire({
         icon: "success",
-        title: "Interes actualizado",
+        title: "Carrera actualizada",
         showConfirmButton: false,
         timer: 2000,
       });
@@ -222,7 +223,7 @@ const Account = () => {
     }
   };
   return (
-    <div className="">
+    <div>
       <Navbar />
       <div className="flex">
         <div className="w-[40%] bg-yellow-300 h-screen">
@@ -240,7 +241,7 @@ const Account = () => {
           </div>
         </div>
         <div className="w-[60%] bg-slate-200 h-screen">
-          <div className="m-20 border-2 border-black min-h-fit rounded-xl">
+          <div className="m-20 mt-10 border-2 border-black min-h-fit rounded-xl">
             <div className="border-b-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
             <div className="border-b-2 border-black h-32 flex items-center space-x-8">
               <img
@@ -252,9 +253,6 @@ const Account = () => {
                 {user?.displayName || "Nombre Usuario"}
               </h2>
               <h2 className="text-3xl font-semibold">{userId?.country}</h2>
-              <button className="p-2 bg-black text-yellow-300 text-2xl hover:scale-110 hover:text-red-500 rounded-xl">
-                Mensajes
-              </button>
               <button
                 className="p-2 bg-black text-yellow-300 text-2xl hover:scale-110 hover:text-red-500 rounded-xl"
                 onClick={handleLogout}
@@ -311,21 +309,20 @@ const Account = () => {
               </div>
               <div className="flex m-4 items-center">
                 <label className="text-xl ml-32 w-20 font-semibold">
-                  Instagram:
+                  GitHub:
                 </label>
                 <input
                   className="rounded-xl w-[50%] p-2 ml-20"
-                  placeholder="Tag de tu instagram"
-                  onChange={handleInstagram}
+                  placeholder={userId?.github ?? "Link de Github"}
+                  onChange={handleGithub}
                 ></input>
                 <button
                   className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
-                  onClick={changeInstagram}
+                  onClick={changeGithub}
                 >
                   Cambiar
                 </button>
               </div>
-
               <div className="flex m-4 items-center">
                 <label className="text-xl ml-32 w-20 font-semibold">
                   Descripción:
@@ -376,8 +373,8 @@ const Account = () => {
                 <div className="text-xl ml-32 ">
                   <input
                     type="radio"
-                    value="Full Stack"
-                    checked={career === "Full Stack"}
+                    value="full stack"
+                    checked={career === "full stack"}
                     onChange={handleCareer}
                     className=" p-2 "
                   />
@@ -386,16 +383,16 @@ const Account = () => {
                 <label className="text-xl ml-32 ">
                   <input
                     type="radio"
-                    value="Data Scientist"
-                    checked={career === "Data Scientist"}
+                    value="data scientist"
+                    checked={career === "data scientist"}
                     onChange={handleCareer}
                     className=" p-2"
                   />
                   Data Scientist
                 </label>
                 <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ml-8"
-                  onClick={uploadImage}
+                  className="ml-16 p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
+                  onClick={changeCareer}
                 >
                   Cambiar
                 </button>
