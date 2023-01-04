@@ -23,7 +23,7 @@ const SendMessage = ({ scroll }) => {
   };
 
   return (
-    <form onSubmit={sendMessage} className="h-14 w-full max-w-[728px] flex text-xl absolute -bottom-6">
+    <form onSubmit={sendMessage} className="h-14 w-full max-w-[728px] flex text-xl absolute -bottom-10">
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}

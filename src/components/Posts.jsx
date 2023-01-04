@@ -47,7 +47,7 @@ function Posts({ posts }) {
           showComments &&
           responses?.map((response) => {
             return (
-              <div className=" px-4 py-5 shadow mb-7">
+              <div className=" px-4 py-5 shadow mb-7 bg-slate-300 rounded-xl">
                 <Link
                   to={`/perfil/${response.userId}`}
                   className="uppercase text-sm font-medium text-gray-500 truncate"

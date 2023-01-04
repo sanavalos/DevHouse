@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { RiGithubFill } from "react-icons/ri";
+import { RiGithubFill, RiGroup2Fill } from "react-icons/ri";
 import { MdPlace } from "react-icons/md";
 import { getUserById } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,6 +39,10 @@ function Profile() {
               {user?.country}
             </h1>
             <p className="py-2 text-lg text-gray-700">{user?.description}</p>
+            <div className="flex items-center mt-4 text-gray-700">
+              <RiGroup2Fill className="h-6 w-6 fill-current"/>
+              <h1 className="px-2 capitalize">{user?.career}</h1>
+            </div>
             <div className="flex items-center mt-4 text-gray-700">
               <RiGithubFill className="h-6 w-6 fill-current" />
               <h1 className="px-2">{user?.github}</h1>

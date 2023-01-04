@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../firebase";
 import { updatePassword, updateProfile } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { getUserById } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,7 +56,8 @@ const Account = () => {
     await uploadBytes(imageRef, imageUp);
     const imageURL = await getDownloadURL(imageRef);
     updateProfile(user, { photoURL: imageURL });
-    updateInfo({ image: imageURL });
+    let docRef = doc(db, "users", user?.uid);
+    await updateDoc(docRef, { image: imageURL } )
     Swal.fire({
       icon: "success",
       title: "Imagen actualizada",
@@ -113,6 +114,7 @@ const Account = () => {
         showConfirmButton: false,
         timer: 2000,
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -370,28 +372,28 @@ const Account = () => {
                 <label className="text-xl ml-32 w-20 font-semibold">
                   Carrera:
                 </label>
-                <div className="text-xl ml-32 ">
+                <div className="ml-20">
                   <input
                     type="radio"
                     value="full stack"
                     checked={career === "full stack"}
                     onChange={handleCareer}
-                    className=" p-2 "
+                    className="m-1"
                   />
                   Full Stack Dev
                 </div>
-                <label className="text-xl ml-32 ">
+                <label className="ml-20">
                   <input
                     type="radio"
                     value="data scientist"
                     checked={career === "data scientist"}
                     onChange={handleCareer}
-                    className=" p-2"
+                    className="m-1"
                   />
                   Data Scientist
                 </label>
                 <button
-                  className="ml-16 p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
+                  className="ml-[190px] p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
                   onClick={changeCareer}
                 >
                   Cambiar

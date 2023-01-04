@@ -127,9 +127,9 @@ function Forum() {
           <button onClick={() => dispatch(clearFilter())} className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black">
             Limpiar filtros
           </button>
-          <Link to={'/posteo'} className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"><button>
+          {user?(<Link to={'/posteo'} className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"><button>
             Crea un post
-          </button></Link>
+          </button></Link>): ""}
         </div>
 
         <div className="container mx-auto mt-12 ml-7 max-w-2xl">

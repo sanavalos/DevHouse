@@ -8,9 +8,10 @@ const Message = ({ message }) => {
       : 'bg-slate-300 text-black float-left rounded-br-full';
 
   return (
-    <div>
-      <div className={`flex items-center shadow-xl m-4 py-2 px-3 rounded-tl-full rounded-tr-full ${messageClass}`}>
-        <p className='relative mt-[-4rem] text-gray-600 text-xs'>{message.name}</p>
+    <div className="my-2">
+      {message.uid === auth.currentUser.uid ? (<p className='text-right mx-4 my-1 text-gray-600 text-xs'>{message.name}</p>)
+      : (<p className='text-left mx-4 my-1 text-gray-600 text-xs'>{message.name}</p>)}
+      <div className={`flex items-center shadow-xl mx-4 py-2 px-3 rounded-tl-full rounded-tr-full ${messageClass}`}>
         <p>{message.text}</p>
       </div>
     </div>

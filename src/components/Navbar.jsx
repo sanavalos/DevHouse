@@ -35,6 +35,9 @@ function Navbar() {
         </h1>
       </Link>
       <div className="absolute right-10 space-x-10">
+        <Link to="/home">
+          <button className="hover:text-red-500 hover:scale-110">Mapa</button>
+        </Link>
         <Link to="/foro">
           <button className="hover:text-red-500 hover:scale-110">Foros</button>
         </Link>
