@@ -7,6 +7,7 @@ export const FILTER_POSTS = "FILTER_POSTS";
 export const SEARCH_POSTS = "SEARCH_POSTS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const GET_RESPONSES = "GET_RESPONSES";
+export const LAST_POST = "LAST_POST";
 export const MOST_COMMENTED = "MOST_COMMENTED";
 
 export function getUsers() {
@@ -77,3 +78,9 @@ export function mostCommented() {
     dispatch({ type: "MOST_COMMENTED" });
   };
 }
+
+export function orderByLastPost() {
+  return function (dispatch) {
+    dispatch({type: "LAST_POST"})
+  }
+};

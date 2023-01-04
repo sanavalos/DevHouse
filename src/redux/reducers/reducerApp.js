@@ -1,3 +1,4 @@
+
 import {
   GET_USERS,
   GET_USER,
@@ -6,6 +7,7 @@ import {
   SEARCH_POSTS,
   CLEAR_FILTER,
   GET_RESPONSES,
+  LAST_POST,
   MOST_COMMENTED,
 } from "../actions/actions";
 
@@ -89,6 +91,21 @@ export function reducerApp(state = initialState, action) {
         postId: action.payload.post,
       };
 
+      case LAST_POST:
+        let sortedPost = state.posts.sort((a,b) =>{
+          if (a.timestamp > b.timestamp){
+            return -1
+          }
+          if (a.timestamp < b.timestamp){
+            return 1
+          }
+          return 0
+        })
+        return{
+          ...state,
+          filtered: sortedPost
+        }
+
     case MOST_COMMENTED:
       let mostCommented = [];
       if (state.filtered.length > 0) {
@@ -102,5 +119,7 @@ export function reducerApp(state = initialState, action) {
       return state;
   }
 }
+
+
 
 export default reducerApp;

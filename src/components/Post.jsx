@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { v4 } from "uuid";
 import { UserAuth } from "../context/AuthContext";
@@ -18,6 +18,7 @@ function Post() {
     id: "",
     userId: "",
     country: "",
+    timestamp: new Date(),
     responses: 0,
   });
   const [error, setError] = useState(null);
@@ -76,6 +77,7 @@ function Post() {
           id: uuid,
           userId: user?.uid,
           country: post.country,
+          timestamp: Date.now(),
           responses: 0,
         });
         Swal.fire({
@@ -84,6 +86,7 @@ function Post() {
           showConfirmButton: false,
           timer: 2000,
         });
+
         navigate("/foro");
       } catch (error) {
         console.log(error);
