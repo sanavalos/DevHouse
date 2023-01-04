@@ -6,6 +6,7 @@ import {
   SEARCH_POSTS,
   CLEAR_FILTER,
   GET_RESPONSES,
+  MOST_COMMENTED,
 } from "../actions/actions";
 
 const initialState = {
@@ -88,6 +89,15 @@ export function reducerApp(state = initialState, action) {
         postId: action.payload.post,
       };
 
+    case MOST_COMMENTED:
+      let mostCommented = [];
+      if (state.posts.length > 0) {
+        mostCommented = state.posts.sort((a, b) => b.responses - a.responses);
+      }
+      return {
+        ...state,
+        filtered: mostCommented,
+      };
     default:
       return state;
   }
