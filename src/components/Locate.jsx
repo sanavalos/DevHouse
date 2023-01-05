@@ -3,7 +3,7 @@ import React from "react";
 function Locate({ panTo }) {
   return (
     <button
-      className="absolute top-[8vh] right-10 border-none z-10"
+      className="fixed top-[10vh] right-10 border-none z-10"
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -16,7 +16,7 @@ function Locate({ panTo }) {
         );
       }}
     >
-      <img src="gps.png" alt="gps button" className="w-[30px] cursor-pointer" />
+      <img src="gps.png" alt="gps button" className="w-[70px] cursor-pointer" />
     </button>
   );
 }
