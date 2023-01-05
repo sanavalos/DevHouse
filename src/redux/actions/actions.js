@@ -9,6 +9,7 @@ export const CLEAR_FILTER = "CLEAR_FILTER";
 export const GET_RESPONSES = "GET_RESPONSES";
 export const LAST_POST = "LAST_POST";
 export const MOST_COMMENTED = "MOST_COMMENTED";
+export const USERS_COUNTRY = "USERS_COUNTRY";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -81,6 +82,20 @@ export function mostCommented() {
 
 export function orderByLastPost() {
   return function (dispatch) {
-    dispatch({type: "LAST_POST"})
-  }
-};
+    dispatch({ type: "LAST_POST" });
+  };
+}
+
+export function usersCountry(country, userId) {
+  return async function (dispatch) {
+    await getDocs(collection(db, "users")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+      }));
+      dispatch({
+        type: "USERS_COUNTRY",
+        payload: { country, userId, newData },
+      });
+    });
+  };
+}

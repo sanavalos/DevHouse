@@ -6,6 +6,9 @@ import { RiGithubFill, RiGroup2Fill } from "react-icons/ri";
 import { MdPlace } from "react-icons/md";
 import { getUserById } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
+import SimilarUsers from "./SimilarUsers";
+import badgeFs from "../media/fstackdev.png";
+import badgeDs from "../media/datascientist.png";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -18,12 +21,17 @@ function Profile() {
   }, [dispatch, id]);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen grid">
       <Navbar />
-      <div className="flex justify-center h-[calc(100%_-_10.5rem)] bg-slate-200">
+      <div className="flex justify-end bg-slate-200 ">
+        <img
+          src={user?.career === "full stack" ? badgeFs : badgeDs}
+          className="h-[13rem] absolute top-16 right-[52vw] -rotate-12"
+          alt="badge"
+        />
         <div className="w-1/4 bg-white shadow-lg rounded-xl my-16 border-2 border-black">
           <img
-            className="w-full h-72 rounded-t-xl"
+            className="w-full h-[20rem] rounded-t-xl"
             src={
               user?.image
                 ? user.image
@@ -40,7 +48,7 @@ function Profile() {
             </h1>
             <p className="py-2 text-lg text-gray-700">{user?.description}</p>
             <div className="flex items-center mt-4 text-gray-700">
-              <RiGroup2Fill className="h-6 w-6 fill-current"/>
+              <RiGroup2Fill className="h-6 w-6 fill-current" />
               <h1 className="px-2 capitalize">{user?.career}</h1>
             </div>
             <div className="flex items-center mt-4 text-gray-700">
@@ -62,6 +70,7 @@ function Profile() {
             </div>
           </div>
         </div>
+        <SimilarUsers country={user?.country} userId={user?.uid} />
       </div>
       <Footer />
     </div>

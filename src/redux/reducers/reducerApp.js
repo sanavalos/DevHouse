@@ -1,4 +1,3 @@
-
 import {
   GET_USERS,
   GET_USER,
@@ -9,6 +8,7 @@ import {
   GET_RESPONSES,
   LAST_POST,
   MOST_COMMENTED,
+  USERS_COUNTRY,
 } from "../actions/actions";
 
 const initialState = {
@@ -18,6 +18,7 @@ const initialState = {
   filtered: [],
   responses: [],
   postId: "",
+  usersCountry: [],
 };
 
 export function reducerApp(state = initialState, action) {
@@ -91,35 +92,46 @@ export function reducerApp(state = initialState, action) {
         postId: action.payload.post,
       };
 
-      case LAST_POST:
-        let sortedPost = state.posts.sort((a,b) =>{
-          if (a.timestamp > b.timestamp){
-            return -1
-          }
-          if (a.timestamp < b.timestamp){
-            return 1
-          }
-          return 0
-        })
-        return{
-          ...state,
-          filtered: sortedPost
+    case LAST_POST:
+      let sortedPost = state.posts.sort((a, b) => {
+        if (a.timestamp > b.timestamp) {
+          return -1;
         }
+        if (a.timestamp < b.timestamp) {
+          return 1;
+        }
+        return 0;
+      });
+      return {
+        ...state,
+        filtered: sortedPost,
+      };
 
     case MOST_COMMENTED:
       let mostCommented = [];
       if (state.filtered.length > 0) {
-        mostCommented = state.filtered.sort((a, b) => b.responses - a.responses);
+        mostCommented = state.filtered.sort(
+          (a, b) => b.responses - a.responses
+        );
       }
       return {
         ...state,
         filtered: mostCommented,
       };
+
+    case USERS_COUNTRY:
+      const users = action.payload.newData.filter(
+        (user) =>
+          user.country == action.payload.country &&
+          user.uid !== action.payload.userId
+      );
+      return {
+        ...state,
+        usersCountry: users.slice(0, 3),
+      };
     default:
       return state;
   }
 }
-
-
 
 export default reducerApp;
