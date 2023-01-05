@@ -10,11 +10,10 @@ function Footer() {
         </span>
         <a href="https://www.soyhenry.com/" className="flex" target={"_blank"}>
           <img
-            src="https://assets.soyhenry.com/LOGO-REDES-01_og.jpg"
-            className="mr-3 h-8 rounded-md"
+            src="https://assets.soyhenry.com/henry-landing/assets/Henry/logo-white.png"
+            className="mr-3 h-8"
             alt="Henry"
           />
-          <span className="text-2xl font-semibold text-white">Henry</span>
         </a>
         <div className="flex text-sm space-x-10">
           <Link to="/contacto">

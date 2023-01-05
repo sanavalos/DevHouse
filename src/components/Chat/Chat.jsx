@@ -21,7 +21,7 @@ const Chat = () => {
   }, []);
 
   return (
-    <div className="w-96 overflow-scroll">
+    <div className="w-96 overflow-scroll overflow-x-hidden">
       <main className='flex flex-col p-[10px]'>
         {messages &&
           messages.map((message) => (

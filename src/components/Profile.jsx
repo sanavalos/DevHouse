@@ -31,7 +31,7 @@ function Profile() {
             }
             alt="User"
           />
-          <div className="py-4 px-6 space-y-4">
+          <div className="py-4 px-6">
             <h1 className="text-3xl font-semibold text-gray-800 text-center">
               {user?.name}
             </h1>
