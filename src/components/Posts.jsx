@@ -15,7 +15,10 @@ function Posts({ posts }) {
 
   return posts.map((post) => {
     return (
-      <div className="w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow mb-7">
+      <div
+        key={post.id}
+        className="w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow mb-7"
+      >
         <div className="m-2 font-semibold text-gray-700 text-3xl">
           {post.title}
         </div>
@@ -47,7 +50,10 @@ function Posts({ posts }) {
           showComments &&
           responses?.map((response) => {
             return (
-              <div className=" px-4 py-5 shadow mb-7 bg-slate-300 rounded-xl">
+              <div
+                key={response.id}
+                className=" px-4 py-5 shadow mb-7 bg-slate-300 rounded-xl"
+              >
                 <Link
                   to={`/perfil/${response.userId}`}
                   className="uppercase text-sm font-medium text-gray-500 truncate"

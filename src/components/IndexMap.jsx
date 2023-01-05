@@ -16,7 +16,6 @@ import { UserAuth } from "../context/AuthContext";
 export default function IndexMap() {
   const dispatch = useDispatch();
   const { user } = UserAuth();
-  console.log(user);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -83,7 +82,9 @@ export default function IndexMap() {
                     id="modal-headline"
                   >
                     {user?.email
-                      ? user?.displayName ? `Bienvenido ${user?.displayName}` : `Bienvenido Henry`
+                      ? user?.displayName
+                        ? `Bienvenido ${user?.displayName}`
+                        : `Bienvenido Henry`
                       : `Inicia sesion para utilizar la busqueda`}
                   </h3>
                 </div>
@@ -162,16 +163,19 @@ export default function IndexMap() {
                 <span className="font-semibold">Localidad</span>:{" "}
                 {selected.location}
               </p>
-              {!selected.image ? (<img
-                src="https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"
-                alt="user"
-                className="h-32 w-full rounded-lg mt-2"
-              />) : 
-              (<img
-                src={selected.image}
-                alt={selected.name}
-                className="h-32 w-full rounded-lg mt-2"
-              />)}
+              {!selected.image ? (
+                <img
+                  src="https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"
+                  alt="user"
+                  className="h-32 w-full rounded-lg mt-2"
+                />
+              ) : (
+                <img
+                  src={selected.image}
+                  alt={selected.name}
+                  className="h-32 w-full rounded-lg mt-2"
+                />
+              )}
             </>
           </InfoWindow>
         ) : null}

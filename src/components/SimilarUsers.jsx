@@ -19,7 +19,10 @@ function SimilarUsers({ country, userId }) {
       </p>
       {users.length > 0 ? (
         users.map((user) => (
-          <div className="flex items-centerborder rounded-xl shadow-md flex-row  bg-gray-800 mt-12 max-w-xl border-2 border-black">
+          <div
+            key={user.uid}
+            className="flex items-centerborder rounded-xl shadow-md flex-row  bg-gray-800 mt-12 max-w-xl border-2 border-black"
+          >
             <img
               className="object-cover  rounded-t-lg max-h-32 w-36 md:rounded-none md:rounded-l-lg"
               src={user.image}

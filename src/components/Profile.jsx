@@ -62,7 +62,10 @@ function Profile() {
             <div className="flex m-4 items-center justify-center">
               <ul className="flex flex-wrap">
                 {user?.interest?.map((i) => (
-                  <li className="bg-black text-yellow-300 p-2 m-2 rounded-xl">
+                  <li
+                    key={i}
+                    className="bg-black text-yellow-300 p-2 m-2 rounded-xl"
+                  >
                     {i}
                   </li>
                 ))}

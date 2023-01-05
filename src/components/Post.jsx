@@ -127,7 +127,9 @@ function Post() {
                 Selecionar un pais
               </option>{" "}
               {countries.map((country) => (
-                <option value={country}>{country}</option>
+                <option key={country} value={country}>
+                  {country}
+                </option>
               ))}
             </select>
           </div>

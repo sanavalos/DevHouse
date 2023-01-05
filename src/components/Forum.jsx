@@ -62,19 +62,15 @@ function Forum() {
     dispatch(filterPosts(e.target.value));
   };
 
-
-
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(searchPosts(search));
   };
 
-  const handleLastPost = () =>{
-    setFilter("ultimos")
-    dispatch(orderByLastPost())
-  }
-
-
+  const handleLastPost = () => {
+    setFilter("ultimos");
+    dispatch(orderByLastPost());
+  };
 
   const handleFilter = (e) => {
     e.preventDefault();
@@ -85,8 +81,8 @@ function Forum() {
   const handleReset = (e) => {
     e.preventDefault();
     dispatch(clearFilter());
-    setSearch('TODOS')
-    setFilter('')
+    setSearch("TODOS");
+    setFilter("");
   };
 
   return (
@@ -119,10 +115,7 @@ function Forum() {
                 <li className="rounded-sm">
                   <div className="flex items-center p-2 space-x-3 rounded-md">
                     <BiWorld size={40} />
-                    <label
-                      for="countries"
-                      className="block text-sm font-medium text-gray-900"
-                    >
+                    <label className="block text-sm font-medium text-gray-900">
                       Paises
                     </label>
                     <select
@@ -130,7 +123,7 @@ function Forum() {
                       onChange={(e) => handleChange(e)}
                     >
                       {countries.map((country) => (
-                        <option value={country}>{country}</option>
+                        <option key={country}>{country}</option>
                       ))}
                     </select>
                   </div>
@@ -140,8 +133,8 @@ function Forum() {
                     <div className="flex items-center p-2 space-x-3 rounded-md">
                       <BsFilePostFill size={25} />
                       <span>Ultimos posteos</span>
-                      </div>
-                    </button>
+                    </div>
+                  </button>
                 </li>
                 <li className="rounded-sm">
                   <button onClick={(e) => handleFilter(e)}>
@@ -160,12 +153,16 @@ function Forum() {
           >
             Limpiar filtros
           </button>
-          {user? <Link
-            to={"/posteo"}
-            className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"
-          >
-            <button>Crea un post</button>
-          </Link> : ""}
+          {user ? (
+            <Link
+              to={"/posteo"}
+              className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"
+            >
+              <button>Crea un post</button>
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
         <div className="container mx-auto mt-12 ml-7 max-w-2xl">
           <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black w-[55vw]">
