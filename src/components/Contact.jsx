@@ -23,7 +23,7 @@ function Contact() {
       showConfirmButton: false,
       timer: 2000,
     });
-    navigate('/home')
+    navigate('/inicio')
   }
 
   useEffect(() => {

@@ -40,7 +40,7 @@ function Posts({ posts }) {
           <div className="flex w-full">
             <button
               className="rounded-lg  hover:text-red-500 m-2"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/conectarse")}
             >
               Inicia sesion para comentar
             </button>

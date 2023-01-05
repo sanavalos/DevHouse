@@ -16,7 +16,7 @@ const PageNotFound = () => {
               alt="bannerhenry"
             />
           <p className="text-2xl mt-4">
-            Regresa a <Link to={'/home'}><button className="p-2 bg-black text-yellow-300 rounded-lg hover:text-red-500 hover:scale-110">Home</button></Link>
+            Regresa a <Link to={'/inicio'}><button className="p-2 bg-black text-yellow-300 rounded-lg hover:text-red-500 hover:scale-110">Home</button></Link>
           </p>
         </div>
       </div>

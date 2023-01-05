@@ -211,7 +211,7 @@ function Forum() {
                 <h1 className="text-2xl font-bold">
                   Inicia sesion para chatear
                 </h1>
-                <Link to="/login">
+                <Link to="/conectarse">
                   <button className="bg-yellow-300 text-black font-bold py-2 px-4 rounded">
                     Iniciar sesion
                   </button>

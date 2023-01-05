@@ -362,7 +362,7 @@ const Account = () => {
                         />
                         <label
                           for={item}
-                          className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          className="w-full py-3 ml-2 text-sm font-medium text-gray-300"
                         >
                           {item}
                         </label>
@@ -377,63 +377,6 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              {/* <div className="flex m-4 items-center">
-                <label className="text-xl  w-20 font-semibold">
-                  Intereses:
-                </label>
-                <div className="flex rounded-xl w-[50%] p-2 ">
-                  {intereses.map((item, index) => (
-                    <div key={index} className="w-full flex justify-between">
-                      <div>
-                        <input
-                          value={item}
-                          type="checkbox"
-                          onChange={handleCheck}
-                        />
-                        <span>{item}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
-                  onClick={changeInterest}
-                >
-                  Cambiar
-                </button>
-              </div> */}
-              {/* ----------------------------------------- */}
-              {/* <div className="flex m-4 items-center">
-                <label className="text-xl  w-20 font-semibold">
-                  Carrera:
-                </label>
-                <div className="">
-                  <input
-                    type="radio"
-                    value="full stack"
-                    checked={career === "full stack"}
-                    onChange={handleCareer}
-                    className="m-1"
-                  />
-                  Full Stack Dev
-                </div>
-                <label className="">
-                  <input
-                    type="radio"
-                    value="data scientist"
-                    checked={career === "data scientist"}
-                    onChange={handleCareer}
-                    className="m-1"
-                  />
-                  Data Scientist
-                </label>
-                <button
-                  className="ml-[190px] p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
-                  onClick={changeCareer}
-                >
-                  Cambiar
-                </button>
-              </div> */}
               <div className="flex m-4 items-center justify-between">
                 <h3 className="text-xl  w-20 font-semibold">Carrera:</h3>
                 <ul className="items-center w-[50%] text-sm font-medium rounded-lg flex bg-gray-700 border-gray-600 text-white">
@@ -445,7 +388,7 @@ const Account = () => {
                         value="full stack"
                         checked={career === "full stack"}
                         onChange={handleCareer}
-                        className="w-4 h-4 text-blue-600 rounded dark:focus:ring-blue-600 ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500"
+                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 focus:ring-2 bg-gray-600 border-gray-500"
                       />
                       <label
                         for="full-stack-dev"
@@ -455,7 +398,7 @@ const Account = () => {
                       </label>
                     </div>
                   </li>
-                  <li className="w-full  dark:border-gray-600">
+                  <li className="w-full border-gray-600">
                     <div className="flex items-center pl-3">
                       <input
                         id="data-scientist"
@@ -463,7 +406,7 @@ const Account = () => {
                         value="data scientist"
                         checked={career === "data scientist"}
                         onChange={handleCareer}
-                        className="w-4 h-4 text-blue-600 rounded dark:focus:ring-blue-600 ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500"
+                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 focus:ring-2 bg-gray-600 border-gray-500"
                       />
                       <label
                         for="data-scientist"
@@ -481,26 +424,10 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-
-              {/* <div className="flex m-4 items-center justify-between">
-                <label className="text-xl  w-20 font-semibold">Imagen:</label>
-                <input
-                  className="rounded-xl w-[50%] p-2 "
-                  type={"file"}
-                  onChange={handleChange}
-                ></input>
-                <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
-                  onClick={uploadImage}
-                >
-                  Cambiar
-                </button>
-              </div> */}
-
               <div class="flex flex-col  px-24 items-center justify-center w-full">
                 <label
                   for="dropzone-file"
-                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer hover:bg-bray-800 bg-gray-700 border-gray-600 hover:border-gray-500 hover:bg-gray-600"
                 >
                   <div class="flex flex-col items-center justify-center pt-5 pb-6">
                     <AiOutlineCloudUpload
@@ -508,13 +435,13 @@ const Account = () => {
                       className="text-slate-200"
                     />
 
-                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    <p class="mb-2 text-sm text-gray-400">
                       <span class="font-semibold">
                         Click para elegir archivo
                       </span>{" "}
                       o arrastrar y soltar
                     </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                    <p class="text-xs text-gray-400">
                       SVG, PNG or JPG (MAX. 800x400px)
                     </p>
                   </div>
@@ -538,8 +465,6 @@ const Account = () => {
                   </div>
                 </div>
               </div>
-
-              {/*  */}
               <div className="flex m-4 items-center justify-center">
                 <button
                   className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "

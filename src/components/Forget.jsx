@@ -24,7 +24,7 @@ const Forget = () => {
       showConfirmButton: false,
       timer: 2000
       })
-    navigate('/login')
+    navigate('/conectarse')
     } catch (error) {
       if (error.code === 'auth/user-not-found'){
         Swal.fire({

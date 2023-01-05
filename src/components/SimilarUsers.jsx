@@ -13,7 +13,7 @@ function SimilarUsers({ country, userId }) {
     };
   }, [userId]);
   return (
-    <div className="flex flex-col justify-center bg-slate-200 ml-[13vw] mr-3">
+    <div className="flex flex-col justify-center bg-slate-200 ml-[13vw] mr-8">
       <p className="text-2xl font-extrabold tracking-tight leading-none md:text-3xl lg:text-4xl text-black">
         HENRYS EN {country?.toUpperCase()}
       </p>
@@ -36,7 +36,7 @@ function SimilarUsers({ country, userId }) {
                 {user?.location}
               </p>
               <p className="mb-3  font-normal text-slate-300">
-                {user?.description ?? "No escribí nada sobre mi"}
+                {user?.github ?? "No puse github"}
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ function SimilarUsers({ country, userId }) {
           onClick={() => dispatch(usersCountry(country, userId))}
           className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black"
         >
-          VER MAS USUARIOS
+          VER MAS HENRYS
         </button>
       )}
     </div>

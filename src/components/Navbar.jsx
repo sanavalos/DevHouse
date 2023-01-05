@@ -29,19 +29,19 @@ function Navbar() {
         alt="logo"
         className="w-14 h-10 border-b-2 border-black"
       />
-      <Link to="/home">
+      <Link to="/inicio">
         <h1 className="ml-4 text-xl hover:text-red-500 hover:scale-110">
           HenryHouse
         </h1>
       </Link>
       <div className="absolute right-10 space-x-10">
-        <Link to="/home">
+        <Link to="/inicio">
           <button className="hover:text-red-500 hover:scale-110">Mapa</button>
         </Link>
         <Link to="/foro">
           <button className="hover:text-red-500 hover:scale-110">Foros</button>
         </Link>
-        <Link to="/login">
+        <Link to="/conectarse">
           <button className="hover:text-red-500 hover:scale-110">
             {user?.uid ? "Perfil" : "Iniciar Sesion"}
           </button>

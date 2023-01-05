@@ -28,7 +28,7 @@ const CreateAccount = () => {
           showConfirmButton: false,
           timer: 2000,
         });
-        navigate("/home");
+        navigate("/inicio");
       }
     } catch (error) {
       console.log(error);
@@ -77,7 +77,7 @@ const CreateAccount = () => {
             <h3 className="text-lg">
               ¿Ya tienes una cuenta?, puedes ingresar{" "}
               <Link
-                to="/login"
+                to="/conectarse"
                 className="underline hover:text-red-500 hover:text-xl"
               >
                 aquí

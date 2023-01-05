@@ -24,14 +24,16 @@ function Profile() {
     <div className="h-screen grid">
       <Navbar />
       <div className="flex justify-end bg-slate-200 ">
-        <img
-          src={user?.career === "full stack" ? badgeFs : badgeDs}
-          className="h-[13rem] absolute top-16 right-[52vw] -rotate-12"
-          alt="badge"
-        />
-        <div className="w-1/4 bg-white shadow-lg rounded-xl my-16 border-2 border-black">
+      {user?.career && (
           <img
-            className="w-full h-[20rem] rounded-t-xl"
+            src={user?.career === "full stack" ? badgeFs : badgeDs}
+            className="h-[13rem] absolute top-16 right-[52vw] -rotate-12"
+            alt="badge"
+          />
+        )}
+        <div className="w-1/4 bg-white shadow-lg rounded-xl my-16 border-2 border-black min-h-[650px]">
+          <img
+            className="w-full min-h-[25rem] rounded-t-xl max-h-[25rem]"
             src={
               user?.image
                 ? user.image
@@ -47,14 +49,10 @@ function Profile() {
               {user?.country}
             </h1>
             <p className="py-2 text-lg text-gray-700">{user?.description}</p>
-            <div className="flex items-center mt-4 text-gray-700">
-              <RiGroup2Fill className="h-6 w-6 fill-current" />
-              <h1 className="px-2 capitalize">{user?.career}</h1>
-            </div>
-            <div className="flex items-center mt-4 text-gray-700">
+            {user?.github && <div className="flex items-center mt-4 text-gray-700">
               <RiGithubFill className="h-6 w-6 fill-current" />
               <h1 className="px-2">{user?.github}</h1>
-            </div>
+            </div>}
             <div className="flex items-center mt-4 text-gray-700">
               <MdPlace className="h-6 w-6  fill-current" />
               <h1 className="px-2">{user.location}</h1>
