@@ -24,13 +24,14 @@ function Navbar() {
 
   return (
     <div className="bg-black w-[100%] text-yellow-300 flex items-center h-[8vh] sticky top-0 z-10">
-      <img
-        src="https://assets.soyhenry.com/LOGO-REDES-01_og.jpg"
-        alt="logo"
-        className="w-14 h-10 border-b-2 border-black"
-      />
-      <Link to="/inicio">
-        <h1 className="ml-4 text-xl hover:text-red-500 hover:scale-110">
+      <Link to="/inicio" className="flex flex-row items-center">
+        <img
+          src="https://assets.soyhenry.com/LOGO-REDES-01_og.jpg"
+          alt="logo"
+          className="w-14 h-10 border-b-2 border-black ml-10"
+        />
+
+        <h1 className="text-2xl ml-2 font-extrabold tracking-tight hover:scale-110 text-[#FFFF01]">
           HenryHouse
         </h1>
       </Link>
