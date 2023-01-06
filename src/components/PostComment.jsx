@@ -25,16 +25,17 @@ function PostComment({ postId }) {
     }
   };
   return (
-    <div className="w-full m-2">
-      <input
-        type="text"
+    <div className="w-full m-2 flex">
+      <textarea
         placeholder="Escribir comentario..."
+        cols="50"
+        rows="2"
         onChange={(e) => setComment(e.target.value)}
-        className="rounded-lg p-1"
+        className="rounded-lg p-2 text-lg"
       />
       <button
         onClick={(e) => commentPost(e)}
-        className="p-1 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black m-2"
+        className="p-2 my-4 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black m-2"
       >
         Enviar
       </button>
