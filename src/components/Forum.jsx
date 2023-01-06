@@ -202,8 +202,8 @@ function Forum() {
             )}
           </div>
         </div>
-        <div className="max-w-[728px] mr-7 text-center ">
-          <div className="flex flex-col h-[83vh] mt-10 border relative shadow mb-7 bg-white">
+        <div className="max-w-[728px] mt-3 mr-7 text-center fixed right-0">
+          <div className="flex flex-col max-h-[65vh] mt-10 border  shadow mb-7 bg-white">
             {user ? (
               <Chat />
             ) : (
