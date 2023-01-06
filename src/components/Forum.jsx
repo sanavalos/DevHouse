@@ -202,13 +202,18 @@ function Forum() {
             )}
           </div>
         </div>
-        <div className="max-w-[728px] mt-3 mr-7 text-center fixed right-0">
-          <div className="flex flex-col max-h-[65vh] mt-10 border  shadow mb-7 bg-white">
-            {user ? (
+
+        {user ? (
+          <div className="max-w-[728px] mt-3 mr-7 text-center fixed right-0">
+            <div className="flex flex-col max-h-[65vh] mt-10 border  shadow mb-7 bg-white">
               <Chat />
-            ) : (
+            </div>
+          </div>
+        ) : (
+          <div className="max-w-[728px] mt-3 mr-7 text-center ">
+            <div className="flex flex-col h-[83vh] mt-10 border relative shadow mb-7 bg-white">
               <div className="flex flex-col items-center justify-center h-full">
-                <h1 className="text-2xl font-bold">
+                <h1 className="text-2xl font-bold m-10">
                   Inicia sesion para chatear
                 </h1>
                 <Link to="/conectarse">
@@ -217,9 +222,9 @@ function Forum() {
                   </button>
                 </Link>
               </div>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <Footer />
     </>
