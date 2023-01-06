@@ -89,7 +89,7 @@ function Forum() {
     <>
       <Navbar />
       <div className="flex">
-        <div className="flex flex-col h-screen p-3 bg-white shadow w-[16.5rem]">
+        <div className="flex flex-col min-h-max p-3 bg-white shadow w-[16.5rem]">
           <div className="space-y-3">
             <div className="flex items-center">
               <h2 className="text-xl font-bold">Menu del Foro</h2>
