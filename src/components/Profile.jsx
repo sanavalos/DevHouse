@@ -52,13 +52,17 @@ function Profile() {
               <p className="py-2 text-lg text-gray-700">{user?.description}</p>
               {user?.github && (
                 <div className="flex items-center mt-4 text-gray-700">
-                  <RiGithubFill className="h-6 w-6 fill-current" />
-                  <h1 className="px-2">{user?.github}</h1>
+                  <RiGithubFill size={30} className="fill-current" />
+                  <a href={user?.github}>
+                    <h1 className="px-2 text-lg">
+                      @{user?.github.split("com/")[1]}
+                    </h1>
+                  </a>
                 </div>
               )}
               <div className="flex items-center mt-4 text-gray-700">
-                <MdPlace className="h-6 w-6  fill-current" />
-                <h1 className="px-2">{user.location}</h1>
+                <MdPlace size={30} className="fill-current" />
+                <h1 className="px-2 text-lg">{user.location}</h1>
               </div>
               <div className="flex m-4 items-center justify-center">
                 <ul className="flex flex-wrap">
