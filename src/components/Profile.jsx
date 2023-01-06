@@ -53,7 +53,7 @@ function Profile() {
               {user?.github && (
                 <div className="flex items-center mt-4 text-gray-700">
                   <RiGithubFill size={30} className="fill-current" />
-                  <a href={user?.github}>
+                  <a href={user?.github} target={"_blank"}>
                     <h1 className="px-2 text-lg">
                       @{user?.github.split("com/")[1]}
                     </h1>

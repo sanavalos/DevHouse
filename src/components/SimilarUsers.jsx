@@ -36,7 +36,13 @@ function SimilarUsers({ country, userId }) {
                 {user?.location}
               </p>
               <p className="mb-3  font-normal text-slate-300">
-                {user?.github ?? "No puse github"}
+                {user?.github ? (
+                  <a href={user?.github} target={"_blank"}>
+                    {user?.github}
+                  </a>
+                ) : (
+                  "No tengo github"
+                )}
               </p>
             </div>
           </div>
