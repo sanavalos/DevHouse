@@ -247,9 +247,9 @@ const Account = () => {
           </div>
         </div>
         <div className=" ">
-          <div className="m-20 mt-10 border-2 border-black min-h-fit rounded-xl">
-            <div className="border-b-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
-            <div className="border-b-2 border-black h-32 flex items-center space-x-8 bg-slate-300">
+          <div className="m-20 mt-10  border-black min-h-fit rounded-xl">
+            <div className="border-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
+            <div className="border-x-2 border-black h-32 flex items-center space-x-8 bg-slate-300">
               <img
                 className="h-[100px] w-[100px] rounded-xl m-6 border-2 border-black"
                 alt="userphoto"
@@ -266,7 +266,7 @@ const Account = () => {
                 Desloguea
               </button>
             </div>
-            <div className="border-t-2 border-black h-[80%] bg-slate-300 rounded-b-xl border-b-2">
+            <div className="border-t-2 border-black h-[80%] bg-slate-300 rounded-b-xl border-2">
               <h1 className="text-2xl m-6 underline font-semibold text-center">
                 Información Personal
               </h1>

@@ -21,57 +21,61 @@ function Profile() {
   }, [dispatch, id]);
 
   return (
-    <div className="h-screen grid">
+    <div>
       <Navbar />
-      <div className="flex justify-end bg-slate-200 ">
-      {user?.career && (
-          <img
-            src={user?.career === "full stack" ? badgeFs : badgeDs}
-            className="h-[13rem] absolute top-16 right-[52vw] -rotate-12"
-            alt="badge"
-          />
-        )}
-        <div className="w-1/4 bg-white shadow-lg rounded-xl my-16 border-2 border-black min-h-[650px]">
-          <img
-            className="w-full min-h-[25rem] rounded-t-xl max-h-[25rem]"
-            src={
-              user?.image
-                ? user.image
-                : "https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"
-            }
-            alt="User"
-          />
-          <div className="py-4 px-6">
-            <h1 className="text-3xl font-semibold text-gray-800 text-center">
-              {user?.name}
-            </h1>
-            <h1 className="text-xl font-semibold text-gray-800 text-center">
-              {user?.country}
-            </h1>
-            <p className="py-2 text-lg text-gray-700">{user?.description}</p>
-            {user?.github && <div className="flex items-center mt-4 text-gray-700">
-              <RiGithubFill className="h-6 w-6 fill-current" />
-              <h1 className="px-2">{user?.github}</h1>
-            </div>}
-            <div className="flex items-center mt-4 text-gray-700">
-              <MdPlace className="h-6 w-6  fill-current" />
-              <h1 className="px-2">{user.location}</h1>
-            </div>
-            <div className="flex m-4 items-center justify-center">
-              <ul className="flex flex-wrap">
-                {user?.interest?.map((i) => (
-                  <li
-                    key={i}
-                    className="bg-black text-yellow-300 p-2 m-2 rounded-xl"
-                  >
-                    {i}
-                  </li>
-                ))}
-              </ul>
+      <div className="grid grid-rows-1">
+        <div className="flex justify-end bg-slate-200 ">
+          {user?.career && (
+            <img
+              src={user?.career === "full stack" ? badgeFs : badgeDs}
+              className="h-[13rem] absolute top-16 right-[52vw] -rotate-12"
+              alt="badge"
+            />
+          )}
+          <div className="w-1/4 bg-white shadow-lg rounded-xl my-16 border-2 border-black min-h-[650px]">
+            <img
+              className="w-full min-h-[25rem] rounded-t-xl max-h-[25rem]"
+              src={
+                user?.image
+                  ? user.image
+                  : "https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"
+              }
+              alt="User"
+            />
+            <div className="py-4 px-6">
+              <h1 className="text-3xl font-semibold text-gray-800 text-center">
+                {user?.name}
+              </h1>
+              <h1 className="text-xl font-semibold text-gray-800 text-center">
+                {user?.country}
+              </h1>
+              <p className="py-2 text-lg text-gray-700">{user?.description}</p>
+              {user?.github && (
+                <div className="flex items-center mt-4 text-gray-700">
+                  <RiGithubFill className="h-6 w-6 fill-current" />
+                  <h1 className="px-2">{user?.github}</h1>
+                </div>
+              )}
+              <div className="flex items-center mt-4 text-gray-700">
+                <MdPlace className="h-6 w-6  fill-current" />
+                <h1 className="px-2">{user.location}</h1>
+              </div>
+              <div className="flex m-4 items-center justify-center">
+                <ul className="flex flex-wrap">
+                  {user?.interest?.map((i) => (
+                    <li
+                      key={i}
+                      className="bg-black text-yellow-300 p-2 m-2 rounded-xl"
+                    >
+                      {i}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
+          <SimilarUsers country={user?.country} userId={user?.uid} />
         </div>
-        <SimilarUsers country={user?.country} userId={user?.uid} />
       </div>
       <Footer />
     </div>
