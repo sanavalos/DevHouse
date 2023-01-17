@@ -78,7 +78,7 @@ function Contact() {
                 cols={30}
                 rows={4}
                 type="text"
-                placeholder="Escribinos tus dudas o sugerencias"
+                placeholder="Escribe tus dudas o sugerencias"
                 onChange={(e) => setMessage(e.target.value)}
               />
             </div>

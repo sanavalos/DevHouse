@@ -4,7 +4,7 @@ import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import GoogleButton from "react-google-button";
+import {FcGoogle} from 'react-icons/fc'
 
 const Login = () => {
   const [userAccount, setUser] = useState({
@@ -87,13 +87,13 @@ const Login = () => {
     }
   };
   return (
-    <div className="h-screen">
+    <div className="">
       <Navbar />
-      <div className="flex text-center h-[calc(100%_-_10.5rem)]">
-        <div className="w-[60%] bg-slate-200">
-          <div className="mt-[15%]">
-            <h1 className="text-3xl mb-4 font-extrabold">INGRESA A TU CUENTA</h1>
-            <h3 className="text-lg">
+      <div className="flex text-center h-screen">
+        <div className="w-[50%] lg:w-[60%] bg-slate-200">
+          <div className="mt-28 md:mt-48 lg:mt-60">
+            <h1 className="text-xl mb-2 md:text-3xl md:mb-4 font-extrabold">INGRESA A TU CUENTA</h1>
+            <h3 className="md:text-lg">
               Sino tienes cuenta, puedes crearla{" "}
               <Link
                 to="/crearcuenta"
@@ -103,47 +103,45 @@ const Login = () => {
               </Link>
             </h3>
           </div>
-          <form className="m-8" onSubmit={handleSubmit}>
+          <form className="mx-3 md:m-8" onSubmit={handleSubmit}>
             <div className="flex flex-col my-2">
-              <label className="py-2 font-medium">Email:</label>
+              <label className="md:py-2 font-medium">Email:</label>
               <input
                 name="email"
-                className="p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl"
                 type="email"
                 onChange={handleChanges}
               />
             </div>
             <div className="flex flex-col my-2">
-              <label className="py-2 font-medium">Contraseña:</label>
+              <label className="md:py-2 font-medium">Contraseña:</label>
               <input
                 name="password"
-                className="p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl"
                 type="password"
                 onChange={handleChanges}
               />
             </div>
-            <div className="flex space-x-6 justify-center">
-              <button className="p-4 my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
+            <div className="flex flex-col lg:flex-row lg:space-x-6 justify-center">
+              <button className="p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
                 Ingresa
               </button>
-              <Link to="/olvido">
-                <button className="p-4 my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
+              <button onClick={handleGoogleSignIn} className="flex items-center justify-center p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
+                <FcGoogle className="mr-2"/>Ingreso Google
+              </button>
+              <Link to="/olvido" className="p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
+                <button>
                   Olvide la contraseña
                 </button>
               </Link>
-              <GoogleButton
-                onClick={handleGoogleSignIn}
-                className="my-6"
-                type="light"
-              />
             </div>
           </form>
         </div>
-        <div className="w-[40%] bg-yellow-300">
-          <div className="mt-[10%]">
+        <div className="w-[50%] lg:w-[40%] bg-yellow-300">
+          <div className="mt-44 md:mt-60 lg:mt-44">
             <h1 className="text-4xl font-semibold">¡Hola de nuevo Henry!</h1>
           </div>
-          <div className="m-8">
+          <div className="m-3 mt-8 md:m-8">
             <img
               src="https://statics.forbesargentina.com/2022/05/627141a292f9b.png"
               className="rounded-lg"
