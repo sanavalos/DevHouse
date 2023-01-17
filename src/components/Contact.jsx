@@ -38,17 +38,16 @@ function Contact() {
   }, []);
 
   return (
-    <div className="bg-yellow-300 grid grid-rows-1 h-screen">
+    <>
       <Navbar />
-      <div className="">
-        <div className="flex justify-center">
-          <h1 className="text-4xl font-extrabold p-3">Contactanos</h1>
-        </div>
-        <div className="mb-5 border-2 border-black min-h-fit rounded-xl mx-[35vw] bg-slate-200">
+      <div className="bg-yellow-300 grid grid-flow-row h-screen">
+      <div className="mt-14 md:mt-32 w-screen">
+        <h1 className="text-4xl font-extrabold p-3 text-center">Contactanos</h1>
+        <div className="mb-5 border-2 border-black rounded-xl mx-6 md:mx-40 lg:mx-96 bg-slate-200">
           <form
             action="https://getform.io/f/90b3744f-f6b0-4140-a9ae-5d57ef6034c1"
             method="POST"
-            className="mx-10 my-10"
+            className="m-4 md:m-10"
             encType="multipart/form-data"
           >
             <div className="flex flex-col my-2">
@@ -77,7 +76,7 @@ function Contact() {
                 name="message"
                 className="p-3 rounded-xl"
                 cols={30}
-                rows={8}
+                rows={4}
                 type="text"
                 placeholder="Escribinos tus dudas o sugerencias"
                 onChange={(e) => setMessage(e.target.value)}
@@ -104,8 +103,9 @@ function Contact() {
           </form>
         </div>
       </div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
