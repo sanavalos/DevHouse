@@ -68,12 +68,12 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="h-screen">
+    <div className="">
       <Navbar />
-      <div className="flex text-center h-[calc(100%_-_10.5rem)]">
-        <div className="w-[60%] bg-slate-200">
-          <div className="mt-[15%]">
-            <h1 className="text-3xl mb-4 font-extrabold">CREA UNA NUEVA CUENTA</h1>
+      <div className="flex text-center h-screen">
+        <div className="w-1/2 lg:w-[60%] bg-slate-200">
+          <div className="mt-32 md:mt-64">
+            <h1 className="text-xl md:text-3xl mb-4 font-extrabold">CREA UNA NUEVA CUENTA</h1>
             <h3 className="text-lg">
               ¿Ya tienes una cuenta?, puedes ingresar{" "}
               <Link
@@ -84,12 +84,12 @@ const CreateAccount = () => {
               </Link>
             </h3>
           </div>
-          <form className="m-8" onSubmit={handleSubmit}>
+          <form className="m-2 md:m-8" onSubmit={handleSubmit}>
             <div className="flex flex-col my-2">
               <label className="py-2 font-medium">Email:</label>
               <input
                 name="email"
-                className="p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl"
                 type="email"
                 onChange={handleChanges}
               />
@@ -98,21 +98,21 @@ const CreateAccount = () => {
               <label className="py-2 font-medium">Contraseña:</label>
               <input
                 name="password"
-                className="p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl"
                 type="password"
                 onChange={handleChanges}
               />
             </div>
-            <button className="p-4 my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
+            <button className="p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
               Crea cuenta
             </button>
           </form>
         </div>
-        <div className="w-[40%] bg-yellow-300">
-          <div className="mt-[15%]">
-            <h1 className="text-4xl font-semibold">Bienvenido a la mejor comunidad Henry</h1>
+        <div className="w-1/2 lg:w-[40%] bg-yellow-300">
+          <div className="mt-40 md:mt-60 lg:mt-52">
+            <h1 className="text-2xl md:text-4xl font-semibold">Bienvenido a la mejor comunidad Henry</h1>
           </div>
-          <div className="m-8">
+          <div className="m-2 mt-6 md:m-8">
             <img
               src="https://cdn.forbes.co/2021/01/Team-Henry-1280x720-1.jpg"
               className="rounded-lg"
