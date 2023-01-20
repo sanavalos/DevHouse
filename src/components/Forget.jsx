@@ -33,6 +33,14 @@ const Forget = () => {
         showConfirmButton: false,
         timer: 2000
         })}
+      if (error.code === "auth/missing-email") {
+        Swal.fire({
+          icon: "error",
+          title: "Escribe un email válido",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
     }
 }
 
@@ -46,9 +54,9 @@ const Forget = () => {
             <h3 className='text-lg'>Sino tienes cuenta, puedes crearla <Link to="/crearcuenta" className="underline hover:text-red-500 hover:text-xl">aquí</Link></h3>
           </div>
           <form className='m-4 md:m-8' onSubmit={handleSubmit}>
-          <div className='flex flex-col my-2'>
+          <div className='flex flex-col my-2 lg:tems-center'>
             <label className='py-2 font-medium'>Email registrado:</label>
-            <input name='email'  className='p-1 md:p-3 rounded-xl' type="email" onChange={handleChanges}/>
+            <input name='email'  className='p-1 md:p-3 rounded-xl lg:w-3/4' type="email" onChange={handleChanges}/>
           </div>
           <button className='p-1 md:p-4 my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500'>Recuperar contraseña</button>
           </form>

@@ -90,7 +90,7 @@ const Login = () => {
     <div className="">
       <Navbar />
       <div className="flex text-center h-screen">
-        <div className="w-[50%] lg:w-[60%] bg-slate-200">
+        <div className="md:w-[50%] lg:w-[60%] bg-slate-200">
           <div className="mt-28 md:mt-48 lg:mt-60">
             <h1 className="text-xl mb-2 md:text-3xl md:mb-4 font-extrabold">INGRESA A TU CUENTA</h1>
             <h3 className="md:text-lg">
@@ -104,20 +104,20 @@ const Login = () => {
             </h3>
           </div>
           <form className="mx-3 md:m-8" onSubmit={handleSubmit}>
-            <div className="flex flex-col my-2">
+            <div className="flex flex-col my-2 lg:items-center">
               <label className="md:py-2 font-medium">Email:</label>
               <input
                 name="email"
-                className="p-1 md:p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl lg:w-3/4"
                 type="email"
                 onChange={handleChanges}
               />
             </div>
-            <div className="flex flex-col my-2">
+            <div className="flex flex-col my-2 lg:items-center">
               <label className="md:py-2 font-medium">Contraseña:</label>
               <input
                 name="password"
-                className="p-1 md:p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl lg:w-3/4"
                 type="password"
                 onChange={handleChanges}
               />

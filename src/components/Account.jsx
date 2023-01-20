@@ -229,128 +229,130 @@ const Account = () => {
     }
   };
   return (
-    <div className="grid h-screen">
+    <div className="h-screen">
       <Navbar />
-      <div className="grid  grid-cols-2">
+      <div className="grid grid-cols-2">
         <div className=" bg-yellow-300">
-          <div className="mt-[20%]">
-            <h1 className="text-4xl text-center font-semibold">
+          <div className="mt-64 md:mt-44">
+            <h1 className="text-3xl md:text-4xl text-center font-semibold">
               Nos encanta tenerte aquí
             </h1>
           </div>
-          <div className="mt-7 flex justify-center">
+          <div className="mt-7 md:m-7 flex justify-center">
             <img
               src="https://blog.soyhenry.com/content/images/2021/02/MUNDOHENRY-1.jpg"
-              className=" rounded-lg h-[520px] w-[650px] "
+              className="rounded-lg h-46 w-40 md:h-[400px] md:w-[500px] lg:h-[520px] lg:w-[650px] "
               alt="comunidad"
             />
           </div>
         </div>
-        <div className=" ">
-          <div className="m-20 mt-10  border-black min-h-fit rounded-xl">
+        <div className="">
+          <div className="mx-2 mt-14 mb-20 md:mx-4 md:mt-20 md:mb-24 lg:mx-20 lg:my-28 border-black rounded-xl">
             <div className="border-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
-            <div className="border-x-2 border-black h-32 flex items-center space-x-8 bg-slate-300">
+            <div className="border-x-2 border-black h-60 md:h-32 flex flex-col md:flex-row items-center justify-evenly bg-slate-300">
               <img
-                className="h-[100px] w-[100px] rounded-xl m-6 border-2 border-black"
+                className="h-20 w-20 mt-2 md:ml-2 lg:h-[100px] lg:w-[100px] rounded-xl lg:m-6 border-2 border-black"
                 alt="userphoto"
                 src={photoURL}
               />
-              <h2 className="text-3xl font-semibold">
+              <h2 className="m-2 text-center text-xl lg:text-3xl font-semibold">
                 {user?.displayName || "Nombre Usuario"}
               </h2>
-              <h2 className="text-3xl font-semibold">{userId?.country}</h2>
+              <h2 className="m-2 text-center text-xl lg:text-3xl font-semibold">
+                {userId?.country}
+              </h2>
               <button
-                className="p-2 bg-black text-yellow-300 text-2xl hover:scale-110 hover:text-red-500 rounded-xl"
+                className="p-2 m-2 bg-black text-yellow-300 text-lg lg:text-2xl hover:scale-110 hover:text-red-500 rounded-xl"
                 onClick={handleLogout}
               >
                 Desloguea
               </button>
             </div>
-            <div className="border-t-2 border-black h-[80%] bg-slate-300 rounded-b-xl border-2">
-              <h1 className="text-2xl m-6 underline font-semibold text-center">
+            <div className="border-t-2 border-black bg-slate-300 rounded-b-xl border-2">
+              <h1 className="text-lg md:text-xl lg:text-2xl m-3 lg:m-6 underline font-semibold text-center">
                 Información Personal
               </h1>
-              <div className="flex m-4 items-center justify-between">
-                <label className="text-xl w-20 font-semibold">Email:</label>
+              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Email:</label>
                 <input
-                  className="rounded-xl w-[50%] p-2 "
+                  className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder={user && user.email}
                   disabled
                 ></input>
                 <Link to="/contacto">
-                  <button className="flex px-6 items-center p-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ">
+                  <button className="flex px-6 items-center p-1 m-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl ">
                     <IoIosHelpCircle size={30} />
                   </button>
                 </Link>
               </div>
-              <div className="flex m-4 items-center justify-between">
-                <label className="text-xl  w-20 font-semibold">
+              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
                   Contraseña:
                 </label>
                 <input
-                  className="rounded-xl w-[50%] p-2 "
+                  className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder="..."
                   type={"password"}
                   onChange={handlePassword}
                 ></input>
                 <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
+                  className="p-2 m-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
                   onClick={changePassword}
                 >
                   Cambiar
                 </button>
               </div>
-              <div className="flex m-4 items-center justify-between">
-                <label className="text-xl  w-20 font-semibold">Nombre:</label>
+              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Nombre:</label>
                 <input
-                  className="rounded-xl w-[50%] p-2 "
+                  className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder={user?.displayName || "Nombre Usuario"}
                   onChange={handleName}
                 ></input>
                 <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
+                  className="p-2 m-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
                   onClick={changeName}
                 >
                   Cambiar
                 </button>
               </div>
-              <div className="flex m-4 items-center justify-between">
-                <label className="text-xl  w-20 font-semibold">GitHub:</label>
+              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">GitHub:</label>
                 <input
-                  className="rounded-xl w-[50%] p-2 "
+                  className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder={userId?.github ?? "Link de Github"}
                   onChange={handleGithub}
                 ></input>
                 <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
+                  className="p-2 m-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
                   onClick={changeGithub}
                 >
                   Cambiar
                 </button>
               </div>
-              <div className="flex m-4 items-center justify-between">
-                <label className="text-xl  w-20 font-semibold">
+              <div className="flex flex-col md:flex-row m-4 items-center justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
                   Descripción:
                 </label>
                 <textarea
-                  className="rounded-xl w-[50%] p-2 "
+                  className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder={userId?.description ?? "Tu descripción personal"}
                   rows={"5"}
                   maxLength="250"
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
                 <button
-                  className="p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
+                  className="p-2 m-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
                   onClick={changeDescription}
                 >
                   Cambiar
                 </button>
               </div>
-              <div className="flex m-4 items-center justify-between">
-                <h3 className="text-xl  w-20 font-semibold">Intereses:</h3>
-                <ul className="items-center w-[50%] text-sm font-medium rounded-lg flex bg-gray-700 border-gray-600 text-white">
+              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-left md:justify-between">
+                <h3 className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Intereses:</h3>
+                <ul className="lg:items-center w-36 md:w-[50%] text-sm font-medium rounded-lg flex bg-gray-700 border-gray-600 text-white flex-col lg:flex-row">
                   {intereses.map((item, index) => (
-                    <li className="w-full last:border-0 border-r border-gray-600">
+                    <li className="lg:w-full lg:last:border-0 lg:border-r border-gray-600 ">
                       <div className="flex items-center pl-3">
                         <input
                           id={item}
@@ -371,15 +373,15 @@ const Account = () => {
                   ))}
                 </ul>
                 <button
-                  className=" p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
+                  className="p-2 m-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
                   onClick={changeInterest}
                 >
                   Cambiar
                 </button>
               </div>
-              <div className="flex m-4 items-center justify-between">
-                <h3 className="text-xl  w-20 font-semibold">Carrera:</h3>
-                <ul className="items-center w-[50%] text-sm font-medium rounded-lg flex bg-gray-700 border-gray-600 text-white">
+              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
+                <h3 className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Carrera:</h3>
+                <ul className="items-center w-36 md:w-[50%] text-sm font-medium rounded-lg flex md:flex-row flex-col bg-gray-700 border-gray-600 text-white">
                   <li className="w-full sm:border-r border-gray-600">
                     <div className="flex items-center pl-3">
                       <input
@@ -418,28 +420,26 @@ const Account = () => {
                   </li>
                 </ul>
                 <button
-                  className=" p-2 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
+                  className="p-2 m-1 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl"
                   onClick={changeCareer}
                 >
                   Cambiar
                 </button>
               </div>
-              <div class="flex flex-col  px-24 items-center justify-center w-full">
+              <div class="flex flex-col w-36 md:px-24 m-3 md:m-0 items-center justify-center md:w-full">
                 <label
                   for="dropzone-file"
-                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer hover:bg-bray-800 bg-gray-700 border-gray-600 hover:border-gray-500 hover:bg-gray-600"
+                  class="flex flex-col text-center md:items-center justify-center md:w-full h-64 border-2 border-dashed rounded-lg cursor-pointer hover:bg-bray-800 bg-gray-700 border-gray-600 hover:border-gray-500 hover:bg-gray-600"
                 >
-                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <div class="flex flex-col items-center justify-center md:pt-5 md:pb-6">
                     <AiOutlineCloudUpload
                       size={50}
                       className="text-slate-200"
                     />
-
                     <p class="mb-2 text-sm text-gray-400">
                       <span class="font-semibold">
                         Click para elegir archivo
-                      </span>{" "}
-                      o arrastrar y soltar
+                      </span>                      
                     </p>
                     <p class="text-xs text-gray-400">
                       SVG, PNG or JPG (MAX. 800x400px)
@@ -452,11 +452,11 @@ const Account = () => {
                     onChange={handleChange}
                   />
                 </label>
-                <div className="w-20">
-                  <div className="w-full">
-                    <div className="-mt-16">
+                <div className="md:w-20">
+                  <div className="md:w-full">
+                    <div className="-mt-12 md:-mt-16">
                       <button
-                        className="p-2 left-4 -bottom-44 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
+                        className="p-2 md:left-4 md:-bottom-44 bg-black text-yellow-300 text-md hover:scale-110 hover:text-red-500 rounded-xl "
                         onClick={uploadImage}
                       >
                         Cambiar

@@ -95,25 +95,25 @@ function Post() {
   };
 
   return (
-    <div className="h-screen">
+    <div className="">
       <Navbar />
-      <div className="flex justify-center h-[calc(100%_-_10.5rem)] bg-yellow-300 w-full">
-        <form className="m-8">
-          <h2 className="m-8 font-extrabold text-2xl text-center">
+      <div className="flex justify-center h-screen bg-yellow-300 w-full">
+        <form className="md:mt-24 m-8">
+          <h2 className="mt-8 md:m-8 font-extrabold text-2xl text-center">
             CREA TU POST
           </h2>
-          <h3 className="m-5 font-extrabold text-xl text-center">{error}</h3>
+          <h3 className="m-2 md:m-5 font-extrabold text-xl text-center">{error}</h3>
           <div className="flex flex-col my-2">
             <label className="py-2 font-semibold text-lg">Titulo</label>
             <input
-              className="p-3 rounded-xl w-[800px]"
+              className="p-3 rounded-xl w-80 md:w-[800px]"
               type="text"
               name="title"
               value={post.name}
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div className="my-6">
+          <div className="my-2 md:my-6">
             <label className="py-2 font-semibold text-lg mr-4">
               País donde publicar
             </label>
@@ -142,12 +142,12 @@ function Post() {
               rows="9"
               value={post.comments}
               onChange={(e) => handleChange(e)}
-              className="rounded-xl p-5"
+              className="rounded-xl md:p-5"
             ></textarea>
           </div>
           <button
             onClick={handleSubmit}
-            className="p-3 text-center bg-black rounded-xl text-yellow-300 my-4 hover:bg-transparent hover:border-2 hover:border-black hover:text-black w-full"
+            className="p-3 text-center bg-black rounded-xl text-yellow-300 my-2 md:my-4 hover:bg-transparent hover:border-2 hover:border-black hover:text-black w-full"
           >
             Enviar
           </button>

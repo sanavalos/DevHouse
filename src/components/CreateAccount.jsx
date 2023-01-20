@@ -85,20 +85,20 @@ const CreateAccount = () => {
             </h3>
           </div>
           <form className="m-2 md:m-8" onSubmit={handleSubmit}>
-            <div className="flex flex-col my-2">
+            <div className="flex flex-col my-2 lg:items-center">
               <label className="py-2 font-medium">Email:</label>
               <input
                 name="email"
-                className="p-1 md:p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl lg:w-3/4"
                 type="email"
                 onChange={handleChanges}
               />
             </div>
-            <div className="flex flex-col my-2">
+            <div className="flex flex-col my-2 lg:items-center">
               <label className="py-2 font-medium">Contraseña:</label>
               <input
                 name="password"
-                className="p-1 md:p-3 rounded-xl"
+                className="p-1 md:p-3 rounded-xl lg:w-3/4"
                 type="password"
                 onChange={handleChanges}
               />

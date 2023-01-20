@@ -88,7 +88,7 @@ function Forum() {
   return (
     <>
       <Navbar />
-      <div className="flex">
+      <div className="flex h-screen">
         <div className="flex flex-col min-h-max p-3 bg-white shadow w-[16.5rem]">
           <div className="space-y-3">
             <div className="flex items-center">
