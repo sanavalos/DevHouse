@@ -17,7 +17,7 @@ function Posts({ posts }) {
     return (
       <div
         key={post.id}
-        className="w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow mb-7"
+        className="m-4 mr-8 last:mb-24 md:w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow md:mb-7"
       >
         <div className="m-2 font-semibold text-gray-700 text-3xl">
           {post.title}

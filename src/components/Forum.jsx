@@ -88,29 +88,27 @@ function Forum() {
   return (
     <>
       <Navbar />
-      <div className="flex h-screen">
-        <div className="flex flex-col min-h-max p-3 bg-white shadow w-[16.5rem]">
+      <div className="flex flex-col lg:flex-row mt-16 md:mt-20 h-screen">
+        <div className="flex flex-col mt-[800px] md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
           <div className="space-y-3">
             <div className="flex items-center">
               <h2 className="text-xl font-bold">Menu del Foro</h2>
             </div>
-            <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center py-4">
-                <button
-                  className="p-2 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black"
-                  onClick={(e) => handleSearch(e)}
-                >
-                  <BsSearch />
-                </button>
-              </span>
+            <div className="flex">
+              <button
+                className="p-2 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black"
+                onClick={(e) => handleSearch(e)}
+              >
+                <BsSearch />
+              </button>
               <input
                 type="text"
                 placeholder="Busqueda por Usuario o Titulo"
-                className="w-full py-2 pl-10 text-sm rounded-md focus:outline-none"
+                className="w-full p-2  text-sm rounded-md focus:outline-none"
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <div className="flex-1">
+            <div className="flex">
               <ul className="pt-2 pb-4 space-y-1 text-sm">
                 <li className="rounded-sm">
                   <div className="flex items-center p-2 space-x-3 rounded-md">
@@ -149,14 +147,14 @@ function Forum() {
           </div>
           <button
             onClick={(e) => handleReset(e)}
-            className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black"
+            className="bg-black text-yellow-300 p-2 rounded-xl my-4 w-80 hover:bg-yellow-300 hover:text-black"
           >
             Limpiar filtros
           </button>
           {user ? (
             <Link
               to={"/posteo"}
-              className="p-2 bg-black rounded-xl text-yellow-300 my-4 hover:bg-yellow-300 hover:text-black text-center"
+              className="p-2 bg-black rounded-xl text-yellow-300 my-4 w-80 hover:bg-yellow-300 hover:text-black text-center"
             >
               <button>Crea un post</button>
             </Link>
@@ -180,7 +178,7 @@ function Forum() {
               <Posts posts={filtered} />
             ) : (
               <>
-                <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+                <div className="md:w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
                   <div className="h-7 w-80 bg-slate-500 mt-1"></div>
                   <div className="h-3 w-32 bg-slate-500 mt-1"></div>
                   <div className="h-4 w-full bg-slate-500 mt-1"></div>
@@ -202,11 +200,10 @@ function Forum() {
             )}
           </div>
         </div>
-
         {user ? (
-          <div className="max-w-[728px] mt-3 mr-7 text-center fixed right-0">
-            <div className="flex flex-col max-h-[65vh] mt-10 border  shadow mb-7 bg-white">
-              <Chat />
+          <div className="w-[360px] -mr-2 md:max-w-[728px] md:mt-3 md:mr-7 text-center absolute md:fixed right-0">
+            <div className="flex flex-col md:max-h-[65vh] md:mt-10 border rounded-lg shadow md:mb-7 bg-white">
+              <Chat/>
             </div>
           </div>
         ) : (
