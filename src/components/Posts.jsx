@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PostComment from "./PostComment";
 import { getResponses } from "../redux/actions/actions.js";
 import { useDispatch, useSelector } from "react-redux";
 import { UserAuth } from "../context/AuthContext";
+import { db } from "../firebase";
+import { doc, deleteDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 function Posts({ posts }) {
   const [showComments, setShowComments] = useState(false);
@@ -13,12 +16,38 @@ function Posts({ posts }) {
   const { user } = UserAuth();
   const navigate = useNavigate();
 
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "¿Estas seguro?",
+      text: "¡No podrás volver atras!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "¡Si, eliminar!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      result.isConfirmed &&
+        deleteDoc(doc(db, "posts", id)).then(() => {
+          Swal.fire("¡Eliminado!", "El post ha sido eliminado.", "success");
+        });
+    });
+  };
+
   return posts.map((post) => {
     return (
       <div
         key={post.id}
         className="m-4 mr-8 last:mb-24 md:w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow md:mb-7"
       >
+        {post.userId === user.uid && (
+          <button
+            className="p-2 my-4 bg-red-600 rounded-xl text-white right-0"
+            onClick={() => handleDelete(post.id)}
+          >
+            Borrar
+          </button>
+        )}
         <div className="m-2 font-semibold text-gray-700 text-3xl">
           {post.title}
         </div>
@@ -28,7 +57,7 @@ function Posts({ posts }) {
             to={`/perfil/${post.userId}`}
             className="uppercase hover:text-red-500"
           >
-            {post.user}
+            {post.user || "Anonimo"}
           </Link>{" "}
         </div>
         <div className="text-md font-medium text-black m-2">
