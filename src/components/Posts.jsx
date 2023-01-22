@@ -30,6 +30,9 @@ function Posts({ posts }) {
       result.isConfirmed &&
         deleteDoc(doc(db, "posts", id)).then(() => {
           Swal.fire("¡Eliminado!", "El post ha sido eliminado.", "success");
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         });
     });
   };
@@ -37,10 +40,10 @@ function Posts({ posts }) {
   return posts.map((post) => {
     return (
       <div
-        key={post.id}
+        key={post?.id}
         className="m-4 mr-8 last:mb-24 md:w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow md:mb-7"
       >
-        {post.userId === user.uid && (
+        {post?.userId === user?.uid && (
           <button
             className="p-2 my-4 bg-red-600 rounded-xl text-white right-0"
             onClick={() => handleDelete(post.id)}
