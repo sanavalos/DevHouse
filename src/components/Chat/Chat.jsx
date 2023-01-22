@@ -1,30 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
-import { db } from "../../firebase";
-import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
+
+import { getChatMessages } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
   const scroll = useRef();
+  const { chatMessages } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const q = query(collection(db, "messages"), orderBy("timestamp"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let messages = [];
-      querySnapshot.forEach((doc) => {
-        messages.push({ ...doc.data(), id: doc.id });
-      });
-      setMessages(messages);
-    });
-    return () => unsubscribe();
+    dispatch(getChatMessages());
   }, []);
 
   return (
     <div className="w-96 overflow-scroll overflow-x-hidden">
-      <main className='flex flex-col pr-6 md:p-[10px]'>
-        {messages &&
-          messages.map((message) => (
+      <main className="flex flex-col pr-6 md:p-[10px]">
+        {chatMessages &&
+          chatMessages?.map((message) => (
             <Message key={message.id} message={message} />
           ))}
       </main>

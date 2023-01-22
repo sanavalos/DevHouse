@@ -1,4 +1,13 @@
-import { collection, getDocs, getDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  query,
+  orderBy,
+  onSnapshot,
+} from "firebase/firestore";
+
 import { db } from "../../firebase";
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
@@ -11,6 +20,7 @@ export const GET_RESPONSES = "GET_RESPONSES";
 export const LAST_POST = "LAST_POST";
 export const MOST_COMMENTED = "MOST_COMMENTED";
 export const USERS_COUNTRY = "USERS_COUNTRY";
+export const GET_CHAT_MESSAGES = "GET_CHAT_MESSAGES";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -102,6 +112,22 @@ export function usersCountry(country, userId) {
       dispatch({
         type: "USERS_COUNTRY",
         payload: { country, userId, newData },
+      });
+    });
+  };
+}
+
+export function getChatMessages() {
+  return function (dispatch) {
+    const q = query(collection(db, "messages"), orderBy("timestamp"));
+    onSnapshot(q, (querySnapshot) => {
+      let messages = [];
+      querySnapshot.forEach((doc) => {
+        messages.push({ ...doc.data(), id: doc.id });
+      });
+      dispatch({
+        type: "GET_CHAT_MESSAGES",
+        payload: messages,
       });
     });
   };

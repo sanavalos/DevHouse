@@ -10,6 +10,7 @@ import {
   LAST_POST,
   MOST_COMMENTED,
   USERS_COUNTRY,
+  GET_CHAT_MESSAGES,
 } from "../actions/actions";
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
   responses: [],
   postId: "",
   usersCountry: [],
+  chatMessages: [],
 };
 
 export function reducerApp(state = initialState, action) {
@@ -134,6 +136,12 @@ export function reducerApp(state = initialState, action) {
       return {
         ...state,
         usersCountry: users.slice(0, 3),
+      };
+
+    case GET_CHAT_MESSAGES:
+      return {
+        ...state,
+        chatMessages: action.payload,
       };
     default:
       return state;
