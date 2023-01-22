@@ -4,7 +4,7 @@ import { UserAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import {FcGoogle} from 'react-icons/fc'
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [userAccount, setUser] = useState({
@@ -27,12 +27,6 @@ const Login = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      await Swal.fire({
-        icon: "success",
-        title: "¡Bienvenido Usuario Google!",
-        showConfirmButton: false,
-        timer: 2000,
-      });
       await googleSignIn();
       navigate("/cuenta");
     } catch (error) {
@@ -92,7 +86,9 @@ const Login = () => {
       <div className="flex text-center h-screen">
         <div className="md:w-[50%] lg:w-[60%] bg-slate-200">
           <div className="mt-28 md:mt-48 lg:mt-60">
-            <h1 className="text-xl mb-2 md:text-3xl md:mb-4 font-extrabold">INGRESA A TU CUENTA</h1>
+            <h1 className="text-xl mb-2 md:text-3xl md:mb-4 font-extrabold">
+              INGRESA A TU CUENTA
+            </h1>
             <h3 className="md:text-lg">
               Sino tienes cuenta, puedes crearla{" "}
               <Link
@@ -126,13 +122,18 @@ const Login = () => {
               <button className="p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
                 Ingresa
               </button>
-              <button onClick={handleGoogleSignIn} className="flex items-center justify-center p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
-                <FcGoogle className="mr-2"/>Ingreso Google
+              <button
+                onClick={handleGoogleSignIn}
+                className="flex items-center justify-center p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500"
+              >
+                <FcGoogle className="mr-2" />
+                Ingreso Google
               </button>
-              <Link to="/olvido" className="p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
-                <button>
-                  Olvide la contraseña
-                </button>
+              <Link
+                to="/olvido"
+                className="p-2 my-2 md:p-4 md:my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500"
+              >
+                <button>Olvide la contraseña</button>
               </Link>
             </div>
           </form>
@@ -150,7 +151,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
