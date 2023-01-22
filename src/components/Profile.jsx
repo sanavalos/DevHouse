@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { RiGithubFill, RiGroup2Fill } from "react-icons/ri";
 import { MdPlace } from "react-icons/md";
-import { getUserById } from "../redux/actions/actions";
+import { getUserById, clearUser } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import SimilarUsers from "./SimilarUsers";
 import badgeFs from "../media/fstackdev.png";
@@ -15,6 +15,12 @@ function Profile() {
   const { id } = useParams();
 
   const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearUser());
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getUserById(id));

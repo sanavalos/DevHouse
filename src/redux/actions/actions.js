@@ -2,6 +2,7 @@ import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
+export const CLEAR_USER = "CLEAR_USER";
 export const GET_POSTS = "GET_POSTS";
 export const FILTER_POSTS = "FILTER_POSTS";
 export const SEARCH_POSTS = "SEARCH_POSTS";
@@ -31,6 +32,12 @@ export function getUserById(id) {
     } catch (error) {
       console.log(error);
     }
+  };
+}
+
+export function clearUser() {
+  return function (dispatch) {
+    dispatch({ type: "CLEAR_USER" });
   };
 }
 

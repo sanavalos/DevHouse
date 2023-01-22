@@ -1,6 +1,7 @@
 import {
   GET_USERS,
   GET_USER,
+  CLEAR_USER,
   GET_POSTS,
   FILTER_POSTS,
   SEARCH_POSTS,
@@ -82,6 +83,11 @@ export function reducerApp(state = initialState, action) {
         filtered: state.posts,
       };
 
+    case CLEAR_USER:
+      return {
+        ...state,
+        user: {},
+      };
     case GET_RESPONSES:
       const responses = action.payload.newData.filter(
         (response) => response.post == action.payload.post
