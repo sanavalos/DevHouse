@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { usersCountry } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,50 +6,64 @@ import { useDispatch, useSelector } from "react-redux";
 function SimilarUsers({ country, userId }) {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.usersCountry);
+  const [moreUsers, setMoreUsers] = useState(false);
 
   useEffect(() => {
+    setMoreUsers(false);
     return () => {
       dispatch(usersCountry([]));
     };
   }, [userId]);
+
+  const handleMoreUsers = () => {
+    setMoreUsers(true);
+    dispatch(usersCountry(country, userId));
+  };
   return (
     <div className="flex flex-col justify-center bg-slate-200 ml-[13vw] mr-8">
       <p className="text-2xl font-extrabold tracking-tight leading-none md:text-3xl lg:text-4xl text-black">
         HENRYS EN {country?.toUpperCase()}
       </p>
-      {users.length > 0 ? (
-        users.map((user) => (
-          <div
-            key={user.uid}
-            className="flex items-centerborder rounded-xl shadow-md flex-row  bg-gray-800 mt-12 max-w-md border-2 border-black"
-          >
-            <img
-              className="object-cover  rounded-t-lg max-h-32 w-36 md:rounded-none md:rounded-l-lg"
-              src={user.image}
-              alt=""
-            />
-            <div className="flex flex-col justify-between pt-2 p-4 leading-normal h-[13vh]">
-              <h5 className=" text-2xl font-bold tracking-tight text-white hover:text-yellow-300">
-                <Link to={`/perfil/${user.uid}`}>{user?.name}</Link>
-              </h5>
-              <p className="mb-2 font-normal text-slate-300">
-                {user?.location}
-              </p>
-              <p className="mb-3  font-normal text-slate-300">
-                {user?.github ? (
-                  <a href={user?.github} target={"_blank"}>
-                    {user?.github}
-                  </a>
-                ) : (
-                  "No tengo github"
-                )}
-              </p>
+      {moreUsers &&
+        (users.length > 0 ? (
+          users.map((user) => (
+            <div
+              key={user.uid}
+              className="flex items-centerborder rounded-xl shadow-md flex-row  bg-gray-800 mt-12 max-w-md border-2 border-black"
+            >
+              <img
+                className="object-cover  rounded-t-lg max-h-32 w-36 md:rounded-none md:rounded-l-lg"
+                src={user.image}
+                alt=""
+              />
+              <div className="flex flex-col justify-between pt-2 p-4 leading-normal h-[13vh]">
+                <h5 className=" text-2xl font-bold tracking-tight text-white hover:text-yellow-300">
+                  <Link to={`/perfil/${user.uid}`}>{user?.name}</Link>
+                </h5>
+                <p className="mb-2 font-normal text-slate-300">
+                  {user?.location}
+                </p>
+                <p className="mb-3  font-normal text-slate-300">
+                  {user?.github ? (
+                    <a href={user?.github} target={"_blank"}>
+                      {user?.github}
+                    </a>
+                  ) : (
+                    "No tengo github"
+                  )}
+                </p>
+              </div>
             </div>
+          ))
+        ) : (
+          <div className="bg-black text-yellow-300 p-2 rounded-xl my-4 flex justify-center">
+            No hay mas henrys en este pais
           </div>
-        ))
-      ) : (
+        ))}
+
+      {!moreUsers && (
         <button
-          onClick={() => dispatch(usersCountry(country, userId))}
+          onClick={() => handleMoreUsers()}
           className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black"
         >
           VER MAS HENRYS
