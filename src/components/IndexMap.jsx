@@ -56,14 +56,14 @@ export default function IndexMap() {
   if (!isLoaded) return "Loading map...";
 
   return (
-    <div className="w-[60%]">
-      <div className="absolute z-10 overflow-y-auto" id="modal">
-        <div className="ml-[500px] flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div className="w-[100%] lg:w-[60%]">
+      <div className="absolute z-10" id="modal">
+        <div className="ml-[50px] md:ml-[200px] lg:ml-[500px] mt-80 justify-center pt-4 px-4 text-center block">
           <div className="absolute transition-opacity" aria-hidden="true">
-            <div className="  bg-gray-500 opacity-75"></div>
+            <div className=" bg-gray-500 opacity-75"></div>
           </div>
           <span
-            className="hidden sm:inline-block sm:align-middle sm:h-screen"
+            className="hidden sm:inline-block align-middle"
             aria-hidden="true"
           >
             &#8203;
@@ -118,7 +118,7 @@ export default function IndexMap() {
       </div>
 
       <GoogleMap
-        mapContainerClassName="w-[100%] h-[100vh]"
+        mapContainerClassName="w-[280px] md:w-full h-[95%] md:h-[90%] mt-12 md:mt-16"
         zoom={3}
         center={selected ?? center}
         onLoad={onMapLoad}
