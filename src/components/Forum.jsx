@@ -163,7 +163,7 @@ function Forum() {
           )}
         </div>
         <div className="container mx-auto mt-12 md:ml-7 max-w-2xl">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black md:w-[55vw]">
+          <h1 className="mb-4 pl-3 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black md:w-[55vw]">
             POSTEOS SOBRE
             <span className="text-yellow-300 dark:text-yellow-300 ">
               {search ? " " + search.toUpperCase() : " TODOS"}
@@ -173,26 +173,26 @@ function Forum() {
               {filter ? `(${filter})` : ""}
             </span>
           </h1>
-          <div className="flex flex-col mt-7">
+          <div className="flex flex-col mt-7 md:min-h-screen">
             {filtered.length > 0 ? (
               <Posts posts={filtered} />
             ) : (
               <>
                 <div className="md:w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
                   <div className="h-7 w-80 bg-slate-500 mt-1"></div>
-                  <div className="h-3 w-32 bg-slate-500 mt-1"></div>
+                  <div className="h-3 w-32 bg-slate-500 mt-1 mb-5"></div>
                   <div className="h-4 w-full bg-slate-500 mt-1"></div>
                   <div className="h-4 w-full bg-slate-500 mt-1"></div>
                 </div>
-                <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+                <div className="md:w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
                   <div className="h-7 w-80 bg-slate-500 mt-1"></div>
-                  <div className="h-3 w-32 bg-slate-500 mt-1"></div>
+                  <div className="h-3 w-32 bg-slate-500 mt-1 mb-5"></div>
                   <div className="h-4 w-full bg-slate-500 mt-1"></div>
                   <div className="h-4 w-full bg-slate-500 mt-1"></div>
                 </div>
-                <div className="w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
+                <div className="md:w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
                   <div className="h-7 w-80 bg-slate-500 mt-1"></div>
-                  <div className="h-3 w-32 bg-slate-500 mt-1"></div>
+                  <div className="h-3 w-32 bg-slate-500 mt-1 mb-5"></div>
                   <div className="h-4 w-full bg-slate-500 mt-1"></div>
                   <div className="h-4 w-full bg-slate-500 mt-1"></div>
                 </div>

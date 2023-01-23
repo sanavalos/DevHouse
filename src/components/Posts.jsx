@@ -49,7 +49,7 @@ function Posts({ posts }) {
           </div>
           {post?.userId === user?.uid && (
             <button
-              className="p-2 my-4 bg-red-600 rounded-xl text-white font-semibold "
+              className="p-2 bg-red-600 rounded-xl text-white font-semibold "
               onClick={() => handleDelete(post.id)}
             >
               Borrar
