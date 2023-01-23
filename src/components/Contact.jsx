@@ -38,7 +38,7 @@ function Contact() {
     <>
       <Navbar />
       <div className="bg-yellow-300 grid grid-flow-row h-screen">
-        <div className="mt-14 md:mt-32 w-screen">
+        <div className="mt-14 md:mt-32 ">
           <h1 className="text-4xl font-extrabold p-3 text-center">
             Contactanos
           </h1>
@@ -46,7 +46,7 @@ function Contact() {
             <form
               action="https://getform.io/f/90b3744f-f6b0-4140-a9ae-5d57ef6034c1"
               method="POST"
-              className="m-4 md:m-10"
+              className="p-4 md:p-10"
               encType="multipart/form-data"
             >
               <div className="flex flex-col my-2">

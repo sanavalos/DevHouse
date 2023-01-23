@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="p-2 bg-black text-yellow-300 fixed bottom-0 left-0 z-10 w-full">
-      <div className="h-[8vh] flex items-center md:justify-between md:mx-8">
-        <span className="text-center text-[9px] md:text-sm">
+    <footer className="p-2 bg-black text-yellow-300 relative bottom-0 left-0 z-10 w-full">
+      <div className="h-[8vh] flex items-center md:justify-between md:px-8">
+        <span className="text-center text-[9px] hidden md:block md:text-sm">
           Hecho por Henrys para Henrys
         </span>
         <a
@@ -20,19 +20,19 @@ function Footer() {
             alt="Henry"
           />
         </a>
-        <div className="flex text-[9px] space-x-2 md:text-sm md:space-x-10">
+        <div className="flex text-[10px] gap-4 md:flex-row md:text-sm md:space-x-10">
           <Link to="/contacto">
-            <button className="hover:text-red-500 hover:scale-110 mt-1 md:mt-0">
+            <button className="hover:scale-110 hover:font-bold">
               Contactanos
             </button>
           </Link>
           <Link to="/nosotros">
-            <button className="hover:text-red-500 hover:scale-110">
+            <button className="hover:scale-110 hover:font-bold">
               Sobre Nosotros
             </button>
           </Link>
           <Link to="/informacion">
-            <button className="hover:text-red-500 hover:scale-110">
+            <button className="hover:scale-110 hover:font-bold">
               Información Legal
             </button>
           </Link>

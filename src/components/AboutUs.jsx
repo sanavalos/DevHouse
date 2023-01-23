@@ -5,10 +5,12 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 function AboutUs() {
   return (
+    //MOBILE  <div className="grid grid-rows-1 h-screen">
     <div>
       <Navbar />
-      <div className="grid grid-flow-row h-screen">
-        <div className="flex justify-center bg-slate-200 md:mt-14">
+      {/* MOBILE DIV DE ABAJO SIN CLASES */}
+      <div className="grid grid-flow-row min-h-screen">
+        <div className="flex justify-center bg-slate-200 ">
           <div className="flex flex-col gap-8">
             <div className="w-full flex flex-col mt-20">
               <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-black text-center">
@@ -21,7 +23,7 @@ function AboutUs() {
               </p>
             </div>
             <div className="w-full">
-              <div className="flex flex-col md:flex-row justify-evenly shadow-lg rounded-lg bg-yellow-300 m-6 mb-24">
+              <div className="flex flex-col md:flex-row justify-evenly shadow-lg rounded-lg bg-yellow-300 m-6 ">
                 <div className="flex justify-center flex-col items-center m-4">
                   <img
                     className="h-64 w-60 md:h-[350px] md:w-[300px] rounded-lg border-2 border-black mt-4"

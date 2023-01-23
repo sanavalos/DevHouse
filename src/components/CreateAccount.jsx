@@ -71,9 +71,11 @@ const CreateAccount = () => {
     <div className="">
       <Navbar />
       <div className="flex text-center h-screen">
-        <div className="w-1/2 lg:w-[60%] bg-slate-200">
+        <div className="w-full lg:w-[50%] bg-slate-200">
           <div className="mt-32 md:mt-64">
-            <h1 className="text-xl md:text-3xl mb-4 font-extrabold">CREA UNA NUEVA CUENTA</h1>
+            <h1 className="text-xl md:text-3xl mb-4 font-extrabold">
+              CREA UNA NUEVA CUENTA
+            </h1>
             <h3 className="text-lg">
               ¿Ya tienes una cuenta?, puedes ingresar{" "}
               <Link
@@ -108,9 +110,11 @@ const CreateAccount = () => {
             </button>
           </form>
         </div>
-        <div className="w-1/2 lg:w-[40%] bg-yellow-300">
+        <div className="w-1/2 lg:w-[50%] bg-yellow-300 hidden md:block">
           <div className="mt-40 md:mt-60 lg:mt-52">
-            <h1 className="text-2xl md:text-4xl font-semibold">Bienvenido a la mejor comunidad Henry</h1>
+            <h1 className="text-2xl md:text-4xl font-semibold">
+              Bienvenido a la mejor comunidad Henry
+            </h1>
           </div>
           <div className="m-2 mt-6 md:m-8">
             <img
@@ -121,7 +125,7 @@ const CreateAccount = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

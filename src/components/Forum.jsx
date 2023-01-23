@@ -88,8 +88,8 @@ function Forum() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col lg:flex-row mt-16 md:mt-20 h-screen">
-        <div className="flex flex-col mt-[650px] md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
+      <div className="flex flex-col lg:flex-row min-h-full">
+        <div className="flex flex-col  md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
           <div className="space-y-3">
             <div className="flex items-center">
               <h2 className="text-xl font-bold">Menu del Foro</h2>
@@ -162,8 +162,8 @@ function Forum() {
             ""
           )}
         </div>
-        <div className="container mx-auto mt-12 ml-7 max-w-2xl">
-          <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black w-[55vw]">
+        <div className="container mx-auto mt-12 md:ml-7 max-w-2xl">
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black md:w-[55vw]">
             POSTEOS SOBRE
             <span className="text-yellow-300 dark:text-yellow-300 ">
               {search ? " " + search.toUpperCase() : " TODOS"}
@@ -201,13 +201,13 @@ function Forum() {
           </div>
         </div>
         {user ? (
-          <div className="w-[360px] -mr-2 md:max-w-[728px] md:mt-3 md:mr-7 text-center absolute md:fixed right-0">
-            <div className="flex flex-col md:max-h-[65vh] md:mt-10 border rounded-lg shadow md:mb-7 bg-white">
-              <Chat/>
+          <div className="w-[360px] mb-16 -mr-2 md:max-w-[728px] md:mb-0 md:mt-3 md:mr-7 text-center relative md:fixed right-0">
+            <div className="flex flex-col max-h-[65vh] md:mt-10 border rounded-lg shadow md:mb-7 bg-white">
+              <Chat />
             </div>
           </div>
         ) : (
-          <div className="w-[360px] -mr-2 md:max-w-[728px] md:mt-3 md:mr-7 text-center absolute md:fixed right-0">
+          <div className="w-[360px] mb-16 -mr-2 md:max-w-[728px] md:mb-0 md:mt-3 md:mr-7 text-center relative md:fixed right-0">
             <div className="flex flex-col h-[83vh] md:mt-10 border relative shadow md:mb-7 bg-white">
               <div className="flex flex-col items-center justify-center h-full">
                 <h1 className="text-2xl font-bold m-10">

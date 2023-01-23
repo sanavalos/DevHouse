@@ -231,8 +231,8 @@ const Account = () => {
   return (
     <div className="h-screen">
       <Navbar />
-      <div className="grid grid-cols-2">
-        <div className=" bg-yellow-300">
+      <div className="flex flex-col lg:flex-row lg:justify-between">
+        <div className=" bg-yellow-300 hidden lg:block lg:w-[50vw]">
           <div className="mt-64 md:mt-44">
             <h1 className="text-3xl md:text-4xl text-center font-semibold">
               Nos encanta tenerte aquí
@@ -249,7 +249,7 @@ const Account = () => {
         <div className="">
           <div className="mx-2 mt-14 mb-20 md:mx-4 md:mt-20 md:mb-24 lg:mx-20 lg:my-28 border-black rounded-xl">
             <div className="border-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
-            <div className="border-x-2 border-black h-60 md:h-32 flex flex-col md:flex-row items-center justify-evenly bg-slate-300">
+            <div className="border-x-2 border-black h-60 md:h-32 flex flex-row items-center justify-evenly bg-slate-300">
               <img
                 className="h-20 w-20 mt-2 md:ml-2 lg:h-[100px] lg:w-[100px] rounded-xl lg:m-6 border-2 border-black"
                 alt="userphoto"
@@ -272,8 +272,10 @@ const Account = () => {
               <h1 className="text-lg md:text-xl lg:text-2xl m-3 lg:m-6 underline font-semibold text-center">
                 Información Personal
               </h1>
-              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
-                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Email:</label>
+              <div className="flex flex-row m-1 md:m-4 items-center text-center md:text-left justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
+                  Email:
+                </label>
                 <input
                   className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder={user && user.email}
@@ -285,7 +287,7 @@ const Account = () => {
                   </button>
                 </Link>
               </div>
-              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
+              <div className="flex flex-row m-1 md:m-4 items-center text-center md:text-left justify-between">
                 <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
                   Contraseña:
                 </label>
@@ -302,8 +304,10 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
-                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Nombre:</label>
+              <div className="flex flex-row m-1 md:m-4 items-center text-center md:text-left justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
+                  Nombre:
+                </label>
                 <input
                   className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder={user?.displayName || "Nombre Usuario"}
@@ -316,8 +320,10 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
-                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">GitHub:</label>
+              <div className="flex flex-row m-1 md:m-4 items-center text-center md:text-left justify-between">
+                <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
+                  GitHub:
+                </label>
                 <input
                   className="rounded-xl w-36 md:w-[50%] p-2 m-1"
                   placeholder={userId?.github ?? "Link de Github"}
@@ -330,7 +336,7 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              <div className="flex flex-col md:flex-row m-4 items-center justify-between">
+              <div className="flex flex-row md:m-4 items-center justify-between">
                 <label className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
                   Descripción:
                 </label>
@@ -348,8 +354,10 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-left md:justify-between">
-                <h3 className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Intereses:</h3>
+              <div className="flex flex-row m-1 md:m-4 items-center text-left justify-between">
+                <h3 className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
+                  Intereses:
+                </h3>
                 <ul className="lg:items-center w-36 md:w-[50%] text-sm font-medium rounded-lg flex bg-gray-700 border-gray-600 text-white flex-col lg:flex-row">
                   {intereses.map((item, index) => (
                     <li className="lg:w-full lg:last:border-0 lg:border-r border-gray-600 ">
@@ -379,8 +387,10 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              <div className="flex flex-col md:flex-row m-1 md:m-4 items-center text-center md:text-left md:justify-between">
-                <h3 className="md:text-lg lg:text-xl m-1 w-20 font-semibold">Carrera:</h3>
+              <div className="flex flex-row m-1 md:m-4 justify-between items-center text-center md:text-left">
+                <h3 className="md:text-lg lg:text-xl m-1 w-20 font-semibold">
+                  Carrera:
+                </h3>
                 <ul className="items-center w-36 md:w-[50%] text-sm font-medium rounded-lg flex md:flex-row flex-col bg-gray-700 border-gray-600 text-white">
                   <li className="w-full sm:border-r border-gray-600">
                     <div className="flex items-center pl-3">
@@ -426,7 +436,7 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              <div class="flex flex-col w-36 md:px-24 m-3 md:m-0 items-center justify-center md:w-full">
+              <div class="flex flex-col w-full md:px-24  items-center justify-center ">
                 <label
                   for="dropzone-file"
                   class="flex flex-col text-center md:items-center justify-center md:w-full h-64 border-2 border-dashed rounded-lg cursor-pointer hover:bg-bray-800 bg-gray-700 border-gray-600 hover:border-gray-500 hover:bg-gray-600"
@@ -439,7 +449,7 @@ const Account = () => {
                     <p class="mb-2 text-sm text-gray-400">
                       <span class="font-semibold">
                         Click para elegir archivo
-                      </span>                      
+                      </span>
                     </p>
                     <p class="text-xs text-gray-400">
                       SVG, PNG or JPG (MAX. 800x400px)

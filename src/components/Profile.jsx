@@ -29,7 +29,7 @@ function Profile() {
   return (
     <div>
       <Navbar />
-      <div className="flex text-center h-screen md:flex-row flex-col">
+      <div className="flex text-center md:flex-row flex-col">
         <div className="flex md:flex-row flex-col justify-center w-full bg-slate-200">
           {user?.career && (
             <img

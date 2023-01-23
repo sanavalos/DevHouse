@@ -37,7 +37,7 @@ export default function IndexMap() {
   };
 
   const { isLoaded, loadError } = useLoadScript({
-    // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ["places"],
     language: "es",
   });
@@ -56,16 +56,13 @@ export default function IndexMap() {
   if (!isLoaded) return "Loading map...";
 
   return (
-    <div className="w-[100%] lg:w-[60%]">
+    <div className=" w-[100%] lg:w-[60%]">
       <div className="absolute z-10" id="modal">
-        <div className="ml-[50px] md:ml-[200px] lg:ml-[500px] mt-80 justify-center pt-4 px-4 text-center block">
+        <div className="ml-0 md:ml-[20vw] mt-80 justify-center pt-4 px-4 text-center block">
           <div className="absolute transition-opacity" aria-hidden="true">
             <div className=" bg-gray-500 opacity-75"></div>
           </div>
-          <span
-            className="hidden sm:inline-block align-middle"
-            aria-hidden="true"
-          >
+          <span className="hidden sm:h-screen" aria-hidden="true">
             &#8203;
           </span>
           <div
@@ -118,7 +115,7 @@ export default function IndexMap() {
       </div>
 
       <GoogleMap
-        mapContainerClassName="w-[280px] md:w-full h-[95%] md:h-[90%] mt-12 md:mt-16"
+        mapContainerClassName="w-full h-full"
         zoom={3}
         center={selected ?? center}
         onLoad={onMapLoad}
@@ -278,12 +275,13 @@ export default function IndexMap() {
                 anchor: new window.google.maps.Point(15, 15),
               }}
               onClick={() => {
-                setSelected(marker);
-                panTo({ lat: Number(marker.lat), lng: Number(marker.lng) });
+                if (user) {
+                  setSelected(marker);
+                  panTo({ lat: Number(marker.lat), lng: Number(marker.lng) });
+                }
               }}
-              //when hover over marker
               onMouseOver={() => {
-                setSelected(marker);
+                if (user) setSelected(marker);
               }}
             />
           ))}
@@ -322,7 +320,7 @@ export default function IndexMap() {
           </InfoWindow>
         ) : null}
       </GoogleMap>
-      <Searchbar panTo={panTo} />
+      {user?.uid && <Searchbar panTo={panTo} />}
       <Locate panTo={panTo} />
     </div>
   );

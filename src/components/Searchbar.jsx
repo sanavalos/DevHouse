@@ -47,13 +47,17 @@ function Searchbar({ panTo }) {
             }}
             disabled={!ready}
             placeholder="Elige una ubicación"
-            className="p-1 md:p-2 md:text-xl w-[140px] md:w-[350px] lg:w-[500px] rounded-xl"
+            className="p-1 w-[300px] lg:w-[400px] rounded-xl"
           />
           <ComboboxPopover>
             <ComboboxList className="bg-yellow-300">
               {status === "OK" &&
                 data.map(({ id, description }) => (
-                  <ComboboxOption key={id} value={description} className="cursor-pointer my-2 hover:bg-black hover:text-yellow-300"/>
+                  <ComboboxOption
+                    key={id}
+                    value={description}
+                    className="cursor-pointer my-2 hover:bg-black hover:text-yellow-300"
+                  />
                 ))}
             </ComboboxList>
           </ComboboxPopover>

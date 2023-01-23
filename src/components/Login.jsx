@@ -84,7 +84,7 @@ const Login = () => {
     <div className="">
       <Navbar />
       <div className="flex text-center h-screen">
-        <div className="md:w-[50%] lg:w-[60%] bg-slate-200">
+        <div className="w-full md:w-[50%] lg:w-[60%] bg-slate-200">
           <div className="mt-28 md:mt-48 lg:mt-60">
             <h1 className="text-xl mb-2 md:text-3xl md:mb-4 font-extrabold">
               INGRESA A TU CUENTA
@@ -138,7 +138,7 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className="w-[50%] lg:w-[40%] bg-yellow-300">
+        <div className="w-[50%] lg:w-[40%] bg-yellow-300 hidden md:block">
           <div className="mt-44 md:mt-60 lg:mt-44">
             <h1 className="text-4xl font-semibold">¡Hola de nuevo Henry!</h1>
           </div>

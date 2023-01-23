@@ -41,18 +41,20 @@ function Posts({ posts }) {
     return (
       <div
         key={post?.id}
-        className="m-4 mr-8 last:mb-24 md:w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow md:mb-7"
+        className="mb-5 md:m-4 md:mr-8 last:mb-24 md:w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow md:mb-7"
       >
-        {post?.userId === user?.uid && (
-          <button
-            className="p-2 my-4 bg-red-600 rounded-xl text-white right-0"
-            onClick={() => handleDelete(post.id)}
-          >
-            Borrar
-          </button>
-        )}
-        <div className="m-2 font-semibold text-gray-700 text-3xl">
-          {post.title}
+        <div className="flex justify-between">
+          <div className="m-2 font-semibold text-gray-700 text-3xl">
+            {post.title}
+          </div>
+          {post?.userId === user?.uid && (
+            <button
+              className="p-2 my-4 bg-red-600 rounded-xl text-white font-semibold "
+              onClick={() => handleDelete(post.id)}
+            >
+              Borrar
+            </button>
+          )}
         </div>
         <div className="text-sm font-medium text-gray-500 truncate m-2">
           {post.date} - {post.country || "Todos"} -{" "}
