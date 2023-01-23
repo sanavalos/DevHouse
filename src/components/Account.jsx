@@ -372,7 +372,7 @@ const Account = () => {
                         />
                         <label
                           for={item}
-                          className="w-full py-3 ml-2 text-sm font-medium text-gray-300"
+                          className="w-full py-3 text-sm font-medium text-gray-300"
                         >
                           {item}
                         </label>
