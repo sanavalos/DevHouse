@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { RiGithubFill, RiGroup2Fill } from "react-icons/ri";
+import { RiGithubFill } from "react-icons/ri";
 import { MdPlace } from "react-icons/md";
 import { getUserById, clearUser } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -59,7 +59,7 @@ function Profile() {
               {user?.github && (
                 <div className="flex items-center mt-4 text-gray-700">
                   <RiGithubFill size={30} className="fill-current" />
-                  <a href={user?.github} target={"_blank"}>
+                  <a href={user?.github} target={"_blank"} rel="noreferrer">
                     <h1 className="px-2 text-lg">
                       @{user?.github.split("com/")[1]}
                     </h1>

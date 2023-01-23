@@ -92,7 +92,7 @@ export function reducerApp(state = initialState, action) {
       };
     case GET_RESPONSES:
       const responses = action.payload.newData.filter(
-        (response) => response.post == action.payload.post
+        (response) => response.post === action.payload.post
       );
       return {
         ...state,
@@ -130,7 +130,7 @@ export function reducerApp(state = initialState, action) {
     case USERS_COUNTRY:
       const users = action.payload.newData.filter(
         (user) =>
-          user.country == action.payload.country &&
+          user.country === action.payload.country &&
           user.uid !== action.payload.userId
       );
       return {

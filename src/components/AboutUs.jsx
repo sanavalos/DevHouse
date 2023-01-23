@@ -34,12 +34,17 @@ function AboutUs() {
                     </p>
                   </div>
                   <div className="flex items-center space-x-6 my-4">
-                    <a href="https://github.com/MKamui" target={"_blank"}>
+                    <a
+                      href="https://github.com/MKamui"
+                      target={"_blank"}
+                      rel="noreferrer"
+                    >
                       <BsGithub size={30} className="hover:scale-125" />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/mario-franco-427904178/"
                       target={"_blank"}
+                      rel="noreferrer"
                     >
                       <BsLinkedin size={30} className="hover:scale-125" />
                     </a>
@@ -57,12 +62,17 @@ function AboutUs() {
                     </p>
                   </div>
                   <div className="flex items-center space-x-6 my-4">
-                    <a href="https://github.com/sanavalos" target={"_blank"}>
+                    <a
+                      href="https://github.com/sanavalos"
+                      target={"_blank"}
+                      rel="noreferrer"
+                    >
                       <BsGithub size={30} className="hover:scale-125" />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/santiagoavalos/"
                       target={"_blank"}
+                      rel="noreferrer"
                     >
                       <BsLinkedin size={30} className="hover:scale-125" />
                     </a>
@@ -83,12 +93,14 @@ function AboutUs() {
                     <a
                       href="https://github.com/Fernando-Bernal"
                       target={"_blank"}
+                      rel="noreferrer"
                     >
                       <BsGithub size={30} className="hover:scale-125" />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/fernando-bernal-dev/"
                       target={"_blank"}
+                      rel="noreferrer"
                     >
                       <BsLinkedin size={30} className="hover:scale-125" />
                     </a>

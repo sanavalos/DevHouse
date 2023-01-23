@@ -45,7 +45,7 @@ function SimilarUsers({ country, userId }) {
                 </p>
                 <p className="mb-3 text-sm md:text-base font-normal text-slate-300">
                   {user?.github ? (
-                    <a href={user?.github} target={"_blank"}>
+                    <a href={user?.github} target={"_blank"} rel="noreferrer">
                       {user?.github}
                     </a>
                   ) : (

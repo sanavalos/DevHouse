@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { v4 } from "uuid";
 import { UserAuth } from "../context/AuthContext";
@@ -102,7 +102,9 @@ function Post() {
           <h2 className="mt-8 md:m-8 font-extrabold text-2xl text-center">
             CREA TU POST
           </h2>
-          <h3 className="m-2 md:m-5 font-extrabold text-xl text-center">{error}</h3>
+          <h3 className="m-2 md:m-5 font-extrabold text-xl text-center">
+            {error}
+          </h3>
           <div className="flex flex-col my-2">
             <label className="py-2 font-semibold text-lg">Titulo</label>
             <input

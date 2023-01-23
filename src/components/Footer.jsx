@@ -8,7 +8,12 @@ function Footer() {
         <span className="text-center text-[9px] md:text-sm">
           Hecho por Henrys para Henrys
         </span>
-        <a href="https://www.soyhenry.com/" className="flex mx-2" target={"_blank"} rel="noreferrer">
+        <a
+          href="https://www.soyhenry.com/"
+          className="flex mx-2"
+          target={"_blank"}
+          rel="noreferrer"
+        >
           <img
             src="https://assets.soyhenry.com/henry-landing/assets/Henry/logo-white.png"
             className="md:h-8 h-6"
