@@ -231,9 +231,9 @@ const Account = () => {
   return (
     <div className="h-screen">
       <Navbar />
-      <div className="flex flex-col lg:flex-row lg:justify-between">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:align-center">
         <div className=" bg-yellow-300 hidden lg:block lg:w-[50vw]">
-          <div className="mt-64 md:mt-44">
+          <div className="mt-64">
             <h1 className="text-3xl md:text-4xl text-center font-semibold">
               Nos encanta tenerte aquí
             </h1>
