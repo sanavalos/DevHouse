@@ -22,8 +22,8 @@ function Number({ n }) {
 
 function Home() {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
-  const posts = useSelector((state) => state.posts);
+  const users = useSelector((state) => state.users.users);
+  const posts = useSelector((state) => state.posts.posts);
 
   useEffect(() => {
     dispatch(getUsers());

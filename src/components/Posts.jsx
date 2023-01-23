@@ -11,8 +11,8 @@ import Swal from "sweetalert2";
 function Posts({ posts }) {
   const [showComments, setShowComments] = useState(false);
   const dispatch = useDispatch();
-  const responses = useSelector((state) => state.responses);
-  const postId = useSelector((state) => state.postId);
+  const responses = useSelector((state) => state.posts.responses);
+  const postId = useSelector((state) => state.posts.postId);
   const { user } = UserAuth();
   const navigate = useNavigate();
 

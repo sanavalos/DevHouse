@@ -44,7 +44,7 @@ const Account = () => {
     dispatch(getUserById(user?.uid));
   }, [user]);
 
-  const userId = useSelector((state) => state.user);
+  const userId = useSelector((state) => state.users.user);
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImageUp(e.target.files[0]);

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function SimilarUsers({ country, userId }) {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.usersCountry);
+  const users = useSelector((state) => state.users.usersCountry);
   const [moreUsers, setMoreUsers] = useState(false);
 
   useEffect(() => {

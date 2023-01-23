@@ -22,8 +22,8 @@ function Forum() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
-  const filtered = useSelector((state) => state.filtered);
-  const posts = useSelector((state) => state.posts);
+  const filtered = useSelector((state) => state.posts.filtered);
+  const posts = useSelector((state) => state.posts.posts);
   const { user } = UserAuth();
 
   useEffect(() => {

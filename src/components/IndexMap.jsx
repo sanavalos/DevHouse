@@ -22,7 +22,7 @@ export default function IndexMap() {
     dispatch(getUsers());
   }, [dispatch]);
 
-  const users = useSelector((state) => state.users);
+  const users = useSelector((state) => state.users.users);
   useMemo(() => users, []);
 
   const mapRef = useRef();

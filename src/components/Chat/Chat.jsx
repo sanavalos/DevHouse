@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Chat = () => {
   const scroll = useRef();
-  const { chatMessages } = useSelector((state) => state);
+  const { chatMessages } = useSelector((state) => state.chat);
   const dispatch = useDispatch();
 
   useEffect(() => {
