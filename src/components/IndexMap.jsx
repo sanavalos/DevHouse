@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import Locate from "./Locate";
 import { useDispatch } from "react-redux";
-import { getUsers } from "../redux/actions/actions";
+import { getUsers } from "../actions/actions";
 import { UserAuth } from "../context/AuthContext";
 
 export default function IndexMap() {

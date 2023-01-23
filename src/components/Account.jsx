@@ -9,7 +9,7 @@ import { storage } from "../firebase";
 import { updatePassword, updateProfile } from "firebase/auth";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { getUserById } from "../redux/actions/actions";
+import { getUserById } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { IoIosHelpCircle } from "react-icons/io";
 import { AiOutlineCloudUpload } from "react-icons/ai";

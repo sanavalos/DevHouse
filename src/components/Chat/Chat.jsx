@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
 
-import { getChatMessages } from "../../redux/actions/actions";
+import { getChatMessages } from "../../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const Chat = () => {

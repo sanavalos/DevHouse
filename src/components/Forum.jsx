@@ -11,7 +11,7 @@ import {
   clearFilter,
   orderByLastPost,
   mostCommented,
-} from "../redux/actions/actions.js";
+} from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Posts from "./Posts";
 import Chat from "../components/Chat/Chat";

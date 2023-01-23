@@ -8,7 +8,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
-import { db } from "../../firebase";
+import { db } from "../firebase";
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
 export const CLEAR_USER = "CLEAR_USER";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { usersCountry } from "../redux/actions/actions";
+import { usersCountry } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function SimilarUsers({ country, userId }) {
