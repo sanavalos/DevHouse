@@ -89,7 +89,7 @@ function Forum() {
     <>
       <Navbar />
       <div className="flex flex-col lg:flex-row mt-16 md:mt-20 h-screen">
-        <div className="flex flex-col mt-[800px] md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
+        <div className="flex flex-col mt-[650px] md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
           <div className="space-y-3">
             <div className="flex items-center">
               <h2 className="text-xl font-bold">Menu del Foro</h2>
@@ -207,8 +207,8 @@ function Forum() {
             </div>
           </div>
         ) : (
-          <div className="max-w-[728px] mt-3 mr-7 text-center ">
-            <div className="flex flex-col h-[83vh] mt-10 border relative shadow mb-7 bg-white">
+          <div className="w-[360px] -mr-2 md:max-w-[728px] md:mt-3 md:mr-7 text-center absolute md:fixed right-0">
+            <div className="flex flex-col h-[83vh] md:mt-10 border relative shadow md:mb-7 bg-white">
               <div className="flex flex-col items-center justify-center h-full">
                 <h1 className="text-2xl font-bold m-10">
                   Inicia sesion para chatear

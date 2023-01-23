@@ -29,16 +29,16 @@ function Profile() {
   return (
     <div>
       <Navbar />
-      <div className="grid grid-rows-1">
-        <div className="flex justify-end bg-slate-200 ">
+      <div className="flex text-center h-screen md:flex-row flex-col">
+        <div className="flex md:flex-row flex-col justify-center w-full bg-slate-200">
           {user?.career && (
             <img
               src={user?.career === "full stack" ? badgeFs : badgeDs}
-              className="h-[13rem] absolute top-16 right-[52vw] -rotate-12"
+              className="h-36 md:h-44 lg:h-[13rem] absolute top-16 right-0 md:left-80 -rotate-12"
               alt="badge"
             />
           )}
-          <div className="w-1/4 bg-white shadow-lg rounded-xl my-16 border-2 border-black min-h-[650px]">
+          <div className="w-4/5 md:w-2/5 ml-10 lg:w-1/4 bg-white shadow-lg rounded-xl mt-24 mb-8 md:mb-28 border-2 border-black">
             <img
               className="w-full min-h-[25rem] rounded-t-xl max-h-[25rem]"
               src={
@@ -48,7 +48,7 @@ function Profile() {
               }
               alt="User"
             />
-            <div className="py-4 px-6">
+            <div className="p-4">
               <h1 className="text-3xl font-semibold text-gray-800 text-center">
                 {user?.name}
               </h1>
