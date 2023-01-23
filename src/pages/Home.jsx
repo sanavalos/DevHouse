@@ -39,13 +39,13 @@ function Home() {
             <p className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl lg:text-4xl text-black">
               USUARIOS REGISTRADOS:{" "}
               <span className="text-yellow-500">
-                <Number n={users.length} />
+                <Number n={users?.length} />
               </span>
             </p>
             <p className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl lg:text-4xl text-black">
               POSTEOS UNICOS:{" "}
               <span className="text-yellow-500">
-                <Number n={posts.length} />
+                <Number n={posts?.length} />
               </span>
             </p>
             <div className="flex flex-col text-center mt-10 mr-2 md:mr-0">

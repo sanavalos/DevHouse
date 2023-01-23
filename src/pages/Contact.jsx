@@ -10,7 +10,7 @@ function Contact() {
   const [error, setError] = useState("true");
 
   const handleData = () => {
-    if (username?.length > 0 && email.length > 0 && message.length > 0)
+    if (username?.length > 0 && email?.length > 0 && message?.length > 0)
       setError(false);
   };
 

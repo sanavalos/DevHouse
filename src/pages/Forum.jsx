@@ -174,7 +174,7 @@ function Forum() {
             </span>
           </h1>
           <div className="flex flex-col mt-7 md:min-h-screen">
-            {filtered.length > 0 ? (
+            {filtered?.length > 0 ? (
               <Posts posts={filtered} />
             ) : (
               <>

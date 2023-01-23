@@ -25,7 +25,7 @@ function SimilarUsers({ country, userId }) {
         HENRYS EN {country?.toUpperCase()}
       </p>
       {moreUsers &&
-        (users.length > 0 ? (
+        (users?.length > 0 ? (
           users.map((user) => (
             <div
               key={user.uid}

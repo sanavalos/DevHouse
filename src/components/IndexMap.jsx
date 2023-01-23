@@ -263,7 +263,7 @@ export default function IndexMap() {
           ],
         }}
       >
-        {users.length > 0 &&
+        {users?.length > 0 &&
           users.map((marker) => (
             <Marker
               key={marker.lat}

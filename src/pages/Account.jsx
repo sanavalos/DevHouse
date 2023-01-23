@@ -370,10 +370,7 @@ const Account = () => {
                           onChange={handleCheck}
                           className="w-4 h-4 text-blue-600 rounded ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500"
                         />
-                        <label
-                          for={item}
-                          className="w-full py-3 text-sm font-medium text-gray-300"
-                        >
+                        <label className="w-full py-3 text-sm font-medium text-gray-300">
                           {item}
                         </label>
                       </div>
@@ -402,10 +399,7 @@ const Account = () => {
                         onChange={handleCareer}
                         className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 focus:ring-2 bg-gray-600 border-gray-500"
                       />
-                      <label
-                        for="full-stack-dev"
-                        className="w-full py-3 ml-2 text-sm font-medium text-gray-300"
-                      >
+                      <label className="w-full py-3 ml-2 text-sm font-medium text-gray-300">
                         Full Stack Dev
                       </label>
                     </div>
@@ -420,10 +414,7 @@ const Account = () => {
                         onChange={handleCareer}
                         className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 focus:ring-2 bg-gray-600 border-gray-500"
                       />
-                      <label
-                        for="data-scientist"
-                        className="w-full py-3 ml-2 text-sm font-medium text-gray-300"
-                      >
+                      <label className="w-full py-3 ml-2 text-sm font-medium text-gray-300">
                         Data Scientist
                       </label>
                     </div>
@@ -436,29 +427,26 @@ const Account = () => {
                   Cambiar
                 </button>
               </div>
-              <div class="flex flex-col w-full md:px-24  items-center justify-center ">
-                <label
-                  for="dropzone-file"
-                  class="flex flex-col text-center md:items-center justify-center md:w-full h-64 border-2 border-dashed rounded-lg cursor-pointer hover:bg-bray-800 bg-gray-700 border-gray-600 hover:border-gray-500 hover:bg-gray-600"
-                >
-                  <div class="flex flex-col items-center justify-center md:pt-5 md:pb-6">
+              <div className="flex flex-col w-full md:px-24  items-center justify-center ">
+                <label className="flex flex-col text-center md:items-center justify-center md:w-full h-64 border-2 border-dashed rounded-lg cursor-pointer hover:bg-bray-800 bg-gray-700 border-gray-600 hover:border-gray-500 hover:bg-gray-600">
+                  <div className="flex flex-col items-center justify-center md:pt-5 md:pb-6">
                     <AiOutlineCloudUpload
                       size={50}
                       className="text-slate-200"
                     />
-                    <p class="mb-2 text-sm text-gray-400">
-                      <span class="font-semibold">
+                    <p className="mb-2 text-sm text-gray-400">
+                      <span className="font-semibold">
                         Click para elegir archivo
                       </span>
                     </p>
-                    <p class="text-xs text-gray-400">
+                    <p className="text-xs text-gray-400">
                       SVG, PNG or JPG (MAX. 800x400px)
                     </p>
                   </div>
                   <input
                     id="dropzone-file"
                     type="file"
-                    class="hidden"
+                    className="hidden"
                     onChange={handleChange}
                   />
                 </label>

@@ -45,7 +45,7 @@ function Posts({ posts }) {
       >
         <div className="flex justify-between">
           <div className="m-2 font-semibold text-gray-700 text-3xl">
-            {post.title}
+            {post?.title}
           </div>
           {post?.userId === user?.uid && (
             <button
@@ -62,14 +62,14 @@ function Posts({ posts }) {
             to={`/perfil/${post.userId}`}
             className="uppercase hover:text-red-500"
           >
-            {post.user || "Anonimo"}
+            {post?.user || "Anonimo"}
           </Link>{" "}
         </div>
         <div className="text-md font-medium text-black m-2">
-          {post.comments}
+          {post?.comments}
         </div>
         {user?.uid ? (
-          <PostComment postId={post.id} />
+          <PostComment postId={post?.id} />
         ) : (
           <div className="flex w-full">
             <button
@@ -80,21 +80,21 @@ function Posts({ posts }) {
             </button>
           </div>
         )}
-        {postId === post.id &&
+        {postId === post?.id &&
           showComments &&
           responses?.map((response) => {
             return (
               <div
-                key={response.id}
+                key={response?.id}
                 className=" px-4 py-5 shadow mb-7 bg-slate-300 rounded-xl"
               >
                 <Link
-                  to={`/perfil/${response.userId}`}
+                  to={`/perfil/${response?.userId}`}
                   className="uppercase text-sm font-medium text-gray-500 truncate"
                 >
-                  {response.user}
+                  {response?.user}
                 </Link>
-                <div>{response.comment}</div>
+                <div>{response?.comment}</div>
               </div>
             );
           })}
@@ -108,7 +108,7 @@ function Posts({ posts }) {
             Mostrar comentarios
           </button>
         ) : (
-          postId === post.id && (
+          postId === post?.id && (
             <button
               onClick={() => setShowComments(false)}
               className="m-2 hover:text-red-500 hover:scale-105"
