@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import IndexMap from "./IndexMap";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import IndexMap from "../components/IndexMap";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { getUsers, getPosts } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useSpring, animated } from "react-spring";

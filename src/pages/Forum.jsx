@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { BiWorld } from "react-icons/bi";
 import { BsFilePostFill, BsSearch } from "react-icons/bs";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
@@ -13,7 +13,7 @@ import {
   mostCommented,
 } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
-import Posts from "./Posts";
+import Posts from "../components/Posts";
 import Chat from "../components/Chat/Chat";
 import { UserAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";

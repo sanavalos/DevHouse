@@ -1,18 +1,18 @@
-import Landing from "./components/Landing";
-import Home from "./components/Home";
-import Profile from "./components/Profile";
+import Landing from "./pages/Landing";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import { Routes, Route } from "react-router-dom";
-import Forum from "./components/Forum";
-import Account from "./components/Account";
-import PageNotFound from "./components/PageNotFound";
-import Login from "./components/Login";
-import CreateAccount from "./components/CreateAccount";
-import Forget from "./components/Forget";
+import Forum from "./pages/Forum";
+import Account from "./pages/Account";
+import PageNotFound from "./pages/PageNotFound";
+import Login from "./pages/Login";
+import CreateAccount from "./pages/CreateAccount";
+import Forget from "./pages/Forget";
 import AuthContextProvider from "./context/AuthContext";
-import AboutUs from "./components/AboutUs";
-import LegalInformation from "./components/LegalInformation";
-import Post from "./components/Post";
-import Contact from "./components/Contact";
+import AboutUs from "./pages/AboutUs";
+import LegalInformation from "./pages/LegalInformation";
+import Post from "./pages/Post";
+import Contact from "./pages/Contact";
 
 function App() {
   return (

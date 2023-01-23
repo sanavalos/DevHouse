@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { RiGithubFill } from "react-icons/ri";
 import { MdPlace } from "react-icons/md";
 import { getUserById, clearUser } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
-import SimilarUsers from "./SimilarUsers";
+import SimilarUsers from "../components/SimilarUsers";
 import badgeFs from "../media/fstackdev.png";
 import badgeDs from "../media/datascientist.png";
 

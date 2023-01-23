@@ -5,9 +5,9 @@ import { db } from "../firebase";
 import { v4 } from "uuid";
 import { UserAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import Swal from "sweetalert2";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 
 function Post() {
   const [post, setPost] = useState({
