@@ -68,7 +68,7 @@ function Profile() {
               )}
               <div className="flex items-center mt-4 text-gray-700">
                 <MdPlace size={30} className="fill-current" />
-                <h1 className="px-2 text-lg">{user.location}</h1>
+                <h1 className="px-2 text-lg">{user?.location}</h1>
               </div>
               <div className="flex m-4 items-center justify-center">
                 <ul className="flex flex-wrap">
