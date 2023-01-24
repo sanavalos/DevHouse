@@ -251,18 +251,20 @@ const Account = () => {
             <div className="border-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
             <div className="border-x-2 border-black h-36 md:h-32 flex flex-row items-center justify-evenly bg-slate-300">
               <img
-                className="h-20 w-20 mt-2 md:ml-2 lg:h-[100px] lg:w-[100px] rounded-xl lg:m-6 border-2 border-black"
+                className="md:ml-2 h-[100px] w-[100px] rounded-xl lg:m-6 border-2 border-black"
                 alt="userphoto"
                 src={photoURL}
               />
-              <h2 className="m-2 text-center text-xl lg:text-3xl font-semibold">
+              <div className="flex flex-col">
+              <h2 className="m-2 text-center text-xl lg:text-3xl font-bold">
                 {user?.displayName || "Nombre Usuario"}
               </h2>
               <h2 className="m-2 text-center text-xl lg:text-3xl font-semibold">
                 {userId?.country}
               </h2>
+              </div>
               <button
-                className="p-2 m-2 bg-black text-yellow-300 text-lg lg:text-2xl hover:scale-110 hover:text-red-500 rounded-xl"
+                className="p-2 bg-black text-yellow-300 text-lg lg:text-2xl hover:scale-110 hover:text-red-500 rounded-xl"
                 onClick={handleLogout}
               >
                 Desloguea
