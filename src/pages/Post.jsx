@@ -98,14 +98,14 @@ function Post() {
     <div className="">
       <Navbar />
       <div className="flex justify-center h-screen bg-yellow-300 w-full">
-        <form className="mt-16 m-8">
-          <h2 className="mt-8 md:m-8 font-extrabold text-2xl text-center">
+        <form className="md:mt-16 md:m-8 m-2">
+          <h2 className="md:m-8 font-extrabold text-2xl text-center">
             CREA TU POST
           </h2>
           <h3 className="m-4 md:m-6 font-extrabold text-xl text-center">
             {error}
           </h3>
-          <div className="my-2 md:my-6">
+          <div className="my-2 md:my-6 flex flex-col">
             <label className="py-2 font-semibold text-lg mr-4">
               País donde publicar
             </label>
@@ -113,6 +113,7 @@ function Post() {
               name="country"
               onChange={(e) => handleChange(e)}
               className="rounded-xl bg-black text-yellow-300 p-1"
+              size={5}
             >
               {" "}
               <option disabled selected defaultValue>

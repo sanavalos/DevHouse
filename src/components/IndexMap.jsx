@@ -56,9 +56,9 @@ export default function IndexMap() {
   if (!isLoaded) return "Loading map...";
 
   return (
-    <div className=" w-[100%] lg:w-[60%]">
+    <div className="flex justify-center w-[100%] lg:w-[60%]">
       <div className="absolute z-10" id="modal">
-        <div className="ml-0 md:ml-[20vw] mt-80 justify-center pt-4 px-4 text-center block">
+        <div className="mt-80 pt-4 px-4 text-center block">
           <div className="absolute transition-opacity" aria-hidden="true">
             <div className=" bg-gray-500 opacity-75"></div>
           </div>
