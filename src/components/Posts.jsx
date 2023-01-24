@@ -41,7 +41,7 @@ function Posts({ posts }) {
     return (
       <div
         key={post?.id}
-        className="mb-5 md:m-4 md:mr-8 last:mb-24 md:w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow md:mb-7"
+        className="mb-5 md:m-4 md:mr-8 last:mb-10 md:w-[50vw] px-4 py-5 bg-slate-200 rounded-lg shadow md:mb-7"
       >
         <div className="flex justify-between">
           <div className="m-2 font-semibold text-gray-700 text-3xl">

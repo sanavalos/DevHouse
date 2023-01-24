@@ -89,14 +89,14 @@ function Forum() {
     <>
       <Navbar />
       <div className="flex flex-col lg:flex-row min-h-full">
-        <div className="flex flex-col  md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
+        <div className="flex flex-col md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
           <div className="space-y-3">
-            <div className="flex items-center">
-              <h2 className="text-xl font-bold">Menu del Foro</h2>
+            <div className="flex justify-center">
+              <h2 className="text-2xl font-bold">Menu del Foro</h2>
             </div>
             <div className="flex">
               <button
-                className="p-2 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black"
+                className="p-3 bg-black rounded-xl text-yellow-300 hover:bg-yellow-300 hover:text-black"
                 onClick={(e) => handleSearch(e)}
               >
                 <BsSearch />
@@ -104,20 +104,20 @@ function Forum() {
               <input
                 type="text"
                 placeholder="Busqueda por Usuario o Titulo"
-                className="w-full p-2  text-sm rounded-md focus:outline-none"
+                className="w-72 p-2 border text-sm rounded-xl focus:outline-none"
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
             <div className="flex">
-              <ul className="pt-2 pb-4 space-y-1 text-sm">
+              <ul className="pt-2 pb-4 space-y-1">
                 <li className="rounded-sm">
                   <div className="flex items-center p-2 space-x-3 rounded-md">
-                    <BiWorld size={40} />
-                    <label className="block text-sm font-medium text-gray-900">
+                    <BiWorld size={30} />
+                    <label className="font-medium text-gray-900">
                       Paises
                     </label>
                     <select
-                      className="bg-yellow-300 border border-gray-900 text-gray-900 text-sm rounded-lg block w-full p-1"
+                      className="bg-yellow-300 border border-gray-900 text-gray-900 rounded-lg w-52 p-1"
                       onChange={(e) => handleChange(e)}
                     >
                       {countries.map((country) => (
@@ -129,16 +129,16 @@ function Forum() {
                 <li className="rounded-sm">
                   <button onClick={() => handleLastPost()}>
                     <div className="flex items-center p-2 space-x-3 rounded-md">
-                      <BsFilePostFill size={25} />
-                      <span>Ultimos posteos</span>
+                      <BsFilePostFill size={30} />
+                      <span className="font-medium text-gray-900 hover:underline">Ultimos posteos</span>
                     </div>
                   </button>
                 </li>
                 <li className="rounded-sm">
                   <button onClick={(e) => handleFilter(e)}>
                     <div className="flex items-center p-2 space-x-3 rounded-md">
-                      <MdOutlineLocalFireDepartment size={25} />
-                      <span>Posteos mas comentados</span>
+                      <MdOutlineLocalFireDepartment size={30} />
+                      <span className="font-medium text-gray-900 hover:underline">Posteos mas comentados</span>
                     </div>
                   </button>
                 </li>
@@ -178,31 +178,16 @@ function Forum() {
               <Posts posts={filtered} />
             ) : (
               <>
-                <div className="md:w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
-                  <div className="h-7 w-80 bg-slate-500 mt-1"></div>
-                  <div className="h-3 w-32 bg-slate-500 mt-1 mb-5"></div>
-                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
-                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
-                </div>
-                <div className="md:w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
-                  <div className="h-7 w-80 bg-slate-500 mt-1"></div>
-                  <div className="h-3 w-32 bg-slate-500 mt-1 mb-5"></div>
-                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
-                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
-                </div>
-                <div className="md:w-[50vw] px-4 py-5 bg-white rounded-lg shadow mb-7">
-                  <div className="h-7 w-80 bg-slate-500 mt-1"></div>
-                  <div className="h-3 w-32 bg-slate-500 mt-1 mb-5"></div>
-                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
-                  <div className="h-4 w-full bg-slate-500 mt-1"></div>
+                <div className="md:w-[50vw] px-4 py-10 bg-white rounded-lg shadow mb-20 text-center">
+                  <p className="text-xl">Aún no existen posteos sobre {search.toUpperCase()}. Puedes crear uno en la sección de crea un post</p>
                 </div>
               </>
             )}
           </div>
         </div>
         {user ? (
-          <div className="w-[360px] mb-16 -mr-2 md:max-w-[728px] md:mb-0 md:mt-3 md:mr-7 text-center relative md:fixed right-0">
-            <div className="flex flex-col max-h-[65vh] md:mt-10 border rounded-lg shadow md:mb-7 bg-white">
+          <div className="flex justify-center mb-16 md:max-w-[728px] md:mb-0 md:mt-3 md:mr-7 text-center relative md:fixed right-0">
+            <div className="flex max-h-[65vh] md:mt-10 border rounded-lg shadow md:mb-7 bg-white">
               <Chat />
             </div>
           </div>

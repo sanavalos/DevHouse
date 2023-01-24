@@ -16,7 +16,7 @@ const Chat = () => {
 
   return (
     <div className="w-96 overflow-scroll overflow-x-hidden">
-      <main className="flex flex-col pr-6 md:p-[10px]">
+      <main className="flex flex-col md:p-[10px]">
         {chatMessages &&
           chatMessages?.map((message) => (
             <Message key={message.id} message={message} />

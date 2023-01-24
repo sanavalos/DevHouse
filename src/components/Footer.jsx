@@ -20,7 +20,7 @@ function Footer() {
             alt="Henry"
           />
         </a>
-        <div className="flex text-[10px] gap-4 md:flex-row md:text-sm md:space-x-10">
+        <div className="flex text-[10px] items-center gap-4 md:flex-row md:text-sm md:space-x-10">
           <Link to="/contacto">
             <button className="hover:scale-110 hover:font-bold">
               Contactanos
