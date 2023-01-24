@@ -98,23 +98,13 @@ function Post() {
     <div className="">
       <Navbar />
       <div className="flex justify-center h-screen bg-yellow-300 w-full">
-        <form className="md:mt-24 m-8">
+        <form className="mt-16 m-8">
           <h2 className="mt-8 md:m-8 font-extrabold text-2xl text-center">
             CREA TU POST
           </h2>
-          <h3 className="m-2 md:m-5 font-extrabold text-xl text-center">
+          <h3 className="m-4 md:m-6 font-extrabold text-xl text-center">
             {error}
           </h3>
-          <div className="flex flex-col my-2">
-            <label className="py-2 font-semibold text-lg">Titulo</label>
-            <input
-              className="p-3 rounded-xl w-80 md:w-[800px]"
-              type="text"
-              name="title"
-              value={post.name}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
           <div className="my-2 md:my-6">
             <label className="py-2 font-semibold text-lg mr-4">
               País donde publicar
@@ -122,7 +112,7 @@ function Post() {
             <select
               name="country"
               onChange={(e) => handleChange(e)}
-              className="rounded-xl bg-black text-yellow-300"
+              className="rounded-xl bg-black text-yellow-300 p-1"
             >
               {" "}
               <option disabled selected defaultValue>
@@ -134,6 +124,16 @@ function Post() {
                 </option>
               ))}
             </select>
+          </div>
+          <div className="flex flex-col my-2">
+            <label className="py-2 font-semibold text-lg">Titulo</label>
+            <input
+              className="p-3 rounded-xl w-80 md:w-[800px]"
+              type="text"
+              name="title"
+              value={post.name}
+              onChange={(e) => handleChange(e)}
+            />
           </div>
           <div className="flex flex-col my-2">
             <label className="py-2 font-semibold text-lg">Comentario</label>
