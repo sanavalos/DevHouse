@@ -49,7 +49,7 @@ const Forget = () => {
     <div className="">
       <Navbar />
       <div className="flex text-center h-screen">
-        <div className="w-1/2 lg:w-[60%] bg-slate-200">
+        <div className="w-full md:w-[50%] lg:w-[60%] bg-slate-200">
           <div className="mt-36 md:mt-64 lg:mt-72">
             <h1 className="text-xl md:text-3xl mb-4 font-extrabold">
               ¿OLVIDASTE LA CONTRASEÑA?
@@ -65,21 +65,21 @@ const Forget = () => {
             </h3>
           </div>
           <form className="m-4 md:m-8" onSubmit={handleSubmit}>
-            <div className="flex flex-col my-2 lg:tems-center">
+            <div className="flex flex-col items-center my-2 lg:tems-center">
               <label className="py-2 font-medium">Email registrado:</label>
               <input
                 name="email"
-                className="p-1 md:p-3 rounded-xl lg:w-3/4"
+                className="p-1 md:p-3 rounded-xl w-3/4"
                 type="email"
                 onChange={handleChanges}
               />
             </div>
-            <button className="p-1 md:p-4 my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
+            <button className="p-4 my-6 bg-black text-yellow-300 rounded-xl hover:scale-110 hover:text-red-500">
               Recuperar contraseña
             </button>
           </form>
         </div>
-        <div className="w-1/2 lg:w-[40%] bg-yellow-300">
+        <div className="w-[50%] lg:w-[40%] bg-yellow-300 hidden md:block">
           <div className="mt-36 md:mt-60 lg:mt-48">
             <h1 className="text-2xl m-2 md:text-4xl font-semibold">
               Esperamos tu visita en la mejor comunidad Henry
