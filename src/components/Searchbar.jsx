@@ -26,7 +26,7 @@ function Searchbar({ panTo }) {
   });
   return (
     <>
-      <div className="absolute top-36 md:top-32 left-[200px] md:left-[70%] translate-x-[-50%] w-[100%] max-w-[400px] z-index">
+      <div className="absolute pl-4 top-36 md:top-32 left-[200px] md:left-[70%] translate-x-[-50%] w-[100%] max-w-[400px] z-index">
         <Combobox
           onSelect={async (address) => {
             setValue(address, false);

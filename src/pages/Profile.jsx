@@ -34,7 +34,7 @@ function Profile() {
           {user?.career && (
             <img
               src={user?.career === "full stack" ? badgeFs : badgeDs}
-              className="h-36 md:h-44 lg:h-[13rem] absolute top-16 right-0 md:left-80 -rotate-12"
+              className="h-36 md:h-44 lg:h-[13rem] absolute top-16 left-0 md:left-80 -rotate-12"
               alt="badge"
             />
           )}

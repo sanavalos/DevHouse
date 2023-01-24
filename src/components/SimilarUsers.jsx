@@ -36,7 +36,7 @@ function SimilarUsers({ country, userId }) {
                 src={user.image}
                 alt=""
               />
-              <div className="flex flex-col items-center justify-center pt-2 p-4 leading-normal h-32">
+              <div className="flex flex-col items-center justify-center pt-2 px-0 md:p-4 leading-normal h-32">
                 <h5 className="text-xl md:text-2xl font-bold tracking-tight text-white hover:text-yellow-300">
                   <Link to={`/perfil/${user.uid}`}>{user?.name}</Link>
                 </h5>
