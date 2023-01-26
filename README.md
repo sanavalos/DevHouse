@@ -47,7 +47,10 @@ This project is a responsive React SPA to make Henry's community more united. We
    ```sh
    npm install
    ```
-3. Execute and start running the app
+3. Get a Google Map Key from [Google](https://mapsplatform.google.com)
+4. Create .env file
+   - REACT_APP_GOOGLE_MAPS_API_KEY: "Your Google Map Key"
+5. Execute and start running the app
    ```sh
    npm start
    ```
