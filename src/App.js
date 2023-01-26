@@ -13,6 +13,7 @@ import AboutUs from "./pages/AboutUs";
 import LegalInformation from "./pages/LegalInformation";
 import Post from "./pages/Post";
 import Contact from "./pages/Contact";
+import Protected from "./Protected";
 
 function App() {
   return (
@@ -22,7 +23,15 @@ function App() {
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/inicio" element={<Home />} />
           <Route exact path="/foro" element={<Forum />} />
-          <Route exact path="/cuenta" element={<Account />} />
+          <Route
+            exact
+            path="/cuenta"
+            element={
+              <Protected>
+                <Account />
+              </Protected>
+            }
+          />
           <Route exact path="/conectarse" element={<Login />} />
           <Route exact path="/crearcuenta" element={<CreateAccount />} />
           <Route exact path="/olvido" element={<Forget />} />
