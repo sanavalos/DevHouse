@@ -30,7 +30,7 @@ function Profile() {
     <div>
       <Navbar />
       <div className="flex text-center md:flex-row flex-col">
-        <div className="flex md:flex-row flex-col justify-center w-full bg-slate-200">
+        <div className="flex md:flex-row flex-col justify-center w-full items-center bg-slate-200">
           {user?.career && (
             <img
               src={user?.career === "full stack" ? badgeFs : badgeDs}

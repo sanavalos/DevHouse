@@ -84,12 +84,12 @@ const Login = () => {
     <div className="">
       <Navbar />
       <div className="flex text-center h-screen">
-        <div className="w-full md:w-[50%] lg:w-[60%] bg-slate-200">
-          <div className="mt-28 md:mt-48 lg:mt-60">
-            <h1 className="text-xl mb-2 md:text-3xl md:mb-4 font-extrabold">
+        <div className="w-full md:w-[50%] lg:w-[60%] bg-slate-200 flex flex-col justify-center items-center">
+          <div className="">
+            <h1 className="text-3xl pb-4 font-extrabold">
               INGRESA A TU CUENTA
             </h1>
-            <h3 className="md:text-lg">
+            <h3 className="text-lg">
               Sino tienes cuenta, puedes crearla{" "}
               <Link
                 to="/crearcuenta"
@@ -99,12 +99,12 @@ const Login = () => {
               </Link>
             </h3>
           </div>
-          <form className="mx-3 md:m-8" onSubmit={handleSubmit}>
-            <div className="flex flex-col my-2 lg:items-center">
+          <form className="sm:p-2 p-8 w-2/3" onSubmit={handleSubmit}>
+            <div className="flex flex-col my-2 items-center">
               <label className="md:py-2 font-medium">Email:</label>
               <input
                 name="email"
-                className="p-1 md:p-3 rounded-xl lg:w-3/4"
+                className="p-3 rounded-xl w-full"
                 type="email"
                 onChange={handleChanges}
               />
@@ -113,7 +113,7 @@ const Login = () => {
               <label className="md:py-2 font-medium">Contraseña:</label>
               <input
                 name="password"
-                className="p-1 md:p-3 rounded-xl lg:w-3/4"
+                className="p-3 rounded-xl w-full"
                 type="password"
                 onChange={handleChanges}
               />
@@ -138,11 +138,11 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className="w-[50%] lg:w-[40%] bg-yellow-300 hidden md:block">
-          <div className="mt-44 md:mt-60 lg:mt-44">
+        <div className="w-1/2 lg:w-2/5 bg-yellow-300 hidden md:flex md:flex-col md:justify-center md:items-center">
+          <div className="">
             <h1 className="text-4xl font-semibold">¡Hola de nuevo Henry!</h1>
           </div>
-          <div className="m-3 mt-8 md:m-8">
+          <div className="p-8">
             <img
               src="https://statics.forbesargentina.com/2022/05/627141a292f9b.png"
               className="rounded-lg"

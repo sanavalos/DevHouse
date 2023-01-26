@@ -71,8 +71,8 @@ const CreateAccount = () => {
     <div className="">
       <Navbar />
       <div className="flex text-center h-screen">
-        <div className="w-full lg:w-[50%] bg-slate-200">
-          <div className="mt-32 md:mt-64">
+        <div className="w-full md:w-[50%] lg:w-[60%] bg-slate-200 flex flex-col justify-center items-center">
+          <div className="">
             <h1 className="text-xl md:text-3xl mb-4 font-extrabold">
               CREA UNA NUEVA CUENTA
             </h1>
@@ -86,12 +86,12 @@ const CreateAccount = () => {
               </Link>
             </h3>
           </div>
-          <form className="m-2 md:m-8" onSubmit={handleSubmit}>
+          <form className="sm:p-2 p-8 w-2/3" onSubmit={handleSubmit}>
             <div className="flex flex-col my-2 lg:items-center">
               <label className="py-2 font-medium">Email:</label>
               <input
                 name="email"
-                className="p-1 md:p-3 rounded-xl lg:w-3/4"
+                className="p-3 rounded-xl w-full"
                 type="email"
                 onChange={handleChanges}
               />
@@ -100,7 +100,7 @@ const CreateAccount = () => {
               <label className="py-2 font-medium">Contraseña:</label>
               <input
                 name="password"
-                className="p-1 md:p-3 rounded-xl lg:w-3/4"
+                className="p-3 rounded-xl w-full"
                 type="password"
                 onChange={handleChanges}
               />
@@ -110,8 +110,8 @@ const CreateAccount = () => {
             </button>
           </form>
         </div>
-        <div className="w-1/2 lg:w-[50%] bg-yellow-300 hidden md:block">
-          <div className="mt-40 md:mt-60 lg:mt-52">
+        <div className="w-1/2 lg:w-2/5 bg-yellow-300 hidden md:flex md:flex-col md:justify-center md:items-center">
+          <div className="">
             <h1 className="text-2xl md:text-4xl font-semibold">
               Bienvenido a la mejor comunidad Henry
             </h1>

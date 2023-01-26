@@ -7,12 +7,12 @@ function LegalInformation() {
     <div className="">
       <Navbar />
       <div className="grid grid-flow-row h-screen">
-        <div className="flex justify-center bg-slate-200">
-          <div className="pt-[40vh] text-center">
+        <div className="flex justify-center items-center bg-slate-200">
+          <div className="text-center">
             <h1 className="text-4xl font-extrabold pb-4">INFORMACION LEGAL</h1>
             <p className="text-2xl font-normal leading-9">
               La aplicacion HenryHouse es un proyecto desarrollado por
-              estudiantes y no tiene asociacion alguna con la empresa Henry.
+              estudiantes para participar de un Hackathon y no tiene asociacion alguna con la empresa Henry.
             </p>
           </div>
         </div>

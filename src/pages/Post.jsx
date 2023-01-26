@@ -97,8 +97,8 @@ function Post() {
   return (
     <div className="">
       <Navbar />
-      <div className="flex justify-center h-screen bg-yellow-300 w-full">
-        <form className="md:mt-16 md:m-8 m-2">
+      <div className="flex justify-center h-screen bg-yellow-300 w-full items-center">
+        <form className="md:m-8 m-2">
           <h2 className="md:m-8 font-extrabold text-2xl text-center">
             CREA TU POST
           </h2>

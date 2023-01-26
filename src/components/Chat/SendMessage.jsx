@@ -23,15 +23,15 @@ const SendMessage = ({ scroll }) => {
   };
 
   return (
-    <form onSubmit={sendMessage} className="h-14 w-96 md:w-full flex text-xl absolute -bottom-12 md:-bottom-3">
+    <form onSubmit={sendMessage} className="h-14 w-fit flex text-xl absolute -bottom-10 md:-bottom-3">
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="w-full text-xl p-3 bg-gray-900 text-white outline-none border-none rounded-lg"
+        className="text-xl p-3 bg-gray-900 text-white outline-none border-none rounded-lg"
         type="text"
         placeholder="Chatea con Henrys..."
       />
-      <button className="w-1/3 bg-yellow-300 rounded-lg hover:bg-black hover:text-yellow-300" type="submit">
+      <button className="p-1 bg-yellow-300 rounded-lg hover:bg-black hover:text-yellow-300" type="submit">
         Enviar
       </button>
     </form>

@@ -29,14 +29,16 @@ function SimilarUsers({ country, userId }) {
           users.map((user) => (
             <div
               key={user.uid}
-              className="flex items-centerborder rounded-xl shadow-md flex-row bg-gray-800 mt-6 mx-2 md:mt-12 max-w-md border-2 border-black"
+              className="flex items-center text-center rounded-xl shadow-md flex-row bg-gray-800 mt-6 mx-2 md:mt-12 max-w-md border-2 border-black"
             >
+              <div className="h-32 w-36">
               <img
-                className="object-cover rounded-t-lg max-h-32 w-36 md:rounded-none md:rounded-l-lg"
+                className="object-cover w-full h-full rounded-l-lg"
                 src={user.image}
                 alt=""
               />
-              <div className="flex flex-col items-center justify-center pt-2 px-0 md:p-4 leading-normal h-32">
+              </div>
+              <div className="w-full flex flex-col items-center justify-center pt-2 px-0 md:p-4 leading-normal h-32">
                 <h5 className="text-xl md:text-2xl font-bold tracking-tight text-white hover:text-yellow-300">
                   <Link to={`/perfil/${user.uid}`}>{user?.name}</Link>
                 </h5>

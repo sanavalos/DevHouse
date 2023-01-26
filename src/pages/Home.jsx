@@ -33,22 +33,22 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div className="flex justify-between bg-slate-200 h-[780px] md:h-screen">
-        <div className="ml-2 lg:ml-16 hidden md:block">
-          <div className="flex flex-col justify-center w-40 md:w-full mt-80">
-            <p className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl lg:text-4xl text-black">
+      <div className="flex justify-between bg-slate-200 h-screen">
+        <div className="p-6 2xl:pl-20 hidden md:flex md:justify-center">
+          <div className="flex flex-col justify-center items-center w-40 md:w-full">
+            <p className="pb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl lg:text-4xl text-black">
               USUARIOS REGISTRADOS:{" "}
               <span className="text-yellow-500">
                 <Number n={users?.length} />
               </span>
             </p>
-            <p className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl lg:text-4xl text-black">
+            <p className="pb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl lg:text-4xl text-black">
               POSTEOS UNICOS:{" "}
               <span className="text-yellow-500">
                 <Number n={posts?.length} />
               </span>
             </p>
-            <div className="flex flex-col text-center mt-10 mr-2 md:mr-0">
+            <div className="flex flex-col text-center pt-10 p-2">
               <p className="text-xl md:text-2xl font-extrabold text-gray-900">
                 HenryHouse es la casa de la comunidad{" "}
                 <span className="text-yellow-500">HENRY</span>

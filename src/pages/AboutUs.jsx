@@ -5,15 +5,13 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 function AboutUs() {
   return (
-    //MOBILE  <div className="grid grid-rows-1 h-screen">
     <div>
       <Navbar />
-      {/* MOBILE DIV DE ABAJO SIN CLASES */}
       <div className="grid grid-flow-row min-h-screen">
-        <div className="flex justify-center bg-slate-200 ">
+        <div className="flex justify-center items-center bg-slate-200 ">
           <div className="flex flex-col gap-8">
-            <div className="w-full flex flex-col mt-20">
-              <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-black text-center">
+            <div className="w-full flex flex-col">
+              <h1 className="py-4 text-3xl font-extrabold tracking-tight leading-none text-black text-center">
                 SOBRE NOSOTROS
               </h1>
               <p className="text-lg leading-6 text-gray-600 mx-6 text-center">

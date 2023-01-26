@@ -88,7 +88,7 @@ function Forum() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col lg:flex-row min-h-full">
+      <div className="flex flex-col 2xl:flex-row min-h-full">
         <div className="flex flex-col md:mt-0 p-3 bg-white shadow md:w-[500px] lg:w-[400px] items-center">
           <div className="space-y-3">
             <div className="flex justify-center">
@@ -119,6 +119,7 @@ function Forum() {
                     <select
                       className="bg-yellow-300 border border-gray-900 text-gray-900 rounded-lg w-52 p-1"
                       onChange={(e) => handleChange(e)}
+                      size={5}
                     >
                       {countries.map((country) => (
                         <option key={country}>{country}</option>

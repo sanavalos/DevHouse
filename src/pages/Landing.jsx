@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Landing() {
   return (
-    <div className="flex flex-col md:flex-row text-center">
-      <div className="w-full md:w-[50%] bg-yellow-300 h-1/2 md:h-screen">
-        <div className="lg:m-[25%] md:mt-[60%]">
+    <div className="flex flex-col h-screen md:flex-row text-center">
+      <div className="flex justify-center items-center md:w-1/2 bg-yellow-300 h-1/2 md:h-screen">
+        <div className="">
           <h1 className="text-3xl my-6 mt-12 lg:text-7xl md:text-5xl">
             ¡Bienvenido!
           </h1>
@@ -21,8 +21,8 @@ function Landing() {
           </Link>
         </div>
       </div>
-      <div className="w-full md:w-[50%] bg-black h-fit md:h-screen">
-        <div className="grid grid-cols-3 gap-2 m-4 mt-8 md:grid-cols-3 lg:grid-cols-4 lg:mt-36 lg:gap-4">
+      <div className="w-full md:w-1/2 bg-black h-screen md:h-screen flex justify-center items-center">
+        <div className="grid grid-cols-3 gap-2 m-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-4">
           <div  className="flex justify-center">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1920px-Flag_of_Argentina.svg.png"
