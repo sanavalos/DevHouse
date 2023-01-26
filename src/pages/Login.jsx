@@ -138,7 +138,7 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className="w-1/2 lg:w-2/5 bg-yellow-300 hidden md:flex md:flex-col md:justify-center md:items-center">
+        <div className="w-1/2 lg:w-2/5 bg-[#FFFF01] hidden md:flex md:flex-col md:justify-center md:items-center">
           <div className="">
             <h1 className="text-4xl font-semibold">¡Hola de nuevo Henry!</h1>
           </div>

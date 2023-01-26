@@ -232,8 +232,8 @@ const Account = () => {
     <div className="h-screen">
       <Navbar />
       <div className="flex flex-col lg:flex-row lg:justify-between lg:align-center">
-        <div className=" bg-yellow-300 hidden lg:block lg:w-[50vw]">
-          <div className="mt-64">
+        <div className=" bg-[#FFFF01] hidden lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-[50vw]">
+          <div className="">
             <h1 className="text-3xl md:text-4xl text-center font-semibold">
               Nos encanta tenerte aquí
             </h1>
@@ -247,7 +247,7 @@ const Account = () => {
           </div>
         </div>
         <div className="md:min-w-[50vw]">
-          <div className="mx-2 mt-14 mb-20 md:mx-4 md:mt-20 md:mb-24 lg:mx-20 lg:my-28 border-black rounded-xl">
+          <div className="mx-2 mt-14 mb-20 md:mx-4 lg:mx-20 border-black rounded-xl">
             <div className="border-2 border-black h-6 bg-yellow-300 rounded-t-xl"></div>
             <div className="border-x-2 border-black h-36 md:h-32 flex flex-row items-center justify-evenly bg-slate-300">
               <img
