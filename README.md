@@ -26,7 +26,7 @@
 
 ## About The Project
 
-This project is a responsive React SPA to make Henry's community more united. We are here to give you the opportunity to get around with more students or people graduated from the bootcamp.
+This project is a responsive React to make Henry's community more united. We are here to give you the opportunity to get around with more students or people graduated from the bootcamp.
 
 ### Built With
 
