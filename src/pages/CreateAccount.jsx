@@ -24,7 +24,7 @@ const CreateAccount = () => {
         await createUser(user?.email, user?.password);
         Swal.fire({
           icon: "success",
-          title: "¡Bienvenido a Henry House!",
+          title: "¡Bienvenido a Dev House!",
           showConfirmButton: false,
           timer: 2000,
         });
@@ -113,7 +113,7 @@ const CreateAccount = () => {
         <div className="w-1/2 lg:w-2/5 bg-[#FFFF01] hidden md:flex md:flex-col md:justify-center md:items-center">
           <div className="">
             <h1 className="text-2xl md:text-4xl font-semibold">
-              Bienvenido a la mejor comunidad Henry
+              Bienvenido a la mejor comunidad Dev
             </h1>
           </div>
           <div className="m-2 mt-6 md:m-8">

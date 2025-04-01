@@ -55,7 +55,7 @@ function Contact() {
                   name="name"
                   className="p-3 rounded-xl"
                   type="text"
-                  placeholder="Henry House"
+                  placeholder="Dev House"
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
@@ -65,7 +65,7 @@ function Contact() {
                   name="email"
                   className="p-3 rounded-xl"
                   type="email"
-                  placeholder="henry@gmail.com"
+                  placeholder="developer@gmail.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>

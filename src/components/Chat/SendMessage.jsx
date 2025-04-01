@@ -29,7 +29,7 @@ const SendMessage = ({ scroll }) => {
         onChange={(e) => setInput(e.target.value)}
         className="text-xl p-3 bg-gray-900 text-white outline-none border-none rounded-lg"
         type="text"
-        placeholder="Chatea con Henrys..."
+        placeholder="Chatea con Devs..."
       />
       <button className="p-1 bg-yellow-300 rounded-lg hover:bg-black hover:text-yellow-300" type="submit">
         Enviar

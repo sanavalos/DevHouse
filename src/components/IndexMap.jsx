@@ -81,7 +81,7 @@ export default function IndexMap() {
                     {user?.email
                       ? user?.displayName
                         ? `Bienvenido ${user?.displayName}`
-                        : `Bienvenido Henry`
+                        : `Bienvenido Developer`
                       : `Inicia sesion para utilizar la busqueda`}
                   </h3>
                 </div>

@@ -82,7 +82,7 @@ const Forget = () => {
         <div className="w-1/2 lg:w-2/5 bg-[#FFFF01] hidden md:flex md:flex-col md:justify-center md:items-center">
           <div className="">
             <h1 className="text-2xl m-2 md:text-4xl font-semibold">
-              Esperamos tu visita en la mejor comunidad Henry
+              Esperamos tu visita en la mejor comunidad developer
             </h1>
           </div>
           <div className="p-8">

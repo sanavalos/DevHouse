@@ -15,9 +15,7 @@ function AboutUs() {
                 SOBRE NOSOTROS
               </h1>
               <p className="text-lg leading-6 text-gray-600 mx-6 text-center">
-                Desarrolladores unidos por una pasion y un bootcamp. Motivados
-                por el deseo de aumentar la conexion entre todos aquellos que
-                formen parte de la comunidad Soy Henry.
+                Desarrolladores unidos por una pasion. Motivados por el deseo de aumentar la conexion entre todos aquellos que formen parte de la comunidad dev.
               </p>
             </div>
             <div className="w-full">

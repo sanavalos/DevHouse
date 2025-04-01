@@ -10,9 +10,7 @@ function Landing() {
             ¡Bienvenido!
           </h1>
           <p className="m-4 text-lg">
-            Entra a la mejor comunidad de Henry's en el mundo, donde puedes ver
-            otros Henry en tu zona, chatear e intercambiar ideas, historias,
-            proyectos y compartir muchas sonrisas y buena vibra.
+            Entra a la mejor comunidad de devs en el mundo, donde puedes ver otros en tu zona, chatear e intercambiar ideas, historias, proyectos y compartir muchas sonrisas y buena vibra.
           </p>
           <Link to="/inicio">
             <button className="px-7 py-4 bg-black text-white rounded-lg hover:scale-110 m-6 hover:text-red-500">

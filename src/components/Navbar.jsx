@@ -32,7 +32,7 @@ function Navbar() {
             className="md:w-14 md:h-10 w-7 h-7 border-b-2 border-black md:ml-10"
           />
           <h1 className="md:text-2xl md:ml-2 ml-1 font-extrabold tracking-tight hover:scale-110 text-[#FFFF01]">
-            HenryHouse
+            DevHouse
           </h1>
         </Link>
       </div>

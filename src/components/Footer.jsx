@@ -6,7 +6,7 @@ function Footer() {
     <footer className="p-2 bg-black text-yellow-300 relative bottom-0 left-0 z-10 w-full">
       <div className="h-[8vh] flex items-center md:justify-between md:px-8">
         <span className="text-center text-[9px] hidden md:block md:text-sm">
-          Hecho por Henrys para Henrys
+          Hecho por Devs para Devs
         </span>
         <a
           href="https://www.soyhenry.com/"

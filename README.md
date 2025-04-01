@@ -4,7 +4,7 @@
 <div align="center">
   <img src="public/favicon.ico" alt="Henry" width="150" height="150">
 
-  <h3 align="center">HenryHouse</h3>
+  <h3 align="center">DevHouse</h3>
 
 </div>
 
@@ -26,7 +26,7 @@
 
 ## About The Project
 
-This project is a responsive React to make Henry's community more united. We are here to give you the opportunity to get around with more students or people graduated from the bootcamp.
+This project is a responsive React to make Devs community more united. We are here to give you the opportunity to get around with more students or professionals.
 
 ### Built With
 
@@ -63,6 +63,6 @@ Mario Franco - marioelkamui@gmail.com
 
 Fernando Bernal - ferbernal1422@gmail.com
 
-Github repo: [HenryHouse](https://github.com/sanavalos/HenryHouse)
+Github repo: [DevHouse](https://github.com/sanavalos/DevHouse)
 
 <p align="right"><a href="#readme-top">back to top</a></p>

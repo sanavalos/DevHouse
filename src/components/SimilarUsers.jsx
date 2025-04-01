@@ -22,7 +22,7 @@ function SimilarUsers({ country, userId }) {
   return (
     <div className="flex flex-col justify-center bg-slate-200 md:ml-24 lg:ml-40 md:mr-8 mb-20 mx-2">
       <p className="text-2xl font-extrabold tracking-tight leading-none md:text-3xl lg:text-4xl text-black">
-        HENRYS EN {country?.toUpperCase()}
+        DEVS EN {country?.toUpperCase()}
       </p>
       {moreUsers &&
         (users?.length > 0 ? (
@@ -59,7 +59,7 @@ function SimilarUsers({ country, userId }) {
           ))
         ) : (
           <div className="bg-black text-yellow-300 p-2 rounded-xl my-4 flex justify-center">
-            No hay mas henrys en este pais
+            No hay mas devs en este pais
           </div>
         ))}
 
@@ -68,7 +68,7 @@ function SimilarUsers({ country, userId }) {
           onClick={() => handleMoreUsers()}
           className="bg-black text-yellow-300 p-2 rounded-xl my-4 hover:bg-yellow-300 hover:text-black"
         >
-          VER MAS HENRYS
+          VER MAS DEVS
         </button>
       )}
     </div>

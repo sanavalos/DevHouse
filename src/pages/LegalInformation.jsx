@@ -11,8 +11,7 @@ function LegalInformation() {
           <div className="text-center">
             <h1 className="text-4xl font-extrabold pb-4">INFORMACION LEGAL</h1>
             <p className="text-2xl font-normal leading-9">
-              La aplicacion HenryHouse es un proyecto desarrollado por
-              estudiantes para participar de un Hackathon y no tiene asociacion alguna con la empresa Henry.
+              La aplicación DevHouse es un proyecto desarrollado por estudiantes para participar de un Hackathon.
             </p>
           </div>
         </div>

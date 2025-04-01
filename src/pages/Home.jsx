@@ -50,8 +50,8 @@ function Home() {
             </p>
             <div className="flex flex-col text-center pt-10 p-2">
               <p className="text-xl md:text-2xl font-extrabold text-gray-900">
-                HenryHouse es la casa de la comunidad{" "}
-                <span className="text-yellow-500">HENRY</span>
+                DevHouse es la casa de la comunidad{" "}
+                <span className="text-yellow-500">DEV</span>
               </p>
             </div>
           </div>
