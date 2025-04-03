@@ -34,28 +34,33 @@ const AuthContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      if (!currentUser) return;
+  
       let actualUser = {
-        name: currentUser?.displayName,
-        email: currentUser?.email,
-        image: currentUser?.photoURL,
-        lastSession: currentUser?.metadata.lastSignInTime,
-        uid: currentUser?.uid,
+        name: currentUser.displayName || "",
+        email: currentUser.email || "",
+        image: currentUser.photoURL || "",
+        lastSession: currentUser.metadata?.lastSignInTime || "",
+        uid: currentUser.uid,
       };
-      getDocs(collection(db, "users")).then((querySnapshot) => {
+  
+      try {
+        const querySnapshot = await getDocs(collection(db, "users"));
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
         }));
         const userExists = newData.find((user) => user.uid === actualUser.uid);
         if (!userExists) {
-          setDoc(doc(db, "users", actualUser.uid), actualUser);
+          await setDoc(doc(db, "users", actualUser.uid), actualUser);
         }
-      });
+      } catch (error) {
+        console.error("Error checking or setting user:", error);
+      }
     });
-    return () => {
-      unsubscribe();
-    };
+  
+    return () => unsubscribe();
   }, []);
 
   return (
