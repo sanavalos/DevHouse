@@ -11,7 +11,7 @@ function LegalInformation() {
           <div className="text-center">
             <h1 className="text-4xl font-extrabold pb-4">INFORMACION LEGAL</h1>
             <p className="text-2xl font-normal leading-9">
-              La aplicación DevHouse es un proyecto desarrollado por estudiantes para participar de un Hackathon.
+              La aplicación DevHouse es un proyecto construido por desarrolladores para participar de un Hackathon.
             </p>
           </div>
         </div>
