@@ -5,7 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
-  signInWithRedirect,
+  signInWithPopup
 } from "firebase/auth";
 import { auth } from "../firebase";
 import { setDoc, doc, getDocs, collection } from "firebase/firestore";
@@ -24,10 +24,15 @@ const AuthContextProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
-  };
+  const googleSignIn = async () => {
+   const provider = new GoogleAuthProvider();
+   try {
+     const result = await signInWithPopup(auth, provider);
+     setUser(result.user);
+   } catch (error) {
+     console.error("Google sign-in error:", error);
+   }
+ };
 
   const logout = () => {
     return signOut(auth);
