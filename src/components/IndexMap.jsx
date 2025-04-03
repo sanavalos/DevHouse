@@ -7,7 +7,6 @@ import {
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import Searchbar from "./Searchbar";
 import Locate from "./Locate";
 import { useDispatch } from "react-redux";
 import { getUsers } from "../actions/actions";
@@ -320,7 +319,6 @@ export default function IndexMap() {
           </InfoWindow>
         ) : null}
       </GoogleMap>
-      {user?.uid && <Searchbar panTo={panTo} />}
       <Locate panTo={panTo} />
     </div>
   );
