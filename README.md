@@ -41,7 +41,7 @@ This project is a responsive React to make Devs community more united. We are he
 
 1. Clone or download as ZIP the repository
    ```sh
-   git clone https://github.com/sanavalos/HenryHouse.git
+   git clone https://github.com/sanavalos/DevHouse.git
    ```
 2. Install NPM packages
    ```sh
