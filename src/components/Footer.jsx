@@ -8,18 +8,9 @@ function Footer() {
         <span className="text-center text-[9px] hidden md:block md:text-sm">
           Hecho por Devs para Devs
         </span>
-        <a
-          href="https://www.soyhenry.com/"
-          className="flex mx-2"
-          target={"_blank"}
-          rel="noreferrer"
-        >
-          <img
-            src="https://assets.soyhenry.com/henry-landing/assets/Henry/logo-white.png"
-            className="md:h-8 h-6"
-            alt="Henry"
-          />
-        </a>
+        <Link to="/inicio">
+          <span className="md:text-2xl md:ml-2 ml-1 font-extrabold tracking-tight hover:scale-110 text-[#FFFF01]">DevHouse</span>
+        </Link>
         <div className="flex text-[10px] items-center gap-4 md:flex-row md:text-sm md:space-x-10">
           <Link to="/contacto">
             <button className="hover:scale-110 hover:font-bold">
