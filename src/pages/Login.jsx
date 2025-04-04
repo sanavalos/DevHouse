@@ -139,16 +139,7 @@ const Login = () => {
           </form>
         </div>
         <div className="w-1/2 lg:w-2/5 bg-[#FFFF01] hidden md:flex md:flex-col md:justify-center md:items-center">
-          <div className="">
-            <h1 className="text-4xl font-semibold">¡Hola de nuevo dev!</h1>
-          </div>
-          <div className="p-8">
-            <img
-              src="https://statics.forbesargentina.com/2022/05/627141a292f9b.png"
-              className="rounded-lg"
-              alt="comunidad"
-            />
-          </div>
+          <h1 className="text-4xl font-semibold">¡Hola de nuevo dev!</h1>
         </div>
       </div>
       <Footer />

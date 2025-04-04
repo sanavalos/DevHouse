@@ -116,13 +116,6 @@ const CreateAccount = () => {
               Bienvenido a la mejor comunidad Dev
             </h1>
           </div>
-          <div className="m-2 mt-6 md:m-8">
-            <img
-              src="https://cdn.forbes.co/2021/01/Team-Henry-1280x720-1.jpg"
-              className="rounded-lg"
-              alt="comunidad"
-            />
-          </div>
         </div>
       </div>
       <Footer />

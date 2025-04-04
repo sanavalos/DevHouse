@@ -85,13 +85,6 @@ const Forget = () => {
               Esperamos tu visita en la mejor comunidad developer
             </h1>
           </div>
-          <div className="p-8">
-            <img
-              src="https://1.bp.blogspot.com/-kbQ0q2D8E8w/YTp2X05sQBI/AAAAAAAASzg/0MPgv5UjFkE5Zfz77ooEAJBmbWUo93ToACLcBGAsYHQ/s994/HENRY-ILUSTRACION-1-994x559.jpg"
-              className="rounded-lg"
-              alt="comunidad"
-            />
-          </div>
         </div>
       </div>
       <Footer />

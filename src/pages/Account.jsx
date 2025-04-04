@@ -238,13 +238,6 @@ const Account = () => {
               Nos encanta tenerte aquí
             </h1>
           </div>
-          <div className="mt-7 md:m-7 flex justify-center">
-            <img
-              src="https://blog.soyhenry.com/content/images/2021/02/MUNDOHENRY-1.jpg"
-              className="rounded-lg h-46 w-40 md:h-[400px] md:w-[500px] lg:h-[520px] lg:w-[650px] "
-              alt="comunidad"
-            />
-          </div>
         </div>
         <div className="md:min-w-[50vw]">
           <div className="mx-2 mt-14 mb-20 md:mx-4 lg:mx-20 border-black rounded-xl">
