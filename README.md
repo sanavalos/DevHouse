@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <img src="public/favicon.ico" alt="Henry" width="150" height="150">
+  <img src="public/favicon.ico" alt="DevHouse" width="150" height="150">
 
   <h3 align="center">DevHouse</h3>
 
